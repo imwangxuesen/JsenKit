@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JsenNetworkingManagerTransmitDelegate.h"
 #import "JsenNetworkingConfig.h"
 #import "JsenNetworkingManagerTransmit.h"
 
