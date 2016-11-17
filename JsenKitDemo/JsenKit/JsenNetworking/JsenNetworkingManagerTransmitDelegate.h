@@ -12,8 +12,6 @@
 
 @protocol JsenNetworkingManagerTransmitDelegate <NSObject>
 
-@optional
-
 /**
  网络请求成功回调
 

@@ -101,8 +101,6 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
 
 /**
  post请求 代理模式
- ⚠️：在使用代理模式时不能在JsenNetworkingManagerTransmit单例中获取到代理回调。因为manager的代理只能有一个
-
  apiKey 为url的路径，在JsenNetworkingConfig 中进行必要的配置后，请求会拼接config中的请求头部，公共参数等
  如果设置了apikey对应的超时时间也会对应的应用。
  
@@ -135,8 +133,6 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
 
 /**
  get请求 代理模式
- ⚠️：在使用代理模式时不能在JsenNetworkingManagerTransmit单例中获取到代理回调。因为manager的代理只能有一个
- 
  apiKey 为url的路径，在JsenNetworkingConfig 中进行必要的配置后，请求会拼接config中的请求头部，公共参数等
  如果设置了apikey对应的超时时间也会对应的应用。
  
@@ -174,8 +170,6 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
                              finished:(JsenNetworkingFinished __nullable)finished;
 /**
  上传单个data 代理模式
- ⚠️：在使用代理模式时不能在JsenNetworkingManagerTransmit单例中获取到代理回调。因为manager的代理只能有一个
-
  比如一张图片，一个文件
  
  @param apiKey apiKey
@@ -197,7 +191,7 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
 
 
 /**
- 多文件上传 block模式（需要服务端支持一个上传接口同时接收多个文件）
+ 多文件上传 block模式（需要服务端支持）
  eg：多张图片
  
  注意：文件data数组中的对象必须和filenameArray中文件名的字符串一一对应，
@@ -225,9 +219,7 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
                              finished:(JsenNetworkingFinished __nullable)finished;
 
 /**
- 多文件上传 代理模式（需要服务端支持一个上传接口同时接收多个文件）
- ⚠️：在使用代理模式时不能在JsenNetworkingManagerTransmit单例中获取到代理回调。因为manager的代理只能有一个
-
+ 多文件上传 代理模式（需要服务端支持）
  eg：多张图片
  
  注意：文件data数组中的对象必须和filenameArray中文件名的字符串一一对应，
