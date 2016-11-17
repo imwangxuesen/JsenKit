@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18B014195079C4CFE0AAC8C9 /* libPods-JsenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */; };
+		4C1CE0891DD9855500FE49DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0881DD9855500FE49DB /* main.m */; };
+		4C1CE08C1DD9855500FE49DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE08B1DD9855500FE49DB /* AppDelegate.m */; };
+		4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE08E1DD9855500FE49DB /* ViewController.m */; };
+		4C1CE0921DD9855500FE49DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0901DD9855500FE49DB /* Main.storyboard */; };
+		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
+		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
+		4C1CE0A11DD9B87300FE49DB /* JsenNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A01DD9B87300FE49DB /* JsenNetworkingManager.m */; };
+		4C1CE0A41DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A31DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m */; };
+		4C1CE0A71DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A61DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m */; };
+		4C1CE0AA1DD9C65000FE49DB /* JsenNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A91DD9C65000FE49DB /* JsenNetworkingConfig.m */; };
+		4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */; };
+		4C1CE0B11DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0B01DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C1CE0841DD9855500FE49DB /* JsenKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsenKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C1CE0881DD9855500FE49DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4C1CE08A1DD9855500FE49DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4C1CE08B1DD9855500FE49DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4C1CE08D1DD9855500FE49DB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4C1CE08E1DD9855500FE49DB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4C1CE0911DD9855500FE49DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C1CE0931DD9855500FE49DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C1CE0961DD9855500FE49DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C1CE09F1DD9B87300FE49DB /* JsenNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManager.h; sourceTree = "<group>"; };
+		4C1CE0A01DD9B87300FE49DB /* JsenNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingManager.m; sourceTree = "<group>"; };
+		4C1CE0A21DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingSuccessResponse.h; sourceTree = "<group>"; };
+		4C1CE0A31DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingSuccessResponse.m; sourceTree = "<group>"; };
+		4C1CE0A51DD9BADA00FE49DB /* JsenNetworkingFailedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingFailedResponse.h; sourceTree = "<group>"; };
+		4C1CE0A61DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingFailedResponse.m; sourceTree = "<group>"; };
+		4C1CE0A81DD9C65000FE49DB /* JsenNetworkingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingConfig.h; sourceTree = "<group>"; };
+		4C1CE0A91DD9C65000FE49DB /* JsenNetworkingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingConfig.m; sourceTree = "<group>"; };
+		4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
+		4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
+		4C1CE0AE1DDCB16900FE49DB /* JsenNetworkingManagerTransmitDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManagerTransmitDelegate.h; sourceTree = "<group>"; };
+		4C1CE0AF1DDCB74700FE49DB /* JsenNetworkingManagerTransmit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManagerTransmit.h; sourceTree = "<group>"; };
+		4C1CE0B01DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingManagerTransmit.m; sourceTree = "<group>"; };
+		91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.debug.xcconfig"; sourceTree = "<group>"; };
+		A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.release.xcconfig"; sourceTree = "<group>"; };
+		BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JsenKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C1CE0811DD9855500FE49DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18B014195079C4CFE0AAC8C9 /* libPods-JsenKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31FA6F22871846F015E664A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */,
+				A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4C1CE07B1DD9855500FE49DB = {
+			isa = PBXGroup;
+			children = (
+				4C1CE0861DD9855500FE49DB /* JsenKit */,
+				4C1CE0851DD9855500FE49DB /* Products */,
+				31FA6F22871846F015E664A0 /* Pods */,
+				FEC34C6F86AC2DB79C3BE6D7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4C1CE0851DD9855500FE49DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C1CE0841DD9855500FE49DB /* JsenKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C1CE0861DD9855500FE49DB /* JsenKit */ = {
+			isa = PBXGroup;
+			children = (
+				4C1CE09E1DD9B67000FE49DB /* JsenNetworking */,
+				4C1CE08A1DD9855500FE49DB /* AppDelegate.h */,
+				4C1CE08B1DD9855500FE49DB /* AppDelegate.m */,
+				4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */,
+				4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */,
+				4C1CE08D1DD9855500FE49DB /* ViewController.h */,
+				4C1CE08E1DD9855500FE49DB /* ViewController.m */,
+				4C1CE0901DD9855500FE49DB /* Main.storyboard */,
+				4C1CE0931DD9855500FE49DB /* Assets.xcassets */,
+				4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */,
+				4C1CE0981DD9855500FE49DB /* Info.plist */,
+				4C1CE0871DD9855500FE49DB /* Supporting Files */,
+			);
+			path = JsenKit;
+			sourceTree = "<group>";
+		};
+		4C1CE0871DD9855500FE49DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C1CE0881DD9855500FE49DB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C1CE09E1DD9B67000FE49DB /* JsenNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				4C1CE09F1DD9B87300FE49DB /* JsenNetworkingManager.h */,
+				4C1CE0A01DD9B87300FE49DB /* JsenNetworkingManager.m */,
+				4C1CE0A21DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.h */,
+				4C1CE0A31DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m */,
+				4C1CE0A51DD9BADA00FE49DB /* JsenNetworkingFailedResponse.h */,
+				4C1CE0A61DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m */,
+				4C1CE0A81DD9C65000FE49DB /* JsenNetworkingConfig.h */,
+				4C1CE0A91DD9C65000FE49DB /* JsenNetworkingConfig.m */,
+				4C1CE0AE1DDCB16900FE49DB /* JsenNetworkingManagerTransmitDelegate.h */,
+				4C1CE0AF1DDCB74700FE49DB /* JsenNetworkingManagerTransmit.h */,
+				4C1CE0B01DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m */,
+			);
+			path = JsenNetworking;
+			sourceTree = "<group>";
+		};
+		FEC34C6F86AC2DB79C3BE6D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C1CE0831DD9855500FE49DB /* JsenKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C1CE09B1DD9855500FE49DB /* Build configuration list for PBXNativeTarget "JsenKit" */;
+			buildPhases = (
+				4A473C39B4E5CBEB5104548A /* [CP] Check Pods Manifest.lock */,
+				4C1CE0801DD9855500FE49DB /* Sources */,
+				4C1CE0811DD9855500FE49DB /* Frameworks */,
+				4C1CE0821DD9855500FE49DB /* Resources */,
+				9767BCEFAC380BA9A9780556 /* [CP] Embed Pods Frameworks */,
+				0054751356E5996047055A0E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JsenKit;
+			productName = JsenKit;
+			productReference = 4C1CE0841DD9855500FE49DB /* JsenKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C1CE07C1DD9855500FE49DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = WangXuesen;
+				TargetAttributes = {
+					4C1CE0831DD9855500FE49DB = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = E9DZXL3SNJ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4C1CE07F1DD9855500FE49DB /* Build configuration list for PBXProject "JsenKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C1CE07B1DD9855500FE49DB;
+			productRefGroup = 4C1CE0851DD9855500FE49DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C1CE0831DD9855500FE49DB /* JsenKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C1CE0821DD9855500FE49DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */,
+				4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */,
+				4C1CE0921DD9855500FE49DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0054751356E5996047055A0E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A473C39B4E5CBEB5104548A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9767BCEFAC380BA9A9780556 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C1CE0801DD9855500FE49DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C1CE0AA1DD9C65000FE49DB /* JsenNetworkingConfig.m in Sources */,
+				4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */,
+				4C1CE0A11DD9B87300FE49DB /* JsenNetworkingManager.m in Sources */,
+				4C1CE08C1DD9855500FE49DB /* AppDelegate.m in Sources */,
+				4C1CE0B11DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m in Sources */,
+				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
+				4C1CE0A41DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m in Sources */,
+				4C1CE0A71DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m in Sources */,
+				4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4C1CE0901DD9855500FE49DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C1CE0911DD9855500FE49DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C1CE0961DD9855500FE49DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C1CE0991DD9855500FE49DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4C1CE09A1DD9855500FE49DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C1CE09C1DD9855500FE49DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E9DZXL3SNJ;
+				INFOPLIST_FILE = JsenKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WangXuesen.JsenKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4C1CE09D1DD9855500FE49DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E9DZXL3SNJ;
+				INFOPLIST_FILE = JsenKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WangXuesen.JsenKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C1CE07F1DD9855500FE49DB /* Build configuration list for PBXProject "JsenKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C1CE0991DD9855500FE49DB /* Debug */,
+				4C1CE09A1DD9855500FE49DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C1CE09B1DD9855500FE49DB /* Build configuration list for PBXNativeTarget "JsenKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C1CE09C1DD9855500FE49DB /* Debug */,
+				4C1CE09D1DD9855500FE49DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C1CE07C1DD9855500FE49DB /* Project object */;
+}
