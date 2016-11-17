@@ -7,7 +7,7 @@
 //
 
 #import "JsenNetworkingManager.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 
 @interface JsenNetworkingManager()
 

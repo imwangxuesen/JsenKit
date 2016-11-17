@@ -8,7 +8,7 @@
 
 #import "JsenNetworkingSuccessResponse.h"
 #import "JsenNetworkingConfig.h"
-#import <YYModel.h>
+#import "YYModel.h"
 
 @implementation JsenNetworkingSuccessResponse
 
