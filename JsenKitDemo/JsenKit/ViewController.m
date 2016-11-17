@@ -17,48 +17,28 @@
 @end
 
 @implementation ViewController
-- (IBAction)buttonaction:(id)sender {
-    
-    [JsenNetworkingManagerTransmit shareTransmit].delegate = self;
-    
-    [[JsenNetworkingManager manager] uploadTaskWithMultiPartApiKey:@"/nirvana/comment/feedBack" name:@"files"
-                                                         dataArray:@[
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"]),
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"]),
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"])
-                                                                                                         ]
-                                                     fileNameArray:@[
-                                                                     @"imagename1.png",
-                                                                     @"imagename2.png",
-                                                                     @"imagename3.png"
-                                                                     ]
-                                                          mimeType:@"image/png"
-                                                        parameters:@{@"mobile":@18600722414,
-                                                                     @"content":@"hahaha"}
-                                                          delegate:self];
-    
-    
-    
-    
-    
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     //配置:
-    
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
+    
+    //配置根url
     config.host = @"http://test-nirvana.ucredit.com";
+    
+    //若不配置则为默认值，配置超时时间
     config.timeoutInterval = @{
                                @"/nirvana/comment/feedBack":@"30",
                              };
+    
+    //配置model class
     config.modelClass = @{
                           @"/nirvana/comment/feedBack":NSClassFromString(@"BannerModel"),
                           };
     
+    //配置公共参数
     config.globalParameters =  @{
                              @"blackBox"    :@"ewogICJ0b2tlbklkIiA6ICJ1Y3JlZGl0MTU4NmM1OGQxODMtNmE3MzU2NTA4NTY0YmZjMzI4ZWZkY2QwMTI4ZGYxY2QiLAogICJvcyIgOiAiaU9TIiwKICAicHJvZmlsZVRpbWUiIDogMTk4LAogICJ2ZXJzaW9uIiA6ICIyLjEuNCIKfQ==",
                                  @"clientIp"        : @"10.255.18.53",
@@ -72,13 +52,40 @@
                                  
                                  };
     
+    //配置自定义的错误码及其message
     config.customErrorStatusCode = @{
-                                     @10018:@"hahah"
+                                     @10018:@"token error",
                                      };
     
-    
+    //配置默认超时时间，若不配置默认为10s
+    config.defaultTimeoutInterval = 20.0;
     
 }
+
+
+
+//发起上传请求。
+- (IBAction)buttonaction:(id)sender {
+    
+    [JsenNetworkingManagerTransmit shareTransmit].delegate = self;
+    
+    [[JsenNetworkingManager manager] uploadTaskWithMultiPartApiKey:@"/nirvana/comment/feedBack" name:@"files"
+                                                         dataArray:@[
+                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"]),
+                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"]),
+                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"])
+                                                                     ]
+                                                     fileNameArray:@[
+                                                                     @"imagename1.png",
+                                                                     @"imagename2.png",
+                                                                     @"imagename3.png"
+                                                                     ]
+                                                          mimeType:@"image/png"
+                                                        parameters:@{@"mobile":@18600722414,
+                                                                     @"content":@"hahaha"}
+                                                          delegate:self];
+}
+
 
 
 #pragma mark - JsenNetworkingManagerTransmitDelegate

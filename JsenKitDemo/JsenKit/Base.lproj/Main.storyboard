@@ -24,7 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOW-0c-2yb">
                                 <rect key="frame" x="172" y="150" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="请求"/>
+                                <state key="normal" title="上传"/>
                                 <connections>
                                     <action selector="buttonaction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7mj-Np-7ct"/>
                                 </connections>
