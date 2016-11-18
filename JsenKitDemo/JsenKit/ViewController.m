@@ -71,9 +71,9 @@
     
     [[JsenNetworkingManager manager] uploadTaskWithMultiPartApiKey:@"/nirvana/comment/feedBack" name:@"files"
                                                          dataArray:@[
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"]),
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"]),
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"贷款审核中"])
+                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
+                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
+                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"])
                                                                      ]
                                                      fileNameArray:@[
                                                                      @"imagename1.png",

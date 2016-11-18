@@ -15,13 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
  TabBarItem 的样式
 
  - JsenTabBarItemAttributeCenterPlusType: 中间凸出加号样式
+ - JsenTabBarItemAttributeCenterPlusUnBulgeType: 中间不凸出加号样式
  - JsenTabBarItemAttributeSystemType: 系统样式
  - JsenTabBarItemAttributeShakeAnimationType: 抖动动画样式
  - JsenTabBarItemAttributeZoomAnimationType: 缩放动画样式
  */
 typedef NS_ENUM(NSInteger, JsenTabBarItemAttributeType) {
     
-    JsenTabBarItemAttributeCenterPlusType = 0,
+    JsenTabBarItemAttributeCenterPlusBulgeType = 0,
+    JsenTabBarItemAttributeCenterPlusUnBulgeType,
     JsenTabBarItemAttributeSystemType,
     JsenTabBarItemAttributeShakeAnimationType,
     JsenTabBarItemAttributeZoomAnimationType
@@ -30,12 +32,20 @@ typedef NS_ENUM(NSInteger, JsenTabBarItemAttributeType) {
 
 @interface JsenTabBarItemAttribute : NSObject
 
-@property (nonatomic, strong, readonly) UIImage *normalImage;
-@property (nonatomic, strong, readonly) UIImage *selectedImage;
-@property (nonatomic, assign, readonly) JsenTabBarItemAttributeType type;
+@property (nonatomic, strong) UIImage *normalImage;
+@property (nonatomic, strong) UIImage *selectedImage;
+@property (nonatomic, assign) JsenTabBarItemAttributeType type;
+@property (nonatomic, strong) UIImage *normalBackgroundImage;
+@property (nonatomic, strong) UIImage *selectedBackgroundImage;
+@property (nonatomic, copy) NSString *normalTitle;
+@property (nonatomic, copy) NSString *selectedTitle;
+@property (nonatomic, strong) UIColor *normalTitleColor;
+@property (nonatomic, strong) UIColor *selectedTitleColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIFont *normalTitleFont;
+@property (nonatomic, strong) UIFont *selectedTitleFont;
 
-
-+ (instancetype)configItemAttributeWithNormalImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage type:(JsenTabBarItemAttributeType)type;
++ (instancetype)configItemAttributeWithType:(JsenTabBarItemAttributeType)type;
 
 
 @end

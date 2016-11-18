@@ -13,8 +13,12 @@
 
 @property (nonatomic, strong) NSArray<UIViewController*> *controllers;
 
-@property (nonatomic, strong) NSArray<JsenTabBarItemAttribute*> *tabBarAttributes;
+@property (nonatomic, strong) NSArray<JsenTabBarItemAttribute*> *tabBarItemAttributes;
 
+@property (nonatomic, assign) CGFloat plusButtonWidth;
 
+@property (nonatomic, assign) CGFloat plusButtonExceedTabBarHeight;
+
++ (instancetype)jsenTabBarControllerWithControllers:(NSArray<UIViewController *> *)controllers tabBarItemAttributes:(NSArray<JsenTabBarItemAttribute*> *)attributes;
 
 @end

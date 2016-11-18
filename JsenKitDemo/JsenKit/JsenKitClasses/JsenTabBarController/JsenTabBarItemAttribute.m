@@ -10,16 +10,14 @@
 
 @implementation JsenTabBarItemAttribute
 
-+ (instancetype)configItemAttributeWithNormalImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage type:(JsenTabBarItemAttributeType)type {
-    JsenTabBarItemAttribute * attribute = [[JsenTabBarItemAttribute alloc] initWithNormalImage:normalImage selectedImage:selectedImage type:type];
++ (instancetype)configItemAttributeWithType:(JsenTabBarItemAttributeType)type {
+    JsenTabBarItemAttribute * attribute = [[JsenTabBarItemAttribute alloc] initWithType:type];
     return attribute;
 }
 
-- (instancetype)initWithNormalImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage type:(JsenTabBarItemAttributeType)type {
+- (instancetype)initWithType:(JsenTabBarItemAttributeType)type {
     self = [super init];
     if (self) {
-        _normalImage = normalImage;
-        _selectedImage = selectedImage;
         _type = type;
     }
     return self;
