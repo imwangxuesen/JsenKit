@@ -14,12 +14,16 @@
 		4C1CE0921DD9855500FE49DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0901DD9855500FE49DB /* Main.storyboard */; };
 		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
 		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
-		4C1CE0A11DD9B87300FE49DB /* JsenNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A01DD9B87300FE49DB /* JsenNetworkingManager.m */; };
-		4C1CE0A41DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A31DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m */; };
-		4C1CE0A71DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A61DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m */; };
-		4C1CE0AA1DD9C65000FE49DB /* JsenNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0A91DD9C65000FE49DB /* JsenNetworkingConfig.m */; };
 		4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */; };
-		4C1CE0B11DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0B01DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m */; };
+		4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98B1DDE9D67006F3D5B /* JsenNetworkingConfig.m */; };
+		4C8DB9961DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98D1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m */; };
+		4C8DB9971DDE9D67006F3D5B /* JsenNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98F1DDE9D67006F3D5B /* JsenNetworkingManager.m */; };
+		4C8DB9981DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB9911DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m */; };
+		4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB9941DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m */; };
+		4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB99C1DDEA32A006F3D5B /* JsenTabBarController.m */; };
+		4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB99F1DDEA383006F3D5B /* JsenTabBar.m */; };
+		4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */; };
+		4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,19 +37,27 @@
 		4C1CE0931DD9855500FE49DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1CE0961DD9855500FE49DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C1CE09F1DD9B87300FE49DB /* JsenNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManager.h; sourceTree = "<group>"; };
-		4C1CE0A01DD9B87300FE49DB /* JsenNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingManager.m; sourceTree = "<group>"; };
-		4C1CE0A21DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingSuccessResponse.h; sourceTree = "<group>"; };
-		4C1CE0A31DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingSuccessResponse.m; sourceTree = "<group>"; };
-		4C1CE0A51DD9BADA00FE49DB /* JsenNetworkingFailedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingFailedResponse.h; sourceTree = "<group>"; };
-		4C1CE0A61DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingFailedResponse.m; sourceTree = "<group>"; };
-		4C1CE0A81DD9C65000FE49DB /* JsenNetworkingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingConfig.h; sourceTree = "<group>"; };
-		4C1CE0A91DD9C65000FE49DB /* JsenNetworkingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingConfig.m; sourceTree = "<group>"; };
 		4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
-		4C1CE0AE1DDCB16900FE49DB /* JsenNetworkingManagerTransmitDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManagerTransmitDelegate.h; sourceTree = "<group>"; };
-		4C1CE0AF1DDCB74700FE49DB /* JsenNetworkingManagerTransmit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManagerTransmit.h; sourceTree = "<group>"; };
-		4C1CE0B01DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingManagerTransmit.m; sourceTree = "<group>"; };
+		4C8DB98A1DDE9D67006F3D5B /* JsenNetworkingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingConfig.h; sourceTree = "<group>"; };
+		4C8DB98B1DDE9D67006F3D5B /* JsenNetworkingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingConfig.m; sourceTree = "<group>"; };
+		4C8DB98C1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingFailedResponse.h; sourceTree = "<group>"; };
+		4C8DB98D1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingFailedResponse.m; sourceTree = "<group>"; };
+		4C8DB98E1DDE9D67006F3D5B /* JsenNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManager.h; sourceTree = "<group>"; };
+		4C8DB98F1DDE9D67006F3D5B /* JsenNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingManager.m; sourceTree = "<group>"; };
+		4C8DB9901DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManagerTransmit.h; sourceTree = "<group>"; };
+		4C8DB9911DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingManagerTransmit.m; sourceTree = "<group>"; };
+		4C8DB9921DDE9D67006F3D5B /* JsenNetworkingManagerTransmitDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingManagerTransmitDelegate.h; sourceTree = "<group>"; };
+		4C8DB9931DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingSuccessResponse.h; sourceTree = "<group>"; };
+		4C8DB9941DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingSuccessResponse.m; sourceTree = "<group>"; };
+		4C8DB99B1DDEA329006F3D5B /* JsenTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBarController.h; sourceTree = "<group>"; };
+		4C8DB99C1DDEA32A006F3D5B /* JsenTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarController.m; sourceTree = "<group>"; };
+		4C8DB99E1DDEA383006F3D5B /* JsenTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBar.h; sourceTree = "<group>"; };
+		4C8DB99F1DDEA383006F3D5B /* JsenTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBar.m; sourceTree = "<group>"; };
+		4C8DB9A21DDEA506006F3D5B /* JsenRunTimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenRunTimeTool.h; sourceTree = "<group>"; };
+		4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenRunTimeTool.m; sourceTree = "<group>"; };
+		4C932B821DDEA82700A6F0C4 /* JsenTabBarItemAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBarItemAttribute.h; sourceTree = "<group>"; };
+		4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarItemAttribute.m; sourceTree = "<group>"; };
 		91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.debug.xcconfig"; sourceTree = "<group>"; };
 		A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.release.xcconfig"; sourceTree = "<group>"; };
 		BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JsenKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +105,7 @@
 		4C1CE0861DD9855500FE49DB /* JsenKit */ = {
 			isa = PBXGroup;
 			children = (
-				4C1CE09E1DD9B67000FE49DB /* JsenNetworking */,
+				4C8DB9881DDE9D67006F3D5B /* JsenKitClasses */,
 				4C1CE08A1DD9855500FE49DB /* AppDelegate.h */,
 				4C1CE08B1DD9855500FE49DB /* AppDelegate.m */,
 				4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */,
@@ -117,22 +129,54 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4C1CE09E1DD9B67000FE49DB /* JsenNetworking */ = {
+		4C8DB9881DDE9D67006F3D5B /* JsenKitClasses */ = {
 			isa = PBXGroup;
 			children = (
-				4C1CE09F1DD9B87300FE49DB /* JsenNetworkingManager.h */,
-				4C1CE0A01DD9B87300FE49DB /* JsenNetworkingManager.m */,
-				4C1CE0A21DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.h */,
-				4C1CE0A31DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m */,
-				4C1CE0A51DD9BADA00FE49DB /* JsenNetworkingFailedResponse.h */,
-				4C1CE0A61DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m */,
-				4C1CE0A81DD9C65000FE49DB /* JsenNetworkingConfig.h */,
-				4C1CE0A91DD9C65000FE49DB /* JsenNetworkingConfig.m */,
-				4C1CE0AE1DDCB16900FE49DB /* JsenNetworkingManagerTransmitDelegate.h */,
-				4C1CE0AF1DDCB74700FE49DB /* JsenNetworkingManagerTransmit.h */,
-				4C1CE0B01DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m */,
+				4C8DB9A11DDEA4EE006F3D5B /* JsenDebugTool */,
+				4C8DB99A1DDEA308006F3D5B /* JsenTabBarController */,
+				4C8DB9891DDE9D67006F3D5B /* JsenNetworking */,
+			);
+			path = JsenKitClasses;
+			sourceTree = "<group>";
+		};
+		4C8DB9891DDE9D67006F3D5B /* JsenNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DB98A1DDE9D67006F3D5B /* JsenNetworkingConfig.h */,
+				4C8DB98B1DDE9D67006F3D5B /* JsenNetworkingConfig.m */,
+				4C8DB98C1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.h */,
+				4C8DB98D1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m */,
+				4C8DB98E1DDE9D67006F3D5B /* JsenNetworkingManager.h */,
+				4C8DB98F1DDE9D67006F3D5B /* JsenNetworkingManager.m */,
+				4C8DB9901DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.h */,
+				4C8DB9911DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m */,
+				4C8DB9921DDE9D67006F3D5B /* JsenNetworkingManagerTransmitDelegate.h */,
+				4C8DB9931DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.h */,
+				4C8DB9941DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m */,
 			);
 			path = JsenNetworking;
+			sourceTree = "<group>";
+		};
+		4C8DB99A1DDEA308006F3D5B /* JsenTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DB99B1DDEA329006F3D5B /* JsenTabBarController.h */,
+				4C8DB99C1DDEA32A006F3D5B /* JsenTabBarController.m */,
+				4C8DB99E1DDEA383006F3D5B /* JsenTabBar.h */,
+				4C8DB99F1DDEA383006F3D5B /* JsenTabBar.m */,
+				4C932B821DDEA82700A6F0C4 /* JsenTabBarItemAttribute.h */,
+				4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */,
+			);
+			path = JsenTabBarController;
+			sourceTree = "<group>";
+		};
+		4C8DB9A11DDEA4EE006F3D5B /* JsenDebugTool */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DB9A21DDEA506006F3D5B /* JsenRunTimeTool.h */,
+				4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */,
+			);
+			path = JsenDebugTool;
 			sourceTree = "<group>";
 		};
 		FEC34C6F86AC2DB79C3BE6D7 /* Frameworks */ = {
@@ -266,15 +310,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C1CE0AA1DD9C65000FE49DB /* JsenNetworkingConfig.m in Sources */,
+				4C8DB9971DDE9D67006F3D5B /* JsenNetworkingManager.m in Sources */,
+				4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */,
 				4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */,
-				4C1CE0A11DD9B87300FE49DB /* JsenNetworkingManager.m in Sources */,
+				4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */,
 				4C1CE08C1DD9855500FE49DB /* AppDelegate.m in Sources */,
-				4C1CE0B11DDCB74700FE49DB /* JsenNetworkingManagerTransmit.m in Sources */,
 				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
-				4C1CE0A41DD9BA9500FE49DB /* JsenNetworkingSuccessResponse.m in Sources */,
-				4C1CE0A71DD9BADA00FE49DB /* JsenNetworkingFailedResponse.m in Sources */,
+				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
+				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
 				4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */,
+				4C8DB9961DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m in Sources */,
+				4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */,
+				4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */,
+				4C8DB9981DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

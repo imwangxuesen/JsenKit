@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "JsenTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    JsenTabBarController *tab = [[JsenTabBarController alloc] init];
+    self.window.rootViewController = tab;
+    
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
