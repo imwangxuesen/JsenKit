@@ -11,7 +11,7 @@
 
 @interface JsenTabBarController : UITabBarController
 
-@property (nonatomic, strong) NSArray<UIViewController*> *controllers;
+@property (nonatomic, strong) NSArray<UIViewController*> *customControllers;
 
 @property (nonatomic, strong) NSArray<JsenTabBarItemAttribute*> *tabBarItemAttributes;
 
@@ -19,6 +19,7 @@
 
 @property (nonatomic, assign) CGFloat plusButtonExceedTabBarHeight;
 
-+ (instancetype)jsenTabBarControllerWithControllers:(NSArray<UIViewController *> *)controllers tabBarItemAttributes:(NSArray<JsenTabBarItemAttribute*> *)attributes;
+- (void)configWithControllers:(NSArray<UIViewController *> *)controllers tabBarItemAttributes:(NSArray<JsenTabBarItemAttribute*> *)attributes;
+
 
 @end

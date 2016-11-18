@@ -7,10 +7,6 @@
 //
 
 #import "JsenTabBarController.h"
-#import "JsenRunTimeTool.h"
-#import "JsenTabBar.h"
-
-
 
 @interface JsenTabBarController ()
 
@@ -19,17 +15,13 @@
 @implementation JsenTabBarController {
     BOOL __block _hadPlusButton;
     JsenTabBarItemAttributeType __block _plusButtonType;
-}
-
-+ (instancetype)jsenTabBarControllerWithControllers:(NSArray<UIViewController *> *)controllers tabBarItemAttributes:(NSArray<JsenTabBarItemAttribute*> *)attributes {
-    JsenTabBarController *tabBarController = [[JsenTabBarController alloc] initWithControllers:controllers tabBarItemAttributes:attributes];
-    return tabBarController;
+    NSMutableArray *_buttonArray;
 }
 
 - (instancetype)initWithControllers:(NSArray<UIViewController *> *)controllers tabBarItemAttributes:(NSArray<JsenTabBarItemAttribute*> *)attributes {
     self = [super init];
     if (self) {
-        _controllers = controllers;
+        _customControllers = controllers;
         _tabBarItemAttributes = attributes;
     }
     return self;
@@ -53,17 +45,30 @@
     [btn setImage:attribute.selectedImage forState:UIControlStateSelected];
     [btn setBackgroundImage:attribute.normalBackgroundImage forState:UIControlStateNormal];
     [btn setBackgroundImage:attribute.selectedBackgroundImage forState:UIControlStateSelected];
+    
+//    [btn setTitle:normalTitle forState:UIControlStateNormal];
+//    [btn setTitle:selectedTitle forState:UIControlStateSelected];
+    
+    
     [btn setAttributedTitle:normalAttributeTitle forState:UIControlStateNormal];
     [btn setAttributedTitle:selectedAttributeTitle forState:UIControlStateSelected];
     [btn setTag:tag];
     
+    btn.titleLabel.backgroundColor = [UIColor blackColor];
+    btn.titleLabel.font = [UIFont systemFontOfSize:10];
+    btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+
+    
     return btn;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self setViewControllers:self.controllers animated:YES];
+
+- (void)configWithControllers:(NSArray<UIViewController *> *)controllers tabBarItemAttributes:(NSArray<JsenTabBarItemAttribute*> *)attributes {
+    self.customControllers = controllers;
+    self.tabBarItemAttributes = attributes;
+    _buttonArray = [[NSMutableArray alloc] init];
+
+    [self setViewControllers:self.customControllers animated:YES];
     
     [self.tabBarItemAttributes enumerateObjectsUsingBlock:^(JsenTabBarItemAttribute * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.type == JsenTabBarItemAttributeCenterPlusUnBulgeType || obj.type == JsenTabBarItemAttributeCenterPlusBulgeType) {
@@ -77,9 +82,9 @@
     CGFloat unPlusButtonHeight = self.tabBar.frame.size.height;
     CGFloat unPlusButtonWidth = 0.0;
     if (_hadPlusButton) {
-        unPlusButtonWidth = tabBarWidth / (self.tabBarItemAttributes.count-1);
+        unPlusButtonWidth = (tabBarWidth - plusButtonWidth) / (self.tabBarItemAttributes.count-1);
     } else {
-        unPlusButtonWidth = (tabBarWidth - plusButtonWidth) / self.tabBarItemAttributes.count;
+        unPlusButtonWidth = tabBarWidth / self.tabBarItemAttributes.count;
     }
     
     NSInteger tag = 0;
@@ -87,20 +92,72 @@
     for (JsenTabBarItemAttribute *attribute in self.tabBarItemAttributes) {
         UIButton *btn = [self configTabBarItemButtonWithAttribute:attribute tag:tag];
         if (attribute.type == JsenTabBarItemAttributeCenterPlusBulgeType) {
-            CGFloat plusButtonExceedTabBarHeight = self.plusButtonExceedTabBarHeight?:5;
+            CGFloat plusButtonExceedTabBarHeight = self.plusButtonExceedTabBarHeight?:20;
             btn.frame = CGRectMake(CGRectGetMaxX(leftBtn.frame), -plusButtonExceedTabBarHeight, plusButtonWidth, unPlusButtonHeight+plusButtonExceedTabBarHeight);
         } else if (attribute.type == JsenTabBarItemAttributeCenterPlusUnBulgeType) {
             btn.frame = CGRectMake(CGRectGetMaxX(leftBtn.frame), 0, plusButtonWidth, unPlusButtonHeight);
         } else {
             tag++;
             btn.frame = CGRectMake(CGRectGetMaxX(leftBtn.frame), 0, unPlusButtonWidth, unPlusButtonHeight);
+            [self configButton:btn];
+        }
+        [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_buttonArray addObject:btn];
+        leftBtn = btn;
+        [self.tabBar addSubview:leftBtn];
+    }
+    
+    self.tabBar.shadowImage = nil;
+}
+
+
+- (void)configButton:(UIButton *)button {
+    button.titleLabel.backgroundColor = button.backgroundColor;
+    button.imageView.backgroundColor = button.backgroundColor;
+    
+    CGSize titleSize = button.titleLabel.bounds.size;
+    CGSize imageSize = button.imageView.bounds.size;
+    CGFloat interval = 1.0;
+    
+    [button setImageEdgeInsets:UIEdgeInsetsMake(0,0, titleSize.height + interval, -(titleSize.width))];
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(imageSize.height + interval + 1.0, -(imageSize.width), 0, 0)];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    CGFloat tabBarWidth = self.tabBar.frame.size.width;
+    CGFloat plusButtonWidth = self.plusButtonWidth?:[UIScreen mainScreen].bounds.size.width * 0.25;
+    CGFloat unPlusButtonHeight = self.tabBar.frame.size.height;
+    CGFloat unPlusButtonWidth = 0.0;
+    if (_hadPlusButton) {
+        unPlusButtonWidth = (tabBarWidth - plusButtonWidth) / (self.tabBarItemAttributes.count-1);
+    } else {
+        unPlusButtonWidth = tabBarWidth / self.tabBarItemAttributes.count;
+    }
+    
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, unPlusButtonHeight)];
+    for (int i=0;i<self.tabBarItemAttributes.count;i++) {
+        JsenTabBarItemAttribute *attribute = self.tabBarItemAttributes[i];
+        UIButton *btn = _buttonArray[i];
+        if (attribute.type == JsenTabBarItemAttributeCenterPlusBulgeType) {
+            CGFloat plusButtonExceedTabBarHeight = self.plusButtonExceedTabBarHeight?:20;
+            btn.frame = CGRectMake(CGRectGetMaxX(leftBtn.frame), -plusButtonExceedTabBarHeight, plusButtonWidth, unPlusButtonHeight+plusButtonExceedTabBarHeight);
+        } else if (attribute.type == JsenTabBarItemAttributeCenterPlusUnBulgeType) {
+            btn.frame = CGRectMake(CGRectGetMaxX(leftBtn.frame), 0, plusButtonWidth, unPlusButtonHeight);
+        } else {
+            btn.frame = CGRectMake(CGRectGetMaxX(leftBtn.frame), 0, unPlusButtonWidth, unPlusButtonHeight);
         }
         leftBtn = btn;
     }
+
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    [self.tabBar addSubview:leftBtn];
     
     
+
     
     
 //    UITabBarItem *item0 = [[UITabBarItem alloc] initWithTitle:@"首页" image:nil tag:0];
@@ -108,23 +165,7 @@
 //    UITabBarItem *item2 = [[UITabBarItem alloc] initWithTitle:@"发现" image:nil tag:2];
 //    UITabBarItem *item3 = [[UITabBarItem alloc] initWithTitle:@"设置" image:nil tag:3];
 //    
-//    UIViewController *vc1 = [[UIViewController alloc] init];
-//    vc1.view.backgroundColor = [UIColor blueColor];
-//    //    vc1.tabBarItem = item0;
-//    
-//    UIViewController *vc2 = [[UIViewController alloc] init];
-//    vc2.view.backgroundColor = [UIColor grayColor];
-//    //    vc2.tabBarItem = item1;
-//    
-//    
-//    UIViewController *vc3 = [[UIViewController alloc] init];
-//    vc3.view.backgroundColor = [UIColor greenColor];
-//    //    vc3.tabBarItem = item2;
-//    
-//    UIViewController *vc4 = [[UIViewController alloc] init];
-//    vc4.view.backgroundColor = [UIColor yellowColor];
-//    //    vc4.tabBarItem = item3;
-//    [self setViewControllers:@[vc1,vc2,vc3,vc4] animated:YES];
+
 //    
 //    
 //    
@@ -192,15 +233,6 @@
 
 
 
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-   
-    
-//    [JsenRunTimeTool printPrivateMethodAndAttributeWithClass:[UIButton class]];
-    
-}
-
 - (void)btnClicked:(UIButton *)sender {
     if (!sender.isSelected) {
         sender.selected = YES;
@@ -213,17 +245,6 @@
 
 }
 
-- (void)configButton:(UIButton *)button {
-    button.titleLabel.backgroundColor = button.backgroundColor;
-    button.imageView.backgroundColor = button.backgroundColor;
-    
-    CGSize titleSize = button.titleLabel.bounds.size;
-    CGSize imageSize = button.imageView.bounds.size;
-    CGFloat interval = 1.0;
-    
-    [button setImageEdgeInsets:UIEdgeInsetsMake(0,0, titleSize.height + interval, -(titleSize.width + interval))];
-    [button setTitleEdgeInsets:UIEdgeInsetsMake(imageSize.height + interval + 2.0, -(imageSize.width + interval), 0, 0)];
-}
 
 
 - (void)didReceiveMemoryWarning {
