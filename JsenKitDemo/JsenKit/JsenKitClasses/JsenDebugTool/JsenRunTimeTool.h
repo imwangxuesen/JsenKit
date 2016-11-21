@@ -11,6 +11,7 @@
 @interface JsenRunTimeTool : NSObject
 
 /**
+ log
  打印某一个类中的所有方法和属性
 
  @param className 类名

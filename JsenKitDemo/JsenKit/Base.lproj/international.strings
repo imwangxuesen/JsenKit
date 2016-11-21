@@ -1,0 +1,14 @@
+/* 
+  international.strings
+  JsenKit
+
+  Created by Wangxuesen on 2016/11/21.
+  Copyright © 2016年 WangXuesen. All rights reserved.
+*/
+
+
+
+"home" = "Home";
+"found" = "Found";
+"message" = "Message";
+"me" = "Me";

@@ -9,9 +9,9 @@
 #import "JsenTabBarItem.h"
 #import "JsenTabBarItemAttribute.h"
 
+#define angelToRandian(x) ((x)/180.0*M_PI)
 
 @implementation JsenTabBarItem
-
 
 - (instancetype)initWithAttribute:(JsenTabBarItemAttribute *)attribute
 {
@@ -22,8 +22,40 @@
     return self;
 }
 
+#pragma mark - animation
+- (void)animation {
+    switch (self.jsenAttribute.type) {
+        case JsenTabBarItemAttributeShakeAnimationType:
+            [self shakeAnimation];
+            break;
+        case JsenTabBarItemAttributeZoomAnimationType:
+            [self zoomAnimation];
+            
+        default:
+            break;
+    }
+}
 
+- (void)shakeAnimation {
+    CALayer *layer = [self layer];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    animation.keyPath = @"transform.rotation";
+    animation.values = @[@(angelToRandian(-7)),@(angelToRandian(7)),@(angelToRandian(-7))];
+    animation.repeatCount = 5;
+    animation.duration = 0.1;
+    [layer addAnimation:animation forKey:@"shake"];
+}
 
+- (void)zoomAnimation {
+    CALayer *layer = [self layer];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"CAKeyframeAnimationanimation"];
+    animation.keyPath = @"transform.scale";
+    animation.values = @[@1.0,@1.3,@0.9,@1.15,@0.95,@1.02,@1.0];
+    animation.duration = 1;
+    animation.calculationMode = kCAAnimationCubic;
+    [layer addAnimation:animation forKey:nil];
+}
+#pragma mark - private method
 - (void)configImageAndTitleEdgeInsets {
     self.titleLabel.backgroundColor = self.backgroundColor;
     self.imageView.backgroundColor = self.backgroundColor;
@@ -35,7 +67,7 @@
 }
 
 
-
+#pragma mark - setter
 - (void)setJsenAttribute:(JsenTabBarItemAttribute *)jsenAttribute {
     _jsenAttribute = jsenAttribute;
     

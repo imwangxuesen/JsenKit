@@ -1,0 +1,12 @@
+/* 
+  international.strings
+  JsenKit
+
+  Created by Wangxuesen on 2016/11/21.
+  Copyright © 2016年 WangXuesen. All rights reserved.
+*/
+
+"home" = "首页";
+"found" = "发现";
+"message" = "消息";
+"me" = "设置";

@@ -25,6 +25,7 @@
 		4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */; };
 		4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */; };
 		4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */; };
+		4C932B8E1DE2CC3500A6F0C4 /* international.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C932B901DE2CC3500A6F0C4 /* international.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,11 @@
 		4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarItemAttribute.m; sourceTree = "<group>"; };
 		4C932B851DE2988600A6F0C4 /* JsenTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBarItem.h; sourceTree = "<group>"; };
 		4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarItem.m; sourceTree = "<group>"; };
+		4C932B8A1DE2CBDB00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4C932B8B1DE2CBDB00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4C932B8F1DE2CC3500A6F0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/international.strings; sourceTree = "<group>"; };
+		4C932B911DE2CC3A00A6F0C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/international.strings; sourceTree = "<group>"; };
+		4C932B921DE2CC3B00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/international.strings"; sourceTree = "<group>"; };
 		91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.debug.xcconfig"; sourceTree = "<group>"; };
 		A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.release.xcconfig"; sourceTree = "<group>"; };
 		BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JsenKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +126,7 @@
 				4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */,
 				4C1CE0981DD9855500FE49DB /* Info.plist */,
 				4C1CE0871DD9855500FE49DB /* Supporting Files */,
+				4C932B901DE2CC3500A6F0C4 /* international.strings */,
 			);
 			path = JsenKit;
 			sourceTree = "<group>";
@@ -238,6 +245,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 4C1CE07B1DD9855500FE49DB;
 			productRefGroup = 4C1CE0851DD9855500FE49DB /* Products */;
@@ -255,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */,
+				4C932B8E1DE2CC3500A6F0C4 /* international.strings in Resources */,
 				4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */,
 				4C1CE0921DD9855500FE49DB /* Main.storyboard in Resources */,
 			);
@@ -339,6 +348,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4C1CE0911DD9855500FE49DB /* Base */,
+				4C932B8A1DE2CBDB00A6F0C4 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -347,8 +357,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				4C1CE0961DD9855500FE49DB /* Base */,
+				4C932B8B1DE2CBDB00A6F0C4 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4C932B901DE2CC3500A6F0C4 /* international.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C932B8F1DE2CC3500A6F0C4 /* Base */,
+				4C932B911DE2CC3A00A6F0C4 /* en */,
+				4C932B921DE2CC3B00A6F0C4 /* zh-Hans */,
+			);
+			name = international.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -358,6 +379,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -405,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

@@ -59,6 +59,7 @@
     
     //配置默认超时时间，若不配置默认为10s
     config.defaultTimeoutInterval = 20.0;
+
     
 }
 

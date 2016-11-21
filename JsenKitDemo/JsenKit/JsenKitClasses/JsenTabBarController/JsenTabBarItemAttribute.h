@@ -14,11 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  TabBarItem 的样式
 
- - JsenTabBarItemAttributeCenterPlusType: 中间凸出加号样式
- - JsenTabBarItemAttributeCenterPlusUnBulgeType: 中间不凸出加号样式
- - JsenTabBarItemAttributeSystemType: 系统样式
- - JsenTabBarItemAttributeShakeAnimationType: 抖动动画样式
- - JsenTabBarItemAttributeZoomAnimationType: 缩放动画样式
+ - JsenTabBarItemAttributeCenterPlusType: plus button type and a little highter than tabbar. in tabBar center
+ 
+ - JsenTabBarItemAttributeCenterPlusUnBulgeType: plus button type. in tabBar center
+ 
+ - JsenTabBarItemAttributeSystemType: is same as system UITabBarItem type
+ 
+ - JsenTabBarItemAttributeShakeAnimationType: is same as system UITabBarItem type,but cloud show shake animation when click.
+ 
+ - JsenTabBarItemAttributeZoomAnimationType: is same as system UITabBarItem type,but cloud show zoom animation when click.
  */
 typedef NS_ENUM(NSInteger, JsenTabBarItemAttributeType) {
     
@@ -36,7 +40,6 @@ typedef NS_ENUM(NSInteger, JsenTabBarItemAttributeType) {
 @property (nonatomic, copy) NSString *selectedTitle;
 @property (nonatomic, strong) UIImage *normalImage;
 @property (nonatomic, strong) UIImage *selectedImage;
-@property (nonatomic, assign) JsenTabBarItemAttributeType type;
 @property (nonatomic, strong) UIImage *normalBackgroundImage;
 @property (nonatomic, strong) UIImage *selectedBackgroundImage;
 @property (nonatomic, strong) UIColor *normalTitleColor;
@@ -44,6 +47,7 @@ typedef NS_ENUM(NSInteger, JsenTabBarItemAttributeType) {
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) UIFont *normalTitleFont;
 @property (nonatomic, strong) UIFont *selectedTitleFont;
+@property (nonatomic, assign) JsenTabBarItemAttributeType type;
 
 + (instancetype)configItemAttributeWithType:(JsenTabBarItemAttributeType)type;
 
