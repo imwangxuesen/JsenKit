@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
-            timestampString = "501183255.744409"
+            timestampString = "501221938.857164"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "-initWithControllers:tabBarItemAttributes:"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,7 +148,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
-            timestampString = "501183255.744409"
+            timestampString = "501221938.857164"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-initWithControllers:tabBarItemAttributes:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
+            timestampString = "501387597.52407"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-initWithControllers:tabBarItemAttributes:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
+            timestampString = "501388123.576272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-configWithControllers:tabBarItemAttributes:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
+            timestampString = "501388131.023394"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -164,12 +212,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
-            timestampString = "501183255.744409"
+            timestampString = "501392569.997275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-initWithControllers:tabBarItemAttributes:"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -179,13 +227,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
-            timestampString = "501183255.744409"
+            filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBar.m"
+            timestampString = "501392569.997275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-initWithControllers:tabBarItemAttributes:"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -195,13 +243,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBarController.m"
-            timestampString = "501183255.744409"
+            filePath = "JsenKit/JsenKitClasses/JsenTabBarController/JsenTabBar.m"
+            timestampString = "501392569.997275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-configWithControllers:tabBarItemAttributes:"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

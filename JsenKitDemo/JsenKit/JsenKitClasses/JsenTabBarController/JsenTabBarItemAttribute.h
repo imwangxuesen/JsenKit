@@ -2,7 +2,7 @@
 //  JsenTabBarItemAttribute.h
 //  JsenKit
 //
-//  Created by Wangxuesen on 2016/11/18.
+//  Created by WangXuesen on 2016/11/18.
 //  Copyright © 2016年 WangXuesen. All rights reserved.
 //
 
@@ -32,13 +32,13 @@ typedef NS_ENUM(NSInteger, JsenTabBarItemAttributeType) {
 
 @interface JsenTabBarItemAttribute : NSObject
 
+@property (nonatomic, copy) NSString *normalTitle;
+@property (nonatomic, copy) NSString *selectedTitle;
 @property (nonatomic, strong) UIImage *normalImage;
 @property (nonatomic, strong) UIImage *selectedImage;
 @property (nonatomic, assign) JsenTabBarItemAttributeType type;
 @property (nonatomic, strong) UIImage *normalBackgroundImage;
 @property (nonatomic, strong) UIImage *selectedBackgroundImage;
-@property (nonatomic, copy) NSString *normalTitle;
-@property (nonatomic, copy) NSString *selectedTitle;
 @property (nonatomic, strong) UIColor *normalTitleColor;
 @property (nonatomic, strong) UIColor *selectedTitleColor;
 @property (nonatomic, strong) UIColor *backgroundColor;

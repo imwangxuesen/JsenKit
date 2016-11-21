@@ -24,6 +24,7 @@
 		4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB99F1DDEA383006F3D5B /* JsenTabBar.m */; };
 		4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */; };
 		4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */; };
+		4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenRunTimeTool.m; sourceTree = "<group>"; };
 		4C932B821DDEA82700A6F0C4 /* JsenTabBarItemAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBarItemAttribute.h; sourceTree = "<group>"; };
 		4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarItemAttribute.m; sourceTree = "<group>"; };
+		4C932B851DE2988600A6F0C4 /* JsenTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBarItem.h; sourceTree = "<group>"; };
+		4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarItem.m; sourceTree = "<group>"; };
 		91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.debug.xcconfig"; sourceTree = "<group>"; };
 		A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.release.xcconfig"; sourceTree = "<group>"; };
 		BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JsenKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +169,8 @@
 				4C8DB99F1DDEA383006F3D5B /* JsenTabBar.m */,
 				4C932B821DDEA82700A6F0C4 /* JsenTabBarItemAttribute.h */,
 				4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */,
+				4C932B851DE2988600A6F0C4 /* JsenTabBarItem.h */,
+				4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */,
 			);
 			path = JsenTabBarController;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
 				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
 				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
+				4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */,
 				4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */,
 				4C8DB9961DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m in Sources */,
 				4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */,

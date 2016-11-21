@@ -2,7 +2,7 @@
 //  JsenNetworkingManager.m
 //  JsenKit
 //
-//  Created by Wangxuesen on 2016/11/14.
+//  Created by WangXuesen on 2016/11/14.
 //  Copyright © 2016年 WangXuesen. All rights reserved.
 //
 
