@@ -3,9 +3,10 @@ a iOS project start kit
 
 
 Status：making wheel
-		  JsenTabBarController coding...
+		  UINavigationBar extension coding...
 
 Already completed：
 		  JsenNetworking
+		  JsenTabBarController
 
 
