@@ -19,6 +19,13 @@
     return response;
 }
 
++ (instancetype)downloadSuccesResponsesWithResponse:(NSURLResponse *)response filePath:(NSURL *)filePath {
+    JsenNetworkingSuccessResponse *downloadResponse = [[JsenNetworkingSuccessResponse alloc] init];
+    downloadResponse.urlResponse = response;
+    downloadResponse.filePath = filePath;
+    return downloadResponse;
+}
+
 - (JsenNetworkingSuccessResponse *)modelWithResponseObject:(NSDictionary *)object apiKey:(NSString *)apiKey {
     if (object && apiKey && [[JsenNetworkingConfig shareConfig] modelClassWithAPIKey:apiKey]) {
         

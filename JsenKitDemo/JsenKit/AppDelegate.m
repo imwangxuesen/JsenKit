@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "JsenTabBarController.h"
 #import "JsenTabBarItemAttribute.h"
+#import <AFNetworking.h>
 
 @interface AppDelegate ()
 
@@ -19,7 +20,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    [self configTabBarController];
+//    
+//    
+//    [self.window makeKeyAndVisible];
+    
+    return YES;
+}
+
+
+- (void)configTabBarController {
     
     JsenTabBarItemAttribute *attribute = [JsenTabBarItemAttribute configItemAttributeWithType:JsenTabBarItemAttributeShakeAnimationType];
     attribute.selectedImage = [UIImage imageNamed:@"tab_home_sel"];
@@ -70,9 +82,9 @@
     UIViewController *vc1 = [[UIViewController alloc] init];
     vc1.view.backgroundColor = [UIColor blueColor];
     vc1.navigationItem.title = NSLocalizedString(@"home", nil);
-
+    
     UINavigationController *nv1 = [[UINavigationController alloc] initWithRootViewController:vc1];
-
+    
     UIViewController *vc2 = [[UIViewController alloc] init];
     vc2.view.backgroundColor = [UIColor grayColor];
     //    vc2.tabBarItem = item1;
@@ -92,14 +104,10 @@
     JsenTabBarController *tab = [[JsenTabBarController alloc] init];
     [tab configWithControllers:@[nv1,nv2,nv3,nv4] tabBarItemAttributes:@[attribute,attribute2,attributePlus,attribute3,attribute4]];
     
+    
     self.window.rootViewController = tab;
-    
-    
-    [self.window makeKeyAndVisible];
-    
-    return YES;
-}
 
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

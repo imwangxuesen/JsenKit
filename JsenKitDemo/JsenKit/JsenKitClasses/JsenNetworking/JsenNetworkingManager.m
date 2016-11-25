@@ -212,6 +212,57 @@
                                finished:nil];
 }
 
+
+- (instancetype)downloadWithUrl:(NSString *)url
+                       filePath:(NSURL * __nullable)filePath
+                       fileName:(NSString * __nullable)fileName
+                       progress:(JsenNetworkingProgress __nullable)progress
+                        success:(JsenNetworkingSuccess)success
+                         failed:(JsenNetworkingFailed)failed
+                       finished:(JsenNetworkingFinished __nullable)finished {
+    
+    [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:nil];
+    AFURLSessionManager *mgr = [self configURLSessionManager];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    self.downloadTask = [mgr downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        [self progressWithRequestProgress:downloadProgress];
+        
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        return [self configDownloadUrlWith:response filePath:filePath fileName:fileName];
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        [self downloadCompletedWith:response filePath:filePath error:error];
+
+    }];
+    [self.downloadTask resume];
+    return self;
+}
+
+
+- (instancetype)downloadWithResumeData:(NSData *)resumeData
+                              filePath:(NSURL * __nullable)filePath
+                              fileName:(NSString * __nullable)fileName
+                              progress:(JsenNetworkingProgress __nullable)progress
+                               success:(JsenNetworkingSuccess)success
+                                failed:(JsenNetworkingFailed)failed
+                              finished:(JsenNetworkingFinished __nullable)finished {
+    [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:nil];
+    AFURLSessionManager *mgr = [self configURLSessionManager];
+    self.downloadTask = [mgr downloadTaskWithResumeData:resumeData progress:^(NSProgress * _Nonnull downloadProgress) {
+        [self progressWithRequestProgress:downloadProgress];
+
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        return [self configDownloadUrlWith:response filePath:filePath fileName:fileName];
+
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        [self downloadCompletedWith:response filePath:filePath error:error];
+        
+    }];
+    [self.downloadTask resume];
+    return self;
+}
+
 #pragma mark - 数据处理，事件响应
 //请求进度
 - (void)progressWithRequestProgress:(NSProgress *)requestProgress {
@@ -221,6 +272,19 @@
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingProgress:)]) {
         [self.delegate jsenNetworkingProgress:requestProgress];
+    }
+}
+
+
+//http 下载成功后处理，如果有自定义的错误码，会处理为failed
+- (void)downloadSuccessWithResponse:(NSURLResponse *)response filePath:(NSString *)filePath {
+    JsenNetworkingSuccessResponse *successResponse = [JsenNetworkingSuccessResponse downloadSuccesResponsesWithResponse:response filePath:[NSURL URLWithString:filePath]];
+    if (self.success) {
+        self.success(successResponse);
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingSuccess:api:)]) {
+        [self.delegate jsenNetworkingSuccess:successResponse api:self.apiKey];
     }
 }
 
@@ -283,9 +347,67 @@
     }
 }
 
+//download完成后的处理
+- (void)downloadCompletedWith:(NSURLResponse *)response filePath:(NSURL *)filePath error:(NSError *)error {
+    if (error) {
+        [self failedWithError:error];
+        [self finish];
+    } else {
+        JsenNetworkingSuccessResponse *successResponse = [JsenNetworkingSuccessResponse downloadSuccesResponsesWithResponse:response filePath:filePath];
+        if (self.success) {
+            self.success(successResponse);
+        }
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingSuccess:api:)]) {
+            [self.delegate jsenNetworkingSuccess:successResponse api:self.apiKey];
+        }
+        [self finish];
+    }
+}
+
+
 //发送自定义的http请求错误的通知
 - (void)postCustomHttpErrorNotification:(JsenNetworkingFailedResponse * _Nonnull)response {
     [[NSNotificationCenter defaultCenter] postNotificationName:JsenNetworkingCustomHttpErrorNotificationKey object:response];
+}
+
+//配置下载路径
+- (NSURL *)configDownloadUrlWith:(NSURLResponse *)response filePath:(NSURL *)filePath fileName:(NSString *)fileName {
+    NSURL *documentsDirectoryURL = nil;
+    if (!filePath) {
+        documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+    } else {
+        documentsDirectoryURL = filePath;
+    }
+    
+    NSString *tmpFileName = nil;
+    if (!fileName) {
+        tmpFileName = [response suggestedFilename];
+    } else {
+        tmpFileName = fileName;
+    }
+    
+    return [documentsDirectoryURL URLByAppendingPathComponent:tmpFileName];
+}
+
+//配置url 参数拼接
+- (NSString *)configUrl:(NSString *)url requestParameters:(NSDictionary *)requestParameters  {
+    if (requestParameters.allKeys.count) {
+        for (int i=0; i<requestParameters.allKeys.count; i++) {
+            id key = requestParameters.allKeys[i];
+            id value = requestParameters[key];
+            if (i==0) {
+                if ([url hasSuffix:@"/"]) {
+                    NSMutableString *str = [NSMutableString stringWithString:url];
+                    url = [str substringWithRange:NSMakeRange(0, url.length-1)];
+                }
+                url = [url stringByAppendingFormat:@"?%@=%@",key,value];
+            } else {
+                url = [url stringByAppendingFormat:@"&%@=%@",key,value];
+            }
+        }
+    }
+    return url;
 }
 
 #pragma mark - 配置处理
@@ -337,6 +459,13 @@
     
     //超时时间
     mgr.requestSerializer.timeoutInterval = [config timeoutIntervalWithAPIKey:apiKey];
+    return mgr;
+}
+
+//download manager 配置
+- (AFURLSessionManager *)configURLSessionManager {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *mgr = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     return mgr;
 }
 

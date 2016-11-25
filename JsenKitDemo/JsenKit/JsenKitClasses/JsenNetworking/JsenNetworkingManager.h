@@ -46,6 +46,12 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
 @interface JsenNetworkingManager : NSObject
 
 
+
+/**
+ 下载使用的task
+ */
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
+
 /**
  网络请求成功回调
  */
@@ -238,6 +244,60 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
                              mimeType:(NSString *)mimeType
                            parameters:(NSDictionary * __nullable)parameters
                              delegate:(id<JsenNetworkingManagerTransmitDelegate>)delegate;
+
+
+/**
+ 下载data block模式
+ 如果文件的路径和名字为nil 会有默认值
+ 
+ default filePath : [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil].
+ 
+ default fileName : [response suggestedFilename]
+
+ @param url 下载地址
+ @param filePath 文件将要存储的文件夹路径
+ @param fileName 文件名字
+ @param progress 进度
+ @param success 成功回调
+ @param failed 失败回调
+ @param finished 结束回调
+ @return self
+ */
+- (instancetype)downloadWithUrl:(NSString *)url
+                       filePath:(NSURL * __nullable)filePath
+                       fileName:(NSString * __nullable)fileName
+                       progress:(JsenNetworkingProgress __nullable)progress
+                        success:(JsenNetworkingSuccess)success
+                         failed:(JsenNetworkingFailed)failed
+                       finished:(JsenNetworkingFinished __nullable)finished;
+
+
+/**
+ 继续下载data block模式
+ 如果文件的路径和名字为nil 会有默认值
+ 
+ default filePath : [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil].
+ 
+ default fileName : [response suggestedFilename]
+
+ @param resumeData 启动时的data 断点之前的data
+ @param filePath 文件将要存储的文件夹路径
+ @param fileName 文件名字
+ @param progress 进度
+ @param success 成功回调
+ @param failed 失败回调
+ @param finished 结束回调
+ @return self
+ */
+- (instancetype)downloadWithResumeData:(NSData *)resumeData
+                              filePath:(NSURL * __nullable)filePath
+                              fileName:(NSString * __nullable)fileName
+                              progress:(JsenNetworkingProgress __nullable)progress
+                               success:(JsenNetworkingSuccess)success
+                                failed:(JsenNetworkingFailed)failed
+                              finished:(JsenNetworkingFinished __nullable)finished;
+
+
 
 @end
 NS_ASSUME_NONNULL_END
