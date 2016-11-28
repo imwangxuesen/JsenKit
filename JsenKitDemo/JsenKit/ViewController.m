@@ -158,23 +158,17 @@
 }
 
 
-- (IBAction)reload:(id)sender {
-    [self.mgr.downloadTask resume];
-
-}
-
-- (IBAction)downloadStop:(id)sender {
-    [self.mgr.downloadTask suspend];
-
-}
-
 - (IBAction)downloadBegain:(id)sender {
     
-    [[JsenNetworkingReachabilityManager manager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+    [[JsenNetworkingReachabilityManager manager] setJsenReachabilityStatusChangeBlock:^(JsenNetworkingReachabilityStatus status) {
         
     }];
     
     [[JsenNetworkingManager manager] downloadWithUrl:@"http://0.0.0.0:8000/sdkzip.zip" filePath:nil fileName:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.progress setProgress:uploadProgress.fractionCompleted];
+        });
         
     } success:^(JsenNetworkingSuccessResponse * _Nonnull response) {
         

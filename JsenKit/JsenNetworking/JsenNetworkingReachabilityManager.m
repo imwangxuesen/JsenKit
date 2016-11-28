@@ -32,7 +32,7 @@ static JsenNetworkingReachabilityManager *mgr = nil;
     return mgr;
 }
 
-- (void)setjsenReachabilityStatusChangeBlock:(nullable void (^)(JsenNetworkingReachabilityStatus status))block {
+- (void)setJsenReachabilityStatusChangeBlock:(nullable void (^)(JsenNetworkingReachabilityStatus status))block {
     [mgr.afnManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         self.currentStatus = (JsenNetworkingReachabilityStatus)status;
         if (block) {

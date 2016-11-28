@@ -29,7 +29,7 @@ static JsenNetworkingConfig *config = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         config = [[JsenNetworkingConfig alloc] init];
-        [[JsenNetworkingReachabilityManager manager] setReachabilityStatusChangeBlock:nil];
+        [[JsenNetworkingReachabilityManager manager] setJsenReachabilityStatusChangeBlock:nil];
         [[JsenNetworkingReachabilityManager manager] startMonitoring];
     });
     return config;

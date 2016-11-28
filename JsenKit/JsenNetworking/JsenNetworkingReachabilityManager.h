@@ -45,6 +45,6 @@ typedef NS_ENUM(NSInteger, JsenNetworkingReachabilityStatus) {
  @param block A block object to be executed when the network availability of the `baseURL` host changes.. This block has no return value and takes a single argument which represents the various reachability states from the device to the `baseURL`.
  */
 
-- (void)setjsenReachabilityStatusChangeBlock:(nullable void (^)(JsenNetworkingReachabilityStatus status))block;
+- (void)setJsenReachabilityStatusChangeBlock:(nullable void (^)(JsenNetworkingReachabilityStatus status))block;
 
 @end
