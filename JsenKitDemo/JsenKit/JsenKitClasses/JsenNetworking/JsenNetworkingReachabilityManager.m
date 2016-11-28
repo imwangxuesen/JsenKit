@@ -21,7 +21,6 @@
 @end
 static JsenNetworkingReachabilityManager *mgr = nil;
 
-
 @implementation JsenNetworkingReachabilityManager
 + (instancetype _Nonnull)manager {
     static dispatch_once_t onceToken;
