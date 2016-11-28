@@ -2,13 +2,23 @@
 //  JsenNetworkingSuccessResponse.h
 //  JsenKit
 //
-//  Created by Wangxuesen on 2016/11/14.
+//  Created by WangXuesen on 2016/11/14.
 //  Copyright © 2016年 WangXuesen. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface JsenNetworkingSuccessResponse : NSObject
+
+/**
+ NSURLResponse 有可能为空
+ */
+@property (nonatomic, strong) NSURLResponse *urlResponse;
+
+/**
+ 下载成功后的文件路径
+ */
+@property (nonatomic, strong) NSURL *filePath;
 
 /**
  网络请求成功后的json数据
@@ -43,4 +53,13 @@
  @return self的实例
  */
 + (instancetype)responseWithResponseObject:(NSDictionary *)responseObject apiKey:(NSString *)apiKey;
+
+/**
+ 下载成功后的初始化
+
+ @param response NSURLResponse
+ @param filePath 文件存放路径
+ @return self的实例
+ */
++ (instancetype)downloadSuccesResponsesWithResponse:(NSURLResponse *)response filePath:(NSURL *)filePath;
 @end

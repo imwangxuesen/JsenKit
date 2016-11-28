@@ -2,7 +2,7 @@
 //  JsenNetworkingSuccessResponse.m
 //  JsenKit
 //
-//  Created by Wangxuesen on 2016/11/14.
+//  Created by WangXuesen on 2016/11/14.
 //  Copyright © 2016年 WangXuesen. All rights reserved.
 //
 
@@ -17,6 +17,13 @@
     response.responseObject = responseObject;
     [response modelWithResponseObject:responseObject apiKey:apiKey];
     return response;
+}
+
++ (instancetype)downloadSuccesResponsesWithResponse:(NSURLResponse *)response filePath:(NSURL *)filePath {
+    JsenNetworkingSuccessResponse *downloadResponse = [[JsenNetworkingSuccessResponse alloc] init];
+    downloadResponse.urlResponse = response;
+    downloadResponse.filePath = filePath;
+    return downloadResponse;
 }
 
 - (JsenNetworkingSuccessResponse *)modelWithResponseObject:(NSDictionary *)object apiKey:(NSString *)apiKey {
