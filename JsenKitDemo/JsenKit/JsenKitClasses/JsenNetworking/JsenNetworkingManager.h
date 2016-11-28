@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "JsenNetworkingConfig.h"
 #import "JsenNetworkingManagerTransmit.h"
+#import "JsenNetworkingReachabilityManager.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,7 +46,6 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
                         华   丽   的   分   割   线
  ******************************************************************************/
 @interface JsenNetworkingManager : NSObject
-
 
 
 /**

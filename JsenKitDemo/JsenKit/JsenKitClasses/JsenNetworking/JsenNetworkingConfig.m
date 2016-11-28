@@ -7,6 +7,7 @@
 //
 
 #import "JsenNetworkingConfig.h"
+#import "JsenNetworkingReachabilityManager.h"
 
 
 #pragma mark - 自定义错误的通知key
@@ -28,6 +29,8 @@ static JsenNetworkingConfig *config = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         config = [[JsenNetworkingConfig alloc] init];
+        [[JsenNetworkingReachabilityManager manager] setReachabilityStatusChangeBlock:nil];
+        [[JsenNetworkingReachabilityManager manager] startMonitoring];
     });
     return config;
 }
@@ -108,6 +111,13 @@ static JsenNetworkingConfig *config = nil;
         _customErrorStatusCode = @{};
     }
     return _customErrorStatusCode;
+}
+
+- (NSNumber *)noNetworkStatusCode {
+    if (!_noNetworkStatusCode) {
+        _noNetworkStatusCode = @999999;
+    }
+    return _noNetworkStatusCode;
 }
 
 - (NSDictionary *)responseFormat {

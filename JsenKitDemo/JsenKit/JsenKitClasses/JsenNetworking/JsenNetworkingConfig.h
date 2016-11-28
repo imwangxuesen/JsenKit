@@ -96,6 +96,11 @@ extern NSString *const JsenNetworkingResponseTimelineKey;
 @property (nonatomic, strong) NSDictionary *customErrorStatusCode;
 
 /**
+ 没有网络时的自定义状态码
+ */
+@property (nonatomic, strong) NSNumber *noNetworkStatusCode;
+
+/**
  服务端json返回响应数据格式 
  如 ：
  {
@@ -149,6 +154,15 @@ extern NSString *const JsenNetworkingResponseTimelineKey;
  */
 @property (nonatomic, strong) NSDictionary *timeoutInterval;
 
+/**
+ 下载或者上传时，非wifi环境的提示标题
+ */
+@property (nonatomic, copy) NSString *notWifiAlertTitleWhenUpOrDownload;
+
+/**
+ 下载或者上传时，非wifi环境的提示详情
+ */
+@property (nonatomic, copy) NSString *notWifiAlertDetatilWhenUpOrDownload;
 
 /**
  初始化

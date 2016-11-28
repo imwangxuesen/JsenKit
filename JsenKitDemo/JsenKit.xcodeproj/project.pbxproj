@@ -15,6 +15,7 @@
 		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
 		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
 		4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */; };
+		4C6E25E21DEBFD8700729580 /* JsenNetworkingReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E25E11DEBFD8700729580 /* JsenNetworkingReachabilityManager.m */; };
 		4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98B1DDE9D67006F3D5B /* JsenNetworkingConfig.m */; };
 		4C8DB9961DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98D1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m */; };
 		4C8DB9971DDE9D67006F3D5B /* JsenNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98F1DDE9D67006F3D5B /* JsenNetworkingManager.m */; };
@@ -41,6 +42,8 @@
 		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
+		4C6E25E01DEBFD8700729580 /* JsenNetworkingReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingReachabilityManager.h; sourceTree = "<group>"; };
+		4C6E25E11DEBFD8700729580 /* JsenNetworkingReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingReachabilityManager.m; sourceTree = "<group>"; };
 		4C8DB98A1DDE9D67006F3D5B /* JsenNetworkingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingConfig.h; sourceTree = "<group>"; };
 		4C8DB98B1DDE9D67006F3D5B /* JsenNetworkingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingConfig.m; sourceTree = "<group>"; };
 		4C8DB98C1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingFailedResponse.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				4C8DB9921DDE9D67006F3D5B /* JsenNetworkingManagerTransmitDelegate.h */,
 				4C8DB9931DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.h */,
 				4C8DB9941DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m */,
+				4C6E25E01DEBFD8700729580 /* JsenNetworkingReachabilityManager.h */,
+				4C6E25E11DEBFD8700729580 /* JsenNetworkingReachabilityManager.m */,
 			);
 			path = JsenNetworking;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */,
 				4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */,
 				4C8DB9981DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m in Sources */,
+				4C6E25E21DEBFD8700729580 /* JsenNetworkingReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

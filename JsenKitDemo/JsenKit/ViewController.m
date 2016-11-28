@@ -82,7 +82,7 @@
         NSLog(@"%@",tmp);
         
     }
-    
+    [JsenNetworkingManagerTransmit shareTransmit].delegate = self;
     [self configJsenNetworkingConfig];
     
 }
@@ -123,6 +123,7 @@
     //配置自定义的错误码及其message
     config.customErrorStatusCode = @{
                                      @10018:@"token error",
+                                     @77777:@"no network, please check your phone setting"
                                      };
     
     //配置默认超时时间，若不配置默认为10s
@@ -135,7 +136,9 @@
 //发起上传请求。
 - (IBAction)buttonaction:(id)sender {
     
-    [JsenNetworkingManagerTransmit shareTransmit].delegate = self;
+    
+    
+    
     
     [[JsenNetworkingManager manager] uploadTaskWithMultiPartApiKey:@"/nirvana/comment/feedBack" name:@"files"
                                                          dataArray:@[
@@ -153,6 +156,8 @@
                                                                      @"content":@"hahaha"}
                                                           delegate:self];
 }
+
+
 - (IBAction)reload:(id)sender {
     [self.mgr.downloadTask resume];
 
@@ -165,7 +170,19 @@
 
 - (IBAction)downloadBegain:(id)sender {
     
+    [[JsenNetworkingReachabilityManager manager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+    }];
     
+    [[JsenNetworkingManager manager] downloadWithUrl:@"http://0.0.0.0:8000/sdkzip.zip" filePath:nil fileName:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(JsenNetworkingSuccessResponse * _Nonnull response) {
+        
+    } failed:^(JsenNetworkingFailedResponse * _Nonnull response) {
+        
+    } finished:^{
+        
+    }];
 }
 
 
