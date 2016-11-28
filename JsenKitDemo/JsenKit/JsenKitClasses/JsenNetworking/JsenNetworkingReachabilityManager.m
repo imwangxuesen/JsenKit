@@ -9,7 +9,16 @@
 #import "JsenNetworkingReachabilityManager.h"
 #import <AFNetworkReachabilityManager.h>
 
+@interface JsenNetworkingReachabilityManager()
 
+/**
+ 真正用来监听网路状态的对象，本类的封装的核心。
+ + (instancetype _Nonnull)manager;
+ 会初始化
+ */
+@property (nonatomic, strong) AFNetworkReachabilityManager * _Nonnull afnManager;
+
+@end
 static JsenNetworkingReachabilityManager *mgr = nil;
 
 
@@ -23,11 +32,11 @@ static JsenNetworkingReachabilityManager *mgr = nil;
     return mgr;
 }
 
-- (void)setReachabilityStatusChangeBlock:(nullable void (^)(AFNetworkReachabilityStatus status))block {
+- (void)setjsenReachabilityStatusChangeBlock:(nullable void (^)(JsenNetworkingReachabilityStatus status))block {
     [mgr.afnManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         self.currentStatus = (JsenNetworkingReachabilityStatus)status;
         if (block) {
-            block(status);
+            block(self.currentStatus);
         }
     }];
 }

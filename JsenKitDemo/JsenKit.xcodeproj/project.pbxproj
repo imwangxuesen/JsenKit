@@ -383,6 +383,7 @@
 /* Begin XCBuildConfiguration section */
 		4C1CE0991DD9855500FE49DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -431,6 +432,7 @@
 		};
 		4C1CE09A1DD9855500FE49DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
