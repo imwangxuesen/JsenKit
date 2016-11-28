@@ -7,6 +7,7 @@
 //
 
 #import "JsenNetworkingReachabilityManager.h"
+#import <AFNetworkReachabilityManager.h>
 
 
 static JsenNetworkingReachabilityManager *mgr = nil;

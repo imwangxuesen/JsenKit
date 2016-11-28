@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworkReachabilityManager.h>
+@class AFNetworkReachabilityManager;
 
 typedef NS_ENUM(NSInteger, JsenNetworkingReachabilityStatus) {
     JsenNetworkingReachabilityStatusUnknown          = -1,
