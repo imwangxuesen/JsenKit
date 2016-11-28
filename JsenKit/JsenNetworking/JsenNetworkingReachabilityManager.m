@@ -7,7 +7,7 @@
 //
 
 #import "JsenNetworkingReachabilityManager.h"
-#import <AFNetworkReachabilityManager.h>
+#import "AFNetworkReachabilityManager.h"
 
 @interface JsenNetworkingReachabilityManager()
 
