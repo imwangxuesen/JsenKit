@@ -23,12 +23,14 @@ NSString *const JsenNetworkingResponseTimelineKey = @"timestamp";
 static NSTimeInterval const JsenNetworkingDefaultTimeOutInterval = 10;
 
 static JsenNetworkingConfig *config = nil;
-@implementation JsenNetworkingConfig
+@implementation JsenNetworkingConfig {
+}
 
 + (instancetype)shareConfig {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         config = [[JsenNetworkingConfig alloc] init];
+        
         [[JsenNetworkingReachabilityManager manager] setJsenReachabilityStatusChangeBlock:nil];
         [[JsenNetworkingReachabilityManager manager] startMonitoring];
     });

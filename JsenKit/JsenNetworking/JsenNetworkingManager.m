@@ -40,7 +40,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:apiKey];
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     
-    if (![self networkReachabilityAction]) {
+    if ([JsenNetworkingReachabilityManager manager].networkStatusConfirm && ![self networkReachabilityAction]) {
         return;
     }
     
@@ -78,7 +78,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:apiKey];
     
-    if (![self networkReachabilityAction]) {
+    if ([JsenNetworkingReachabilityManager manager].networkStatusConfirm && ![self networkReachabilityAction]) {
         return;
     }
     

@@ -34,7 +34,7 @@
         if (json && class != nil) {
             if ([json isKindOfClass:[NSDictionary class]]) {
                 self.data = [class yy_modelWithJSON:json];
-            } else if([object[JsenNetworkingResponseDataKey] isKindOfClass:[NSArray class]]) {
+            } else if([object[JsenNetworkingResponseDataKeyDefine] isKindOfClass:[NSArray class]]) {
                 self.data = [NSArray yy_modelArrayWithClass:class json:json];
             } else {
                 self.data = json;
