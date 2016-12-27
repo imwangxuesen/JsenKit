@@ -18,10 +18,15 @@ typedef NS_ENUM(NSInteger, JsenNetworkingReachabilityStatus) {
 @interface JsenNetworkingReachabilityManager : NSObject
 
 /**
- 当前的状态
+ After the networkStatusConfirm is determined, its value is the current network state，
+ If you use it, please make sure networkStatusConfirm is yes
  */
 @property (nonatomic, assign) JsenNetworkingReachabilityStatus currentStatus;
 
+/**
+ had confirm status , Before this can not determine the network environment
+ */
+@property (nonatomic, assign) BOOL networkStatusConfirm;
 
 + (instancetype _Nonnull)manager;
 

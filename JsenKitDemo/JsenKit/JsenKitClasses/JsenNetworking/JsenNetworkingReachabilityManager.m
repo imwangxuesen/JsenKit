@@ -21,6 +21,7 @@
 @end
 static JsenNetworkingReachabilityManager *mgr = nil;
 
+
 @implementation JsenNetworkingReachabilityManager
 + (instancetype _Nonnull)manager {
     static dispatch_once_t onceToken;
@@ -33,6 +34,7 @@ static JsenNetworkingReachabilityManager *mgr = nil;
 
 - (void)setJsenReachabilityStatusChangeBlock:(nullable void (^)(JsenNetworkingReachabilityStatus status))block {
     [mgr.afnManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        self.networkStatusConfirm = YES;
         self.currentStatus = (JsenNetworkingReachabilityStatus)status;
         if (block) {
             block(self.currentStatus);
