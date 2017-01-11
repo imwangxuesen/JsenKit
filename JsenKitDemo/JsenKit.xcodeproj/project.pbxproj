@@ -15,6 +15,15 @@
 		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
 		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
 		4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */; };
+		4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B771E2682C500C1F185 /* JsenAlert.m */; };
+		4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */; };
+		4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B7C1E2682C500C1F185 /* UIColor+JsenKit.m */; };
+		4C459B8A1E2682C500C1F185 /* UIImage+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B7E1E2682C500C1F185 /* UIImage+JsenKit.m */; };
+		4C459B8B1E2682C500C1F185 /* jsen_hud_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C459B801E2682C500C1F185 /* jsen_hud_error@2x.png */; };
+		4C459B8C1E2682C500C1F185 /* jsen_hud_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C459B811E2682C500C1F185 /* jsen_hud_error@3x.png */; };
+		4C459B8D1E2682C500C1F185 /* jsen_hud_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C459B821E2682C500C1F185 /* jsen_hud_success@2x.png */; };
+		4C459B8E1E2682C500C1F185 /* jsen_hud_success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C459B831E2682C500C1F185 /* jsen_hud_success@3x.png */; };
+		4C459B8F1E2682C500C1F185 /* JsenProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B851E2682C500C1F185 /* JsenProgressHUD.m */; };
 		4C6E25E21DEBFD8700729580 /* JsenNetworkingReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E25E11DEBFD8700729580 /* JsenNetworkingReachabilityManager.m */; };
 		4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98B1DDE9D67006F3D5B /* JsenNetworkingConfig.m */; };
 		4C8DB9961DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DB98D1DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m */; };
@@ -42,6 +51,20 @@
 		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
+		4C459B761E2682C500C1F185 /* JsenAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlert.h; sourceTree = "<group>"; };
+		4C459B771E2682C500C1F185 /* JsenAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenAlert.m; sourceTree = "<group>"; };
+		4C459B781E2682C500C1F185 /* JsenAlertConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlertConfigManager.h; sourceTree = "<group>"; };
+		4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenAlertConfigManager.m; sourceTree = "<group>"; };
+		4C459B7B1E2682C500C1F185 /* UIColor+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JsenKit.h"; sourceTree = "<group>"; };
+		4C459B7C1E2682C500C1F185 /* UIColor+JsenKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JsenKit.m"; sourceTree = "<group>"; };
+		4C459B7D1E2682C500C1F185 /* UIImage+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JsenKit.h"; sourceTree = "<group>"; };
+		4C459B7E1E2682C500C1F185 /* UIImage+JsenKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JsenKit.m"; sourceTree = "<group>"; };
+		4C459B801E2682C500C1F185 /* jsen_hud_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jsen_hud_error@2x.png"; sourceTree = "<group>"; };
+		4C459B811E2682C500C1F185 /* jsen_hud_error@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jsen_hud_error@3x.png"; sourceTree = "<group>"; };
+		4C459B821E2682C500C1F185 /* jsen_hud_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jsen_hud_success@2x.png"; sourceTree = "<group>"; };
+		4C459B831E2682C500C1F185 /* jsen_hud_success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jsen_hud_success@3x.png"; sourceTree = "<group>"; };
+		4C459B841E2682C500C1F185 /* JsenProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenProgressHUD.h; sourceTree = "<group>"; };
+		4C459B851E2682C500C1F185 /* JsenProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenProgressHUD.m; sourceTree = "<group>"; };
 		4C6E25E01DEBFD8700729580 /* JsenNetworkingReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingReachabilityManager.h; sourceTree = "<group>"; };
 		4C6E25E11DEBFD8700729580 /* JsenNetworkingReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingReachabilityManager.m; sourceTree = "<group>"; };
 		4C8DB98A1DDE9D67006F3D5B /* JsenNetworkingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingConfig.h; sourceTree = "<group>"; };
@@ -142,9 +165,55 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4C459B751E2682C500C1F185 /* JsenAlert */ = {
+			isa = PBXGroup;
+			children = (
+				4C459B761E2682C500C1F185 /* JsenAlert.h */,
+				4C459B771E2682C500C1F185 /* JsenAlert.m */,
+				4C459B781E2682C500C1F185 /* JsenAlertConfigManager.h */,
+				4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */,
+			);
+			path = JsenAlert;
+			sourceTree = "<group>";
+		};
+		4C459B7A1E2682C500C1F185 /* JsenCategory */ = {
+			isa = PBXGroup;
+			children = (
+				4C459B7B1E2682C500C1F185 /* UIColor+JsenKit.h */,
+				4C459B7C1E2682C500C1F185 /* UIColor+JsenKit.m */,
+				4C459B7D1E2682C500C1F185 /* UIImage+JsenKit.h */,
+				4C459B7E1E2682C500C1F185 /* UIImage+JsenKit.m */,
+			);
+			path = JsenCategory;
+			sourceTree = "<group>";
+		};
+		4C459B7F1E2682C500C1F185 /* JsenProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4C459B801E2682C500C1F185 /* jsen_hud_error@2x.png */,
+				4C459B811E2682C500C1F185 /* jsen_hud_error@3x.png */,
+				4C459B821E2682C500C1F185 /* jsen_hud_success@2x.png */,
+				4C459B831E2682C500C1F185 /* jsen_hud_success@3x.png */,
+				4C459B841E2682C500C1F185 /* JsenProgressHUD.h */,
+				4C459B851E2682C500C1F185 /* JsenProgressHUD.m */,
+			);
+			path = JsenProgressHUD;
+			sourceTree = "<group>";
+		};
+		4C459B861E2682C500C1F185 /* JsenToast */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JsenToast;
+			sourceTree = "<group>";
+		};
 		4C8DB9881DDE9D67006F3D5B /* JsenKitClasses */ = {
 			isa = PBXGroup;
 			children = (
+				4C459B751E2682C500C1F185 /* JsenAlert */,
+				4C459B7A1E2682C500C1F185 /* JsenCategory */,
+				4C459B7F1E2682C500C1F185 /* JsenProgressHUD */,
+				4C459B861E2682C500C1F185 /* JsenToast */,
 				4C8DB9A11DDEA4EE006F3D5B /* JsenDebugTool */,
 				4C8DB99A1DDEA308006F3D5B /* JsenTabBarController */,
 				4C8DB9891DDE9D67006F3D5B /* JsenNetworking */,
@@ -267,8 +336,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C459B8D1E2682C500C1F185 /* jsen_hud_success@2x.png in Resources */,
 				4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */,
 				4C932B8E1DE2CC3500A6F0C4 /* international.strings in Resources */,
+				4C459B8C1E2682C500C1F185 /* jsen_hud_error@3x.png in Resources */,
+				4C459B8B1E2682C500C1F185 /* jsen_hud_error@2x.png in Resources */,
+				4C459B8E1E2682C500C1F185 /* jsen_hud_success@3x.png in Resources */,
 				4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */,
 				4C1CE0921DD9855500FE49DB /* Main.storyboard in Resources */,
 			);
@@ -334,15 +407,20 @@
 				4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */,
 				4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */,
 				4C1CE08C1DD9855500FE49DB /* AppDelegate.m in Sources */,
+				4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */,
 				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
 				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
 				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
 				4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */,
+				4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */,
 				4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */,
 				4C8DB9961DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m in Sources */,
 				4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */,
+				4C459B8F1E2682C500C1F185 /* JsenProgressHUD.m in Sources */,
+				4C459B8A1E2682C500C1F185 /* UIImage+JsenKit.m in Sources */,
 				4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */,
 				4C8DB9981DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m in Sources */,
+				4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */,
 				4C6E25E21DEBFD8700729580 /* JsenNetworkingReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
