@@ -96,7 +96,7 @@ extern NSString *const JsenNetworkingResponseTimelineKey;
 @property (nonatomic, strong) NSDictionary *customErrorStatusCode;
 
 /**
- 没有网络时的自定义状态码
+ 没有网络时的自定义状态码 默认 9999
  */
 @property (nonatomic, strong) NSNumber *noNetworkStatusCode;
 

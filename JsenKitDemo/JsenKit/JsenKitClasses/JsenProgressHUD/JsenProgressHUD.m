@@ -64,6 +64,7 @@ static JsenProgressHUD * progressHUD = nil;
     self.image      = nil;
     self.label      = nil;
     self.alpha      = 0;
+    [self registerNotifications];
     
     return self;
 }

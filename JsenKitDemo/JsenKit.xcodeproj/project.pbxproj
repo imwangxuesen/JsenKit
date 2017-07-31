@@ -200,20 +200,12 @@
 			path = JsenProgressHUD;
 			sourceTree = "<group>";
 		};
-		4C459B861E2682C500C1F185 /* JsenToast */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = JsenToast;
-			sourceTree = "<group>";
-		};
 		4C8DB9881DDE9D67006F3D5B /* JsenKitClasses */ = {
 			isa = PBXGroup;
 			children = (
 				4C459B751E2682C500C1F185 /* JsenAlert */,
 				4C459B7A1E2682C500C1F185 /* JsenCategory */,
 				4C459B7F1E2682C500C1F185 /* JsenProgressHUD */,
-				4C459B861E2682C500C1F185 /* JsenToast */,
 				4C8DB9A11DDEA4EE006F3D5B /* JsenDebugTool */,
 				4C8DB99A1DDEA308006F3D5B /* JsenTabBarController */,
 				4C8DB9891DDE9D67006F3D5B /* JsenNetworking */,
