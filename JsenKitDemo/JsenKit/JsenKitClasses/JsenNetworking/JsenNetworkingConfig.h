@@ -15,6 +15,8 @@
 #define JsenNetworkingResponseDataKeyDefine [JsenNetworkingConfig shareConfig].responseFormat[JsenNetworkingResponseDataKey]
 
 
+
+
 //自定义的错误码发送通知时的名字,如果需要接收此通知注册此key即可，收到的object为JsenNetworkingFailedResponse 实例
 
 extern NSString *const JsenNetworkingCustomHttpErrorNotificationKey;
@@ -30,6 +32,19 @@ extern NSString *const JsenNetworkingResponseStatusCodeKey;
 extern NSString *const JsenNetworkingResponseMessageKey;
 //时间戳
 extern NSString *const JsenNetworkingResponseTimelineKey;
+
+
+/**
+ 序列化类型
+
+ - JsenNetworkingConfigSerializerHTTP: HTTP
+ - JsenNetworkingConfigSerializerJSON: JSON
+ */
+typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
+    JsenNetworkingConfigSerializerHTTP,
+    JsenNetworkingConfigSerializerJSON
+};
+
 
 
 @interface JsenNetworkingConfig : NSObject
@@ -153,6 +168,12 @@ extern NSString *const JsenNetworkingResponseTimelineKey;
  
  */
 @property (nonatomic, strong) NSDictionary *timeoutInterval;
+
+/**
+ 设置请求参数的序列化器类型
+ 默认：JsenNetworkingConfigSerializerHTTP
+ */
+@property (nonatomic, assign) JsenNetworkingConfigSerializer requestSerializerType;
 
 /**
  下载或者上传时，非wifi环境的提示标题
