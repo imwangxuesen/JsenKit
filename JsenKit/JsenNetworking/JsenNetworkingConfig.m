@@ -117,7 +117,7 @@ static JsenNetworkingConfig *config = nil;
 
 - (NSNumber *)noNetworkStatusCode {
     if (!_noNetworkStatusCode) {
-        _noNetworkStatusCode = @999999;
+        _noNetworkStatusCode = @9999;
     }
     return _noNetworkStatusCode;
 }
@@ -140,4 +140,6 @@ static JsenNetworkingConfig *config = nil;
     }
     return _defaultTimeoutInterval;
 }
+
+
 @end

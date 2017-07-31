@@ -32,9 +32,9 @@ typedef void (^JsenAlertAction)(NSInteger index);
  @param action when action buttons be clicked, touch event will call this blocks to tell coder that action button which one be clicked.
  */
 + (JsenAlert *)alertWithActionTitles:(NSArray *)actionTitles
-                        title:(NSString *)title
-                detailMessage:(NSString *)detailMessage
-                       action:(JsenAlertAction)action;
+                               title:(NSString *)title
+                       detailMessage:(NSString *)detailMessage
+                              action:(JsenAlertAction)action;
 
 /**
  hiden alert view
