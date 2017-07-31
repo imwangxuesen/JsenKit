@@ -26,5 +26,6 @@
 
 @property (nonatomic, strong) NSArray *footer;
 @property (nonatomic, strong) NSArray *header;
+@property (nonatomic, strong) NSNumber *status;
 
 @end
