@@ -107,18 +107,18 @@
                           };
     
     //配置公共参数
-//    config.globalParameters =  @{
-//                                 @"blackBox"    :@"ewogICJ0b2tlbklkIiA6ICJ1Y3JlZGl0MTU4NmM1OGQxODMtNmE3MzU2NTA4NTY0YmZjMzI4ZWZkY2QwMTI4ZGYxY2QiLAogICJvcyIgOiAiaU9TIiwKICAicHJvZmlsZVRpbWUiIDogMTk4LAogICJ2ZXJzaW9uIiA6ICIyLjEuNCIKfQ==",
-//                                 @"clientIp"        : @"10.255.18.53",
-//                                 @"clientVersion"   : @"2.0.1",
-//                                 @"deviceInfo"      : @"{\"deviceModel\":\"iPhone 6S\",\"deviceOs\":\"iOS10.0.2\"}",
-//                                 @"network"         : @"WIFI",
-//                                 @"platform"        : @"iOS",
-//                                 @"screenSize"      : @"375x667",
-//                                 @"token"           : @"b906911b-a522-4238-9ed9-19dad83fe1d7",
-//                                 @"userId"          : @262,
-//                                 
-//                                 };
+    config.globalParameters =  @{
+                                 @"blackBox"    :@"ewogICJ0b2tlbklkIiA6ICJ1Y3JlZGl0MTU4NmM1OGQxODMtNmE3MzU2NTA4NTY0YmZjMzI4ZWZkY2QwMTI4ZGYxY2QiLAogICJvcyIgOiAiaU9TIiwKICAicHJvZmlsZVRpbWUiIDogMTk4LAogICJ2ZXJzaW9uIiA6ICIyLjEuNCIKfQ==",
+                                 @"clientIp"        : @"10.255.18.53",
+                                 @"clientVersion"   : @"2.0.1",
+                                 @"deviceInfo"      : @"{\"deviceModel\":\"iPhone 6S\",\"deviceOs\":\"iOS10.0.2\"}",
+                                 @"network"         : @"WIFI",
+                                 @"platform"        : @"iOS",
+                                 @"screenSize"      : @"375x667",
+                                 @"token"           : @"b906911b-a522-4238-9ed9-19dad83fe1d7",
+                                 @"userId"          : @262,
+                                 
+                                 };
     
     //配置自定义的错误码及其message
     config.customErrorStatusCode = @{
