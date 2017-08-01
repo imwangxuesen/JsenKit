@@ -10,6 +10,7 @@
 #import "JsenTabBarController.h"
 #import "JsenTabBarItemAttribute.h"
 #import <AFNetworking.h>
+#import "JsenFPSLabel.h"
 
 @interface AppDelegate ()
 
@@ -20,12 +21,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    
 //    [self configTabBarController];
 //    
 //    
-//    [self.window makeKeyAndVisible];
+    //[self.window makeKeyAndVisible];
+    [JsenFPSLabel show];
+
+    
     
     return YES;
 }

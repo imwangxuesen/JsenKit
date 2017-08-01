@@ -15,6 +15,7 @@
 		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
 		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
 		4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */; };
+		4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */; };
 		4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B771E2682C500C1F185 /* JsenAlert.m */; };
 		4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */; };
 		4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B7C1E2682C500C1F185 /* UIColor+JsenKit.m */; };
@@ -53,6 +54,8 @@
 		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
+		4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenFPSLabel.h; sourceTree = "<group>"; };
+		4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenFPSLabel.m; sourceTree = "<group>"; };
 		4C459B761E2682C500C1F185 /* JsenAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlert.h; sourceTree = "<group>"; };
 		4C459B771E2682C500C1F185 /* JsenAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenAlert.m; sourceTree = "<group>"; };
 		4C459B781E2682C500C1F185 /* JsenAlertConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlertConfigManager.h; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 			children = (
 				4C8DB9A21DDEA506006F3D5B /* JsenRunTimeTool.h */,
 				4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */,
+				4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */,
+				4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */,
 			);
 			path = JsenDebugTool;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8DB9971DDE9D67006F3D5B /* JsenNetworkingManager.m in Sources */,
+				4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */,
 				4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */,
 				4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */,
 				4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */,
