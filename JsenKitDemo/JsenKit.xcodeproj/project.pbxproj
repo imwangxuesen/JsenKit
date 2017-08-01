@@ -15,6 +15,8 @@
 		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
 		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
 		4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */; };
+		4C234C211F3073E6006A4075 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C234C201F3073E6006A4075 /* TimerViewController.m */; };
+		4C234C241F3090FC006A4075 /* JsenDeviceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */; };
 		4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */; };
 		4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B771E2682C500C1F185 /* JsenAlert.m */; };
 		4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */; };
@@ -54,6 +56,10 @@
 		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
+		4C234C1F1F3073E6006A4075 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		4C234C201F3073E6006A4075 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
+		4C234C221F3090FC006A4075 /* JsenDeviceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenDeviceMonitor.h; sourceTree = "<group>"; };
+		4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenDeviceMonitor.m; sourceTree = "<group>"; };
 		4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenFPSLabel.h; sourceTree = "<group>"; };
 		4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenFPSLabel.m; sourceTree = "<group>"; };
 		4C459B761E2682C500C1F185 /* JsenAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlert.h; sourceTree = "<group>"; };
@@ -162,6 +168,8 @@
 				4C1CE0981DD9855500FE49DB /* Info.plist */,
 				4C1CE0871DD9855500FE49DB /* Supporting Files */,
 				4C932B901DE2CC3500A6F0C4 /* international.strings */,
+				4C234C1F1F3073E6006A4075 /* TimerViewController.h */,
+				4C234C201F3073E6006A4075 /* TimerViewController.m */,
 			);
 			path = JsenKit;
 			sourceTree = "<group>";
@@ -268,6 +276,8 @@
 				4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */,
 				4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */,
 				4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */,
+				4C234C221F3090FC006A4075 /* JsenDeviceMonitor.h */,
+				4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */,
 			);
 			path = JsenDebugTool;
 			sourceTree = "<group>";
@@ -409,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C234C211F3073E6006A4075 /* TimerViewController.m in Sources */,
 				4C8DB9971DDE9D67006F3D5B /* JsenNetworkingManager.m in Sources */,
 				4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */,
 				4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */,
@@ -431,6 +442,7 @@
 				4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */,
 				4C8DB9981DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m in Sources */,
 				4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */,
+				4C234C241F3090FC006A4075 /* JsenDeviceMonitor.m in Sources */,
 				4C6E25E21DEBFD8700729580 /* JsenNetworkingReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/ViewController.m"
-            timestampString = "523175859.317331"
+            timestampString = "523276875.128772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-buttonaction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/ViewController.m"
-            timestampString = "523175859.317331"
+            timestampString = "523276875.128772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-buttonaction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,7 +84,7 @@
                   moduleName = "JsenKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/WangXuesen/Desktop/JsenKit/JsenKitDemo/JsenKit/JsenKitClasses/JsenNetworking/JsenNetworkingManager.m"
-                  timestampString = "523267596.860144"
+                  timestampString = "523276887.310354"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
@@ -99,7 +99,7 @@
                   moduleName = "JsenKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/WangXuesen/Desktop/JsenKit/JsenKitDemo/JsenKit/JsenKitClasses/JsenNetworking/JsenNetworkingManager.m"
-                  timestampString = "523267596.86151"
+                  timestampString = "523276887.312585"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/ViewController.m"
-            timestampString = "523175859.317331"
+            timestampString = "523276875.128772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-buttonaction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -147,13 +147,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JsenKit/JsenKitClasses/JsenDebugTool/JsenFPSLabel.m"
-            timestampString = "523267105.907831"
+            filePath = "JsenKit/ViewController.m"
+            timestampString = "523276875.128772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-dispalyLinkTick:"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-downloadBegain:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -163,13 +163,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JsenKit/JsenKitClasses/JsenDebugTool/JsenFPSLabel.m"
-            timestampString = "523267596.774293"
+            filePath = "JsenKit/ViewController.m"
+            timestampString = "523276875.128772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "+show"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-downloadBegain:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -179,13 +179,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JsenKit/JsenKitClasses/JsenDebugTool/JsenFPSLabel.m"
-            timestampString = "523267568.842826"
+            filePath = "JsenKit/TimerViewController.m"
+            timestampString = "523270261.598606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "+show"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-dealloc"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsenKit/ViewController.m"
+            timestampString = "523276875.128772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

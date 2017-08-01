@@ -11,6 +11,9 @@
 #import "JsenNetworkingManager.h"
 #import "JsenNetworkingConfig.h"
 #import "BannerModel.h"
+#import "TimerViewController.h"
+#import "JsenDeviceMonitor.h"
+
 
 @interface ViewController ()<JsenNetworkingManagerTransmitDelegate>
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
@@ -30,6 +33,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [JsenDeviceMonitor jsn_deviceBatter:^(NSUInteger batterLevel, UIDeviceBatteryState state) {
+        NSLog(@"batter level %ld \n state %ld",batterLevel,state);
+    }];
     
     NSArray *paths1=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
                                                         , NSUserDomainMask
@@ -178,6 +184,21 @@
 
 
 - (IBAction)downloadBegain:(id)sender {
+    TimerViewController *vc = [[TimerViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:^{
+        NSLog(@"vc present");
+    }];
+    
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [vc dismissViewControllerAnimated:YES completion:^{
+            NSLog(@"vc dismiss");
+        }];
+    });
+    
+    
+    
     
     [[JsenNetworkingReachabilityManager manager] setJsenReachabilityStatusChangeBlock:^(JsenNetworkingReachabilityStatus status) {
         
@@ -252,5 +273,12 @@
     
     
 }
+
+
+- (void)monitorDeviceBatter {
+    
+
+}
+
 
 @end
