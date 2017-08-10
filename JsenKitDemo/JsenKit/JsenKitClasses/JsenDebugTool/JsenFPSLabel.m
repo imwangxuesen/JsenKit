@@ -34,7 +34,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textColor = [UIColor greenColor];
-        
     }
     return self;
 }

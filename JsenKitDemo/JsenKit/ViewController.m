@@ -25,17 +25,36 @@
 
 @property (nonatomic, strong) JsenNetworkingManager *mgr;
 
+@property (nonatomic, strong) UIWindow *window;
+
+@property (nonatomic, strong) NSTimer *threadTimer;
+
+@property (nonatomic, strong) NSThread *thread1;
+
 @end
 
 @implementation ViewController
+
+- (void)timerAction {
+    [JsenDeviceMonitor jsen_deviceCPUsage:^(float sage) {
+        NSLog(@"%f",sage);
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [JsenDeviceMonitor jsn_deviceBatter:^(NSUInteger batterLevel, UIDeviceBatteryState state) {
-        NSLog(@"batter level %ld \n state %ld",batterLevel,state);
+    [JsenDeviceMonitor jsen_deviceCPUsage:^(float sage) {
+        NSLog(@"cpu sage: %f",sage);
     }];
+    
+    
+    
+    [JsenDeviceMonitor jsen_deviceBatter:^(NSUInteger batterLevel, UIDeviceBatteryState state) {
+        NSLog(@"batter level %ld \n state %ld",(unsigned long)batterLevel,state);
+    }];
+    
     
     NSArray *paths1=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
                                                         , NSUserDomainMask
@@ -45,6 +64,8 @@
     NSString *documentsDirect=[paths1 objectAtIndex:0];
     assert(1 == paths1.count);
     NSLog(@">>documentsDirect=%@",documentsDirect);
+    
+    
     
     NSArray *Librarypaths =  NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSDocumentDirectory, YES);
     NSString* libraryDirectory  = [Librarypaths objectAtIndex:0];
@@ -90,6 +111,9 @@
     }
     [JsenNetworkingManagerTransmit shareTransmit].delegate = self;
     [self configJsenNetworkingConfig];
+    
+    
+    
     
 }
 
@@ -144,59 +168,61 @@
 //发起上传请求。
 - (IBAction)buttonaction:(id)sender {
     
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.window.backgroundColor = [UIColor redColor];
+    self.window.hidden = NO;
     
-    [[JsenNetworkingManager manager] post:@"/dragon/user/login" parameters:@{
-                                                                 @"mobile":@"15939599569",
-                                                                 @"password":@"e10adc3949ba59abbe56e057f20f883e",
-                                                                 @"passwordType":@0
-                                                                 } progress:nil
-                                  success:^(JsenNetworkingSuccessResponse * _Nonnull response) {
-                                      
-                                      NSLog(@"success%@",response);
-                                      
-                                  }
-                                   failed:^(JsenNetworkingFailedResponse * _Nonnull response) {
-                                                                     
-                                       NSLog(@"error%@",response);
-
-                                   }
-                                 finished:^{
-                                                                     
-                                     
-                                 }];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    view.backgroundColor = [UIColor blackColor];
     
-    [[JsenNetworkingManager manager] uploadTaskWithMultiPartApiKey:@"/nirvana/comment/feedBack" name:@"files"
-                                                         dataArray:@[
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
-                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"])
-                                                                     ]
-                                                     fileNameArray:@[
-                                                                     @"imagename1.png",
-                                                                     @"imagename2.png",
-                                                                     @"imagename3.png"
-                                                                     ]
-                                                          mimeType:@"image/png"
-                                                        parameters:@{@"mobile":@18600722414,
-                                                                     @"content":@"hahaha"}
-                                                          delegate:self];
+    self.window.windowLevel = UIWindowLevelStatusBar + 1;
+    [self.window addSubview:view];
+    self.window.rootViewController = self;
+    
+    
+    
+//    [[JsenNetworkingManager manager] post:@"/dragon/user/login" parameters:@{
+//                                                                 @"mobile":@"15939599569",
+//                                                                 @"password":@"e10adc3949ba59abbe56e057f20f883e",
+//                                                                 @"passwordType":@0
+//                                                                 } progress:nil
+//                                  success:^(JsenNetworkingSuccessResponse * _Nonnull response) {
+//                                      
+//                                      NSLog(@"success%@",response);
+//                                      
+//                                  }
+//                                   failed:^(JsenNetworkingFailedResponse * _Nonnull response) {
+//                                                                     
+//                                       NSLog(@"error%@",response);
+//
+//                                   }
+//                                 finished:^{
+//                                                                     
+//                                     
+//                                 }];
+//    
+//    [[JsenNetworkingManager manager] uploadTaskWithMultiPartApiKey:@"/nirvana/comment/feedBack" name:@"files"
+//                                                         dataArray:@[
+//                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
+//                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
+//                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"])
+//                                                                     ]
+//                                                     fileNameArray:@[
+//                                                                     @"imagename1.png",
+//                                                                     @"imagename2.png",
+//                                                                     @"imagename3.png"
+//                                                                     ]
+//                                                          mimeType:@"image/png"
+//                                                        parameters:@{@"mobile":@18600722414,
+//                                                                     @"content":@"hahaha"}
+//                                                          delegate:self];
 }
 
 
 - (IBAction)downloadBegain:(id)sender {
-    TimerViewController *vc = [[TimerViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:^{
-        NSLog(@"vc present");
-    }];
+    NSURL *url = [NSURL URLWithString:@""];
     
-    
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [vc dismissViewControllerAnimated:YES completion:^{
-            NSLog(@"vc dismiss");
-        }];
-    });
-    
+    NSUUID *uuid = [UIDevice currentDevice].identifierForVendor;
     
     
     
