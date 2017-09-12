@@ -22,6 +22,8 @@ NSString *const JsenNetworkingResponseTimelineKey = @"timestamp";
 #pragma mark - 默认超时时间
 static NSTimeInterval const JsenNetworkingDefaultTimeOutInterval = 10;
 
+#pragma mark - 签名方法
+
 static JsenNetworkingConfig *config = nil;
 @implementation JsenNetworkingConfig {
 }
@@ -120,6 +122,20 @@ static JsenNetworkingConfig *config = nil;
         _noNetworkStatusCode = @9999;
     }
     return _noNetworkStatusCode;
+}
+
+- (NSString *)signKeyName {
+    if (!_signKeyName) {
+        _signKeyName = @"sign";
+    }
+    return _signKeyName;
+}
+
+- (NSDictionary *)noSignAPI {
+    if (!_noSignAPI) {
+        _noSignAPI = @{};
+    }
+    return _noSignAPI;
 }
 
 - (NSDictionary *)responseFormat {

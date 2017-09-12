@@ -536,11 +536,14 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
 - (NSDictionary *)configParametersWithRequestParameters:(NSDictionary *)parameters {
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     NSMutableDictionary *requestParameters = [[NSMutableDictionary alloc] initWithDictionary:config.globalParameters];
-    if (parameters && parameters.allKeys.count != 0) {
-        [parameters enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            [requestParameters setObject:obj forKey:key];
-        }];
+    [requestParameters addEntriesFromDictionary:parameters];
+    if (config.signBlock && [config.noSignAPI objectForKey:self.apiKey] == nil) {
+        NSString *signKey = config.signBlock(requestParameters);
+        [requestParameters addEntriesFromDictionary:@{
+                                                      config.signKeyName:signKey
+                                                      }];
     }
+
     return requestParameters;
 }
 

@@ -33,6 +33,13 @@ extern NSString *const JsenNetworkingResponseMessageKey;
 //时间戳
 extern NSString *const JsenNetworkingResponseTimelineKey;
 
+/**
+ 签名算法
+
+ @param signKeyValues 被签名的dic
+ @return signkey
+ */
+typedef NSString* (^JsenNetworkingConfigSignBlock)(NSDictionary *signKeyValues);
 
 /**
  序列化类型
@@ -186,6 +193,21 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
 @property (nonatomic, copy) NSString *notWifiAlertDetatilWhenUpOrDownload;
 
 /**
+ 签名算法block
+ */
+@property (nonatomic, copy) JsenNetworkingConfigSignBlock signBlock;
+
+/**
+ 签名key name
+ */
+@property (nonatomic, copy) NSString *signKeyName;
+
+/**
+ 不参与签名的接口
+ */
+@property (nonatomic, copy) NSDictionary *noSignAPI;
+
+/**
  初始化
 
  @return self的实例
@@ -215,4 +237,5 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
  @return 完整的请求url
  */
 - (NSString *)api:(NSString *)apiKey;
+
 @end

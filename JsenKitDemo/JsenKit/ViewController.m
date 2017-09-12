@@ -109,6 +109,7 @@
         NSLog(@"%@",tmp);
         
     }
+
     [JsenNetworkingManagerTransmit shareTransmit].delegate = self;
     [self configJsenNetworkingConfig];
     
@@ -158,8 +159,22 @@
     
     //配置默认超时时间，若不配置默认为10s
     config.defaultTimeoutInterval = 20.0;
-    
+
+    //配置请求参数的序列化器类型
     config.requestSerializerType = JsenNetworkingConfigSerializerJSON;
+
+    //配置签名算法
+    config.signBlock = ^NSString *(NSDictionary *signKeyValues) {
+        __block NSMutableString *si = [NSMutableString string];
+        [signKeyValues enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [si appendString:key];
+        }];
+        return si;
+    };
+
+    //配置签名名称
+    config.signKeyName = @"testSign";
+
 
 }
 
@@ -179,43 +194,7 @@
     [self.window addSubview:view];
     self.window.rootViewController = self;
     
-    
-    
-//    [[JsenNetworkingManager manager] post:@"/dragon/user/login" parameters:@{
-//                                                                 @"mobile":@"15939599569",
-//                                                                 @"password":@"e10adc3949ba59abbe56e057f20f883e",
-//                                                                 @"passwordType":@0
-//                                                                 } progress:nil
-//                                  success:^(JsenNetworkingSuccessResponse * _Nonnull response) {
-//                                      
-//                                      NSLog(@"success%@",response);
-//                                      
-//                                  }
-//                                   failed:^(JsenNetworkingFailedResponse * _Nonnull response) {
-//                                                                     
-//                                       NSLog(@"error%@",response);
-//
-//                                   }
-//                                 finished:^{
-//                                                                     
-//                                     
-//                                 }];
-//    
-//    [[JsenNetworkingManager manager] uploadTaskWithMultiPartApiKey:@"/nirvana/comment/feedBack" name:@"files"
-//                                                         dataArray:@[
-//                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
-//                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"]),
-//                                                                     UIImagePNGRepresentation([UIImage imageNamed:@"waiting"])
-//                                                                     ]
-//                                                     fileNameArray:@[
-//                                                                     @"imagename1.png",
-//                                                                     @"imagename2.png",
-//                                                                     @"imagename3.png"
-//                                                                     ]
-//                                                          mimeType:@"image/png"
-//                                                        parameters:@{@"mobile":@18600722414,
-//                                                                     @"content":@"hahaha"}
-//                                                          delegate:self];
+
 }
 
 
@@ -223,8 +202,7 @@
     NSURL *url = [NSURL URLWithString:@""];
     
     NSUUID *uuid = [UIDevice currentDevice].identifierForVendor;
-    
-    
+
     
     [[JsenNetworkingReachabilityManager manager] setJsenReachabilityStatusChangeBlock:^(JsenNetworkingReachabilityStatus status) {
         
