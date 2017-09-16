@@ -15,7 +15,7 @@
 
  @return 加密后的字符串
  */
-- (NSString *)jen_md5;
+- (NSString *)jsen_md5;
 
 /**
  转换为Base64编码

@@ -329,13 +329,16 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 //http 请求成功后处理，如果有自定义的错误码，会处理为failed
 - (void)successWithResponseObject:(NSDictionary *)responseObject {
     
-    if ([self httpSuccessButCustomError:responseObject[JsenNetworkingResponseStatusCodeKeyDefine]]) {
+    if ([JsenNetworkingConfig shareConfig].customSuccessStatusCode != responseObject[JsenNetworkingResponseStatusCodeKeyDefine]) {
         JsenNetworkingFailedResponse *response = [JsenNetworkingFailedResponse responseWithResponseObject:responseObject];
-        if (self.failed) {
-            self.failed(response);
+        if ([self httpSuccessButCustomError:responseObject[JsenNetworkingResponseStatusCodeKeyDefine]]){
+            [self postCustomHttpErrorNotification:response];
         }
         
-        [self postCustomHttpErrorNotification:response];
+        if (self.failed) {
+            self.failed(response);
+            return;
+        }
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingCustomErrorFailed:api:)]) {
             [self.delegate jsenNetworkingCustomErrorFailed:response api:self.apiKey];
@@ -345,6 +348,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
         JsenNetworkingSuccessResponse *response = [JsenNetworkingSuccessResponse responseWithResponseObject:responseObject apiKey:self.apiKey];
         if (self.success) {
             self.success(response);
+            return;
         }
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingSuccess:api:)]) {
@@ -359,6 +363,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     
     if (self.failed) {
         self.failed(response);
+        return;
     }
     
     if ([self httpSuccessButCustomError:@(error.code)]) {
@@ -378,6 +383,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 - (void)finish{
     if (self.finished) {
         self.finished();
+        return;
     }
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingFinished:)]) {

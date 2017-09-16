@@ -66,6 +66,13 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
 @property (nonatomic, copy) NSString *host;
 
 /**
+ 请求成功自定义状态码
+ 在http 200的前提下，服务端一般会自定义一个表示本次请求有效的状态码
+ 默认为0
+ */
+@property (nonatomic, copy) NSNumber *customSuccessStatusCode;
+
+/**
  每个接口对应的model配置属性
  比如:@"/feedback/upload" 接口对应的model类是 FeedBackModel.h
  

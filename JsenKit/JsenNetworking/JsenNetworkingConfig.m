@@ -158,4 +158,11 @@ static JsenNetworkingConfig *config = nil;
 }
 
 
+- (NSNumber *)customSuccessStatusCode {
+    if (!_customSuccessStatusCode) {
+        _customSuccessStatusCode = @0;
+    }
+    return _customSuccessStatusCode;
+}
+
 @end
