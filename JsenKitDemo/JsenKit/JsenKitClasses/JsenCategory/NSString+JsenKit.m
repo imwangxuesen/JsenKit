@@ -12,7 +12,7 @@
 
 @implementation NSString (JsenKit)
 
-- (NSString *)jen_md5 {
+- (NSString *)jsen_md5 {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     const void *str = [data bytes];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
