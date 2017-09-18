@@ -558,13 +558,6 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    //header
-    if (config.httpHeader && config.httpHeader.allKeys.count != 0) {
-        [config.httpHeader enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            [mgr.requestSerializer setValue:obj forHTTPHeaderField:key];
-        }];
-    }
-    
     //serializer
     switch (config.requestSerializerType) {
         case JsenNetworkingConfigSerializerJSON:
@@ -574,6 +567,13 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
         default:
             mgr.requestSerializer = [AFHTTPRequestSerializer serializer];
             break;
+    }
+    
+    //header
+    if (config.httpHeader && config.httpHeader.allKeys.count != 0) {
+        [config.httpHeader enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [mgr.requestSerializer setValue:obj forHTTPHeaderField:key];
+        }];
     }
     
     //超时时间
