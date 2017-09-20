@@ -330,6 +330,19 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
 - (void)successWithResponseObject:(NSDictionary *)responseObject {
     
     if ([JsenNetworkingConfig shareConfig].customSuccessStatusCode != responseObject[JsenNetworkingResponseStatusCodeKeyDefine]) {
+        
+        JsenNetworkingSuccessResponse *response = [JsenNetworkingSuccessResponse responseWithResponseObject:responseObject apiKey:self.apiKey];
+        if (self.success) {
+            self.success(response);
+            return;
+        }
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingSuccess:api:)]) {
+            [self.delegate jsenNetworkingSuccess:response api:self.apiKey];
+        }
+        
+    } else {
+        
         JsenNetworkingFailedResponse *response = [JsenNetworkingFailedResponse responseWithResponseObject:responseObject];
         if ([self httpSuccessButCustomError:responseObject[JsenNetworkingResponseStatusCodeKeyDefine]]){
             [self postCustomHttpErrorNotification:response];
@@ -342,17 +355,6 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingCustomErrorFailed:api:)]) {
             [self.delegate jsenNetworkingCustomErrorFailed:response api:self.apiKey];
-        }
-        
-    } else {
-        JsenNetworkingSuccessResponse *response = [JsenNetworkingSuccessResponse responseWithResponseObject:responseObject apiKey:self.apiKey];
-        if (self.success) {
-            self.success(response);
-            return;
-        }
-        
-        if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingSuccess:api:)]) {
-            [self.delegate jsenNetworkingSuccess:response api:self.apiKey];
         }
     }
 }
