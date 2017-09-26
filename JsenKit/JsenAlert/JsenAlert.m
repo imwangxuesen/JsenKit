@@ -180,8 +180,7 @@
 - (UIView *)effectView {
     if (!_effectView) {
         _effectView = [[UIView alloc] init];
-        _effectView.alpha = 0.5;
-        _effectView.backgroundColor = [UIColor blackColor];
+        _effectView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
         CGFloat height = [UIScreen mainScreen].bounds.size.height;
         _effectView.frame = CGRectMake(0, 0, width, height);
