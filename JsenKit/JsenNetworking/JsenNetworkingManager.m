@@ -560,15 +560,18 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    //serializer
-    switch (config.requestSerializerType) {
-        case JsenNetworkingConfigSerializerJSON:
-            mgr.requestSerializer = [AFJSONRequestSerializer serializer];
-            break;
-            
-        default:
-            mgr.requestSerializer = [AFHTTPRequestSerializer serializer];
-            break;
+    if (config.requestSerializerTypeConfig && config.requestSerializerTypeConfig[apiKey]) {
+        switch ([config.requestSerializerTypeConfig[apiKey] integerValue]) {
+            case JsenNetworkingConfigSerializerJSON:
+                mgr.requestSerializer = [AFJSONRequestSerializer serializer];
+                break;
+                
+            default:
+                mgr.requestSerializer = [AFHTTPRequestSerializer serializer];
+                break;
+        }
+    }else {
+        mgr.requestSerializer = [AFHTTPRequestSerializer serializer];
     }
     
     //header

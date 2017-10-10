@@ -187,7 +187,19 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
  设置请求参数的序列化器类型
  默认：JsenNetworkingConfigSerializerHTTP
  */
-@property (nonatomic, assign) JsenNetworkingConfigSerializer requestSerializerType;
+//@property (nonatomic, assign) JsenNetworkingConfigSerializer requestSerializerType;
+
+/**
+ 配置每一个借口的requestSerializerType
+ eg：
+ @{
+     @"app/loadUserInfo":@(JsenNetworkingConfigSerializerHTTP)
+ }
+ 
+ 其中 JsenNetworkingConfigSerializerHTTP 是 JsenNetworkingConfigSerializer类型
+ 
+ */
+@property (nonatomic, strong) NSDictionary *requestSerializerTypeConfig;
 
 /**
  下载或者上传时，非wifi环境的提示标题

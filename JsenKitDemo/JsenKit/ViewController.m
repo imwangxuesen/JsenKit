@@ -69,7 +69,7 @@
     
     NSArray *Librarypaths =  NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSDocumentDirectory, YES);
     NSString* libraryDirectory  = [Librarypaths objectAtIndex:0];
-    NSLog(@">>Librarypaths.length =%d",[Librarypaths count]);
+    NSLog(@">>Librarypaths.length =%ld",[Librarypaths count]);
     assert(1 < Librarypaths.count);
     
     NSLog(@"libraryDirectory=%@",libraryDirectory);
@@ -161,7 +161,9 @@
     config.defaultTimeoutInterval = 20.0;
 
     //配置请求参数的序列化器类型
-    config.requestSerializerType = JsenNetworkingConfigSerializerJSON;
+    config.requestSerializerTypeConfig = @{
+                                           @"app/load":@(JsenNetworkingConfigSerializerJSON)
+                                           };
 
     //配置签名算法
     config.signBlock = ^NSString *(NSDictionary *signKeyValues) {
