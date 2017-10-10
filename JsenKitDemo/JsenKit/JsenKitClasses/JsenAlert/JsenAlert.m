@@ -148,7 +148,7 @@
             button.tag = i;
             [button addTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             
-            NSString *title = [self notEmpty:self.actionTitles[i]] ? self.actionTitles[0] : JsenAlertConfigManagerDefine.defualtButtonTitle;
+            NSString *title = [self notEmpty:self.actionTitles[i]] ? self.actionTitles[i] : JsenAlertConfigManagerDefine.defualtButtonTitle;
             [button setTitle:title forState:UIControlStateNormal];
             
             if (i == 0) {
