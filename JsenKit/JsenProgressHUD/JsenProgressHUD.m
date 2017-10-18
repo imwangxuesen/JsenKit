@@ -275,12 +275,10 @@ static JsenProgressHUD * progressHUD = nil;
 
 // 自动隐藏时的调用方法
 - (void)getToHide {
-    
-    NSUInteger length = self.label.text.length;
-    NSTimeInterval sleepTime = length * 0.04 + 0.5;
-    [NSThread sleepForTimeInterval:sleepTime];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
+        NSUInteger length = self.label.text.length;
+        NSTimeInterval sleepTime = length * 0.04 + 0.5;
+        [NSThread sleepForTimeInterval:sleepTime];
         [self hideHUD];
     });
 }
