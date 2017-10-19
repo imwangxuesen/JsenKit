@@ -141,6 +141,8 @@
         [button addTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         NSString *title = [self notEmpty:self.actionTitles[0]] ? self.actionTitles[0] : JsenAlertConfigManagerDefine.defualtButtonTitle;
         [button setTitle:title forState:UIControlStateNormal];
+        [button setBackgroundImage:JsenAlertConfigManagerDefine.buttonBackgroundImageForHighlight forState:UIControlStateHighlighted];
+
         [self.alertViewBackgroundView addSubview:button];
     } else {
         for (NSInteger i=0 ; i<self.actionTitles.count; i++) {
@@ -155,6 +157,7 @@
                 [button setTitleColor:JsenAlertConfigManagerDefine.firstButtonTitleNormalColor forState:UIControlStateNormal];
                 [button.titleLabel setFont:JsenAlertConfigManagerDefine.firstButtonTitleNormalFont];
                 [button setBackgroundImage:JsenAlertConfigManagerDefine.firstButtonBackgroundImage forState:UIControlStateNormal];
+                [button setBackgroundImage:JsenAlertConfigManagerDefine.buttonBackgroundImageForHighlight forState:UIControlStateHighlighted];
 
             } else {
                 
@@ -166,6 +169,8 @@
                 [button setTitleColor:JsenAlertConfigManagerDefine.secondButtonTitleNormalColor forState:UIControlStateNormal];
                 [button.titleLabel setFont:JsenAlertConfigManagerDefine.secondButtonTitleNormalFont];
                 [button setBackgroundImage:JsenAlertConfigManagerDefine.secondButtonBackgroundImage forState:UIControlStateNormal];
+                [button setBackgroundImage:JsenAlertConfigManagerDefine.buttonBackgroundImageForHighlight forState:UIControlStateHighlighted];
+
 
             }
             

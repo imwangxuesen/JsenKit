@@ -15,6 +15,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ 网络状态判断是否为wifi，如果不是会弹alert
+
+ @param goon 是否继续操作
+ */
+//typedef void (^JsenNetworkingManagerGoonAction) (BOOL goon);
+
+/**
  网络请求成功后的回调
 
  @param response JsenNetworkingSuccessResponse
@@ -85,6 +92,13 @@ typedef void(^JsenNetworkingProgress) (NSProgress *uploadProgress);
  */
 + (instancetype _Nonnull)manager;
 
+
+/**
+ 网络状态检测，如果不是wifi会提示用户
+
+ @param goonAction 是否继续
+ */
+//- (void)networkReachablilityAndWifiStatusAction:(JsenNetworkingManagerGoonAction)goonAction;
 
 /**
  post请求 block模式

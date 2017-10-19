@@ -108,4 +108,12 @@ static JsenAlertConfigManager *manager = nil;
     }
     return _alertViewBackgroundColor;
 }
+
+- (UIImage *)buttonBackgroundImageForHighlight {
+    if (!_buttonBackgroundImageForHighlight) {
+        _buttonBackgroundImageForHighlight = [UIImage js_imageWithColor:[UIColor js_ColorWithHex:0xf6f6f6 alpha:1.0] rect:CGRectMake(0, 0, 100, 100)];
+    }
+    return _buttonBackgroundImageForHighlight;
+}
+
 @end
