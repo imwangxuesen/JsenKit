@@ -41,6 +41,7 @@
 		4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */; };
 		4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */; };
 		4C932B8E1DE2CC3500A6F0C4 /* international.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C932B901DE2CC3500A6F0C4 /* international.strings */; };
+		4CF3CB991F98AD8F00E81A28 /* JsenVersionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3CB981F98AD8F00E81A28 /* JsenVersionTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,8 @@
 		4C932B8F1DE2CC3500A6F0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/international.strings; sourceTree = "<group>"; };
 		4C932B911DE2CC3A00A6F0C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/international.strings; sourceTree = "<group>"; };
 		4C932B921DE2CC3B00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/international.strings"; sourceTree = "<group>"; };
+		4CF3CB971F98AD8F00E81A28 /* JsenVersionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenVersionTool.h; sourceTree = "<group>"; };
+		4CF3CB981F98AD8F00E81A28 /* JsenVersionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenVersionTool.m; sourceTree = "<group>"; };
 		91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.debug.xcconfig"; sourceTree = "<group>"; };
 		A94FF56E3996C5AB27860CCC /* Pods-JsenKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.release.xcconfig"; sourceTree = "<group>"; };
 		BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JsenKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +281,8 @@
 				4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */,
 				4C234C221F3090FC006A4075 /* JsenDeviceMonitor.h */,
 				4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */,
+				4CF3CB971F98AD8F00E81A28 /* JsenVersionTool.h */,
+				4CF3CB981F98AD8F00E81A28 /* JsenVersionTool.m */,
 			);
 			path = JsenDebugTool;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
 				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
 				4C7E50A11F2EFCFA00C7249C /* NSData+JsenKit.m in Sources */,
+				4CF3CB991F98AD8F00E81A28 /* JsenVersionTool.m in Sources */,
 				4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */,
 				4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */,
 				4C7E50A41F2EFD0B00C7249C /* NSString+JsenKit.m in Sources */,
