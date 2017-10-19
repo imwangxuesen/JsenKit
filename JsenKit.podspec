@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JsenKit"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "A iOS development of general engineering framework, including the commonly used network request package, category method, etc"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/imwangxuesen/JsenKit.git", :tag => "1.2.0" }
+  s.source       = { :git => "https://github.com/imwangxuesen/JsenKit.git", :tag => "1.2.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

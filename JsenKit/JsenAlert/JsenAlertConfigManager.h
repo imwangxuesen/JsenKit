@@ -100,6 +100,8 @@
  */
 @property (nonatomic, strong) UIImage *secondButtonBackgroundImage;
 
+@property (nonatomic, strong) UIImage *buttonBackgroundImageForHighlight;
+
 /**
  if you don't set button title. alert will use this default title to show.
  default : @"我知道了"
