@@ -131,7 +131,7 @@
     
     CALayer *lineLayer = [[CALayer alloc] init];
     lineLayer.frame = CGRectMake(0, buttonY-1, JsenAlertView_W, 1);
-    lineLayer.backgroundColor = [UIColor grayColor].CGColor;
+    lineLayer.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.3].CGColor;
     [self.alertViewBackgroundView.layer addSublayer:lineLayer];
     
     if (self.actionTitles.count == 0) {
@@ -163,7 +163,7 @@
                 
                 CALayer *lineLayer = [[CALayer alloc] init];
                 lineLayer.frame = CGRectMake((buttonW+1) * i - 1, buttonY + 5, 1, JsenAlertViewActionButton_H-10);
-                lineLayer.backgroundColor = [UIColor grayColor].CGColor;
+                lineLayer.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.3].CGColor;
                 [self.alertViewBackgroundView.layer addSublayer:lineLayer];
                 
                 [button setTitleColor:JsenAlertConfigManagerDefine.secondButtonTitleNormalColor forState:UIControlStateNormal];
