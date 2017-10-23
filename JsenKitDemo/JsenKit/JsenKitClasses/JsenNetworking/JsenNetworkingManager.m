@@ -543,14 +543,8 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 //参数拼接
 - (NSDictionary *)configParametersWithRequestParameters:(NSDictionary *)parameters {
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
-    NSDictionary *globalParamerters = @{};
-    
-    if (config.globalParametersBlock) {
-        globalParamerters = config.globalParametersBlock();
-    }else {
-        globalParamerters = config.globalParameters;
-    }
-    NSMutableDictionary *requestParameters = [[NSMutableDictionary alloc] initWithDictionary:globalParamerters];
+
+    NSMutableDictionary *requestParameters = [[NSMutableDictionary alloc] initWithDictionary:config.globalParameters];
     [requestParameters addEntriesFromDictionary:parameters];
     if (config.signBlock && [config.noSignAPI objectForKey:self.apiKey] == nil) {
         NSString *signKey = config.signBlock(requestParameters);
