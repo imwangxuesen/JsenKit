@@ -42,6 +42,13 @@ extern NSString *const JsenNetworkingResponseTimelineKey;
 typedef NSString* (^JsenNetworkingConfigSignBlock)(NSDictionary *signKeyValues);
 
 /**
+ 公共参数获取block
+
+ @return 公共参数字典
+ */
+typedef NSDictionary* (^JsenNetworkingConfigGlobalParametersBlock) (void);
+
+/**
  序列化类型
 
  - JsenNetworkingConfigSerializerHTTP: HTTP
@@ -107,6 +114,15 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
  }
  */
 @property (nonatomic, strong) NSDictionary *globalParameters;
+
+/**
+ 公共参数配置block
+ eg：
+ return @{
+     @"network":@"wifi"
+ }
+ */
+@property (nonatomic, strong) JsenNetworkingConfigGlobalParametersBlock globalParametersBlock;
 
 /**
  自定义的错误码及其对应的错误提示信息
