@@ -26,14 +26,16 @@ Pod::Spec.new do |s|
   s.subspec 'All' do |ss|
     ss.dependency 'JsenKit/JsenAlert'
     ss.dependency 'JsenKit/JsenCategory'
-    ss.dependency 'JsenDebugTool'
-    ss.dependency 'JsenNetworking'
-    ss.dependency 'JsenProgressHUD'
-    ss.dependency 'JsenTabBarController'
+    ss.dependency 'JsenKit/JsenDebugTool'
+    ss.dependency 'JsenKit/JsenNetworking'
+    ss.dependency 'JsenKit/JsenProgressHUD'
+    ss.dependency 'JsenKit/JsenTabBarController'
   end
 
   s.subspec 'JsenAlert' do |ss|
     ss.source_files = 'JsenKit/JsenAlert/*.{h,m}'
+    	ss.dependency 'JsenKit/JsenCategory'
+
   end
 
   s.subspec 'JsenCategory' do |ss|
