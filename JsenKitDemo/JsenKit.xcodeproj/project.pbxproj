@@ -18,6 +18,7 @@
 		4C234C211F3073E6006A4075 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C234C201F3073E6006A4075 /* TimerViewController.m */; };
 		4C234C241F3090FC006A4075 /* JsenDeviceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */; };
 		4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */; };
+		4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */; };
 		4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B771E2682C500C1F185 /* JsenAlert.m */; };
 		4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */; };
 		4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B7C1E2682C500C1F185 /* UIColor+JsenKit.m */; };
@@ -71,6 +72,9 @@
 		4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenDeviceMonitor.m; sourceTree = "<group>"; };
 		4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenFPSLabel.h; sourceTree = "<group>"; };
 		4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenFPSLabel.m; sourceTree = "<group>"; };
+		4C3DF1171FA9C14F006E25B6 /* JsenDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenDefines.h; sourceTree = "<group>"; };
+		4C3DF1191FA9C9F8006E25B6 /* JsenTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTextView.h; sourceTree = "<group>"; };
+		4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTextView.m; sourceTree = "<group>"; };
 		4C459B761E2682C500C1F185 /* JsenAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlert.h; sourceTree = "<group>"; };
 		4C459B771E2682C500C1F185 /* JsenAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenAlert.m; sourceTree = "<group>"; };
 		4C459B781E2682C500C1F185 /* JsenAlertConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlertConfigManager.h; sourceTree = "<group>"; };
@@ -210,6 +214,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4C3DF1181FA9C9F8006E25B6 /* JsenUI */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF1191FA9C9F8006E25B6 /* JsenTextView.h */,
+				4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */,
+			);
+			path = JsenUI;
+			sourceTree = "<group>";
+		};
 		4C459B751E2682C500C1F185 /* JsenAlert */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +280,7 @@
 		4C8DB9881DDE9D67006F3D5B /* JsenKitClasses */ = {
 			isa = PBXGroup;
 			children = (
+				4C3DF1181FA9C9F8006E25B6 /* JsenUI */,
 				4C459B751E2682C500C1F185 /* JsenAlert */,
 				4C459B7A1E2682C500C1F185 /* JsenCategory */,
 				4C459B7F1E2682C500C1F185 /* JsenProgressHUD */,
@@ -325,6 +339,7 @@
 				4CF3CB981F98AD8F00E81A28 /* JsenVersionTool.m */,
 				4C57435B1FA87F1F008E9E21 /* JsenAdaptationTool.h */,
 				4C57435C1FA87F1F008E9E21 /* JsenAdaptationTool.m */,
+				4C3DF1171FA9C14F006E25B6 /* JsenDefines.h */,
 			);
 			path = JsenDebugTool;
 			sourceTree = "<group>";
@@ -472,6 +487,7 @@
 				4C5743501FA864E0008E9E21 /* NSDate+JsenKit.m in Sources */,
 				4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */,
 				4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */,
+				4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */,
 				4C57435A1FA87DCB008E9E21 /* UINavigationController+JsenKit.m in Sources */,
 				4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */,
 				4C5743561FA87D76008E9E21 /* UIView+JsenKit.m in Sources */,

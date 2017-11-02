@@ -46,10 +46,8 @@
 
 
 - (NSString *)js_whiteAllSpace {
-    NSString *string = [[self js_whitespace] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    return string;
+    return [self stringByReplacingOccurrencesOfString:@"\\s" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
 }
-
 
 +(BOOL)js_checkIdentityCardNo:(NSString*)cardNo
 {
@@ -160,6 +158,30 @@
 - (NSString *)js_encryptPhone {
     NSRange range = NSMakeRange(2, 4);
     return [self stringByReplacingCharactersInRange:range withString:@"****"];
+}
+
+- (BOOL)js_containString:(NSString *)str {
+    if (!str || str.length <= 0) {
+        return NO;
+    }
+    
+    if ([self respondsToSelector:@selector(containsString:)]) {
+        return [self containsString:str];
+    }
+    
+    return [self rangeOfString:str].location != NSNotFound;
+}
+
+
+- (NSString *)js_removeMagicalCharacter {
+    if (self.length == 0) {
+        return self;
+    }
+    
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[\u0300-\u036F]" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSString *modifiedString = [regex stringByReplacingMatchesInString:self options:NSMatchingReportProgress range:NSMakeRange(0, self.length) withTemplate:@""];
+    return modifiedString;
 }
 
 @end

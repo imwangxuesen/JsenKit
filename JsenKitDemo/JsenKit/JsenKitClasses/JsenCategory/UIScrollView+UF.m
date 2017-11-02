@@ -1,6 +1,6 @@
 //
 //  UIScrollView+UF.m
-//  UFang
+//  JsenKit
 //
 //  Created by WangXuesen on 2017/9/21.
 //  Copyright © 2017年 Xuesen Wang. All rights reserved.
