@@ -8,7 +8,9 @@
 
 #import "JsenTabBarControllerManager.h"
 #import "JsenTabBarItemAttribute.h"
-
+#import "JsenHomeViewController.h"
+#import "UIColor+JsenKit.h"
+#import "UIImage+JsenKit.h"
 
 @implementation JsenTabBarControllerManager
 + (JsenTabBarController *)getTabBarController {
@@ -59,27 +61,28 @@
     attribute4.selectedTitleColor = [UIColor yellowColor];
     
     
-    UIViewController *vc1 = [[UIViewController alloc] init];
+    JsenHomeViewController *vc1 = [[JsenHomeViewController alloc] init];
     vc1.view.backgroundColor = [UIColor blueColor];
     vc1.navigationItem.title = NSLocalizedString(@"home", nil);
-    UINavigationController *nv1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+    JsenNavigationViewController *nv1 = [[JsenNavigationViewController alloc] initWithRootViewController:vc1];
     
     UIViewController *vc2 = [[UIViewController alloc] init];
     vc2.view.backgroundColor = [UIColor grayColor];
     vc1.navigationItem.title = NSLocalizedString(@"found", nil);
-    UINavigationController *nv2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+    JsenNavigationViewController *nv2 = [[JsenNavigationViewController alloc] initWithRootViewController:vc2];
     
     UIViewController *vc3 = [[UIViewController alloc] init];
     vc3.view.backgroundColor = [UIColor greenColor];
     vc1.navigationItem.title = NSLocalizedString(@"message", nil);
-    UINavigationController *nv3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+    JsenNavigationViewController *nv3 = [[JsenNavigationViewController alloc] initWithRootViewController:vc3];
     
     UIViewController *vc4 = [[UIViewController alloc] init];
     vc4.view.backgroundColor = [UIColor yellowColor];
     vc1.navigationItem.title = NSLocalizedString(@"me", nil);
-    UINavigationController *nv4 = [[UINavigationController alloc] initWithRootViewController:vc4];
+    JsenNavigationViewController *nv4 = [[JsenNavigationViewController alloc] initWithRootViewController:vc4];
     
     JsenTabBarController *tab = [[JsenTabBarController alloc] init];
+    tab.customTabBar.backgroundImage = [UIImage js_imageWithColor:[UIColor js_ColorWithHex:0xf9f9f9 alpha:1.0] rect:CGRectMake(0, 0, JsenScreenWidth, 49)];
     [tab configWithControllers:@[nv1,nv2,nv3,nv4] tabBarItemAttributes:@[attribute,attribute2,attributePlus,attribute3,attribute4]];
     
     return tab;

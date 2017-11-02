@@ -10,6 +10,19 @@
 #define JsenDefines_h
 
 
+// 弱引用
+#define WeakObj(o) @autoreleasepool{} __weak typeof(o) o##Weak = o
+// 强引用
+#define StrongObj(o) @autoreleasepool{} __strong typeof(o) o = o##Weak
+
+
+
+// 常量
+#define JsenScreenWidth  [[UIScreen mainScreen] bounds].size.width
+#define JsenScreenHeight  [[UIScreen mainScreen] bounds].size.height
+
+
+
 // NSLog 宏
 #ifndef __OPTIMIZE__
 

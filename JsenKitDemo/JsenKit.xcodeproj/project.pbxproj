@@ -12,11 +12,17 @@
 		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
 		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
 		4C234C241F3090FC006A4075 /* JsenDeviceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */; };
+		4C2379791FAACA13002B8E44 /* JsenTabBarControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379781FAACA13002B8E44 /* JsenTabBarControllerManager.m */; };
+		4C23797D1FAAE3C9002B8E44 /* JsenHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23797C1FAAE3C9002B8E44 /* JsenHomeViewController.m */; };
+		4C2379801FAAE543002B8E44 /* JsenHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23797F1FAAE543002B8E44 /* JsenHomeTableViewCell.m */; };
+		4C2379831FAAE6FF002B8E44 /* JsenHomeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379821FAAE6FF002B8E44 /* JsenHomeCellModel.m */; };
+		4C23798A1FAAE90A002B8E44 /* JsenNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379891FAAE90A002B8E44 /* JsenNetworkConfig.m */; };
+		4C2379921FAB0D2F002B8E44 /* JsenNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23798F1FAB0D2E002B8E44 /* JsenNavigationViewController.m */; };
+		4C2379931FAB0D2F002B8E44 /* JsenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379901FAB0D2E002B8E44 /* JsenViewController.m */; };
+		4C2379961FAB17FB002B8E44 /* JsenLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379951FAB17FB002B8E44 /* JsenLoadingViewController.m */; };
 		4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */; };
 		4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */; };
-		4C3DF1351FAABF67006E25B6 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF1311FAABF67006E25B6 /* BannerModel.m */; };
 		4C3DF1381FAABF75006E25B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF1361FAABF75006E25B6 /* AppDelegate.m */; };
-		4C3DF13B1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF13A1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m */; };
 		4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B771E2682C500C1F185 /* JsenAlert.m */; };
 		4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */; };
 		4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B7C1E2682C500C1F185 /* UIColor+JsenKit.m */; };
@@ -59,17 +65,31 @@
 		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C234C221F3090FC006A4075 /* JsenDeviceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenDeviceMonitor.h; sourceTree = "<group>"; };
 		4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenDeviceMonitor.m; sourceTree = "<group>"; };
+		4C2379771FAACA13002B8E44 /* JsenTabBarControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBarControllerManager.h; sourceTree = "<group>"; };
+		4C2379781FAACA13002B8E44 /* JsenTabBarControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarControllerManager.m; sourceTree = "<group>"; };
+		4C23797B1FAAE3C9002B8E44 /* JsenHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenHomeViewController.h; sourceTree = "<group>"; };
+		4C23797C1FAAE3C9002B8E44 /* JsenHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenHomeViewController.m; sourceTree = "<group>"; };
+		4C23797E1FAAE543002B8E44 /* JsenHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenHomeTableViewCell.h; sourceTree = "<group>"; };
+		4C23797F1FAAE543002B8E44 /* JsenHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenHomeTableViewCell.m; sourceTree = "<group>"; };
+		4C2379811FAAE6FF002B8E44 /* JsenHomeCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenHomeCellModel.h; sourceTree = "<group>"; };
+		4C2379821FAAE6FF002B8E44 /* JsenHomeCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenHomeCellModel.m; sourceTree = "<group>"; };
+		4C2379881FAAE90A002B8E44 /* JsenNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkConfig.h; sourceTree = "<group>"; };
+		4C2379891FAAE90A002B8E44 /* JsenNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkConfig.m; sourceTree = "<group>"; };
+		4C23798B1FAAEA98002B8E44 /* JsenDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenDemo.pch; sourceTree = "<group>"; };
+		4C23798D1FAAECB3002B8E44 /* JsenDemoDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenDemoDefine.h; sourceTree = "<group>"; };
+		4C23798E1FAB0D2E002B8E44 /* JsenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenViewController.h; sourceTree = "<group>"; };
+		4C23798F1FAB0D2E002B8E44 /* JsenNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNavigationViewController.m; sourceTree = "<group>"; };
+		4C2379901FAB0D2E002B8E44 /* JsenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenViewController.m; sourceTree = "<group>"; };
+		4C2379911FAB0D2F002B8E44 /* JsenNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNavigationViewController.h; sourceTree = "<group>"; };
+		4C2379941FAB17FB002B8E44 /* JsenLoadingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenLoadingViewController.h; sourceTree = "<group>"; };
+		4C2379951FAB17FB002B8E44 /* JsenLoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenLoadingViewController.m; sourceTree = "<group>"; };
 		4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenFPSLabel.h; sourceTree = "<group>"; };
 		4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenFPSLabel.m; sourceTree = "<group>"; };
 		4C3DF1171FA9C14F006E25B6 /* JsenDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenDefines.h; sourceTree = "<group>"; };
 		4C3DF1191FA9C9F8006E25B6 /* JsenTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTextView.h; sourceTree = "<group>"; };
 		4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTextView.m; sourceTree = "<group>"; };
-		4C3DF1311FAABF67006E25B6 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
-		4C3DF1321FAABF67006E25B6 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		4C3DF1361FAABF75006E25B6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4C3DF1371FAABF75006E25B6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4C3DF1391FAAC0F0006E25B6 /* JsenTabBarControllerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenTabBarControllerManager.h; sourceTree = "<group>"; };
-		4C3DF13A1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarControllerManager.m; sourceTree = "<group>"; };
 		4C459B761E2682C500C1F185 /* JsenAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlert.h; sourceTree = "<group>"; };
 		4C459B771E2682C500C1F185 /* JsenAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenAlert.m; sourceTree = "<group>"; };
 		4C459B781E2682C500C1F185 /* JsenAlertConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlertConfigManager.h; sourceTree = "<group>"; };
@@ -200,6 +220,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4C2379761FAACA13002B8E44 /* UIManager */ = {
+			isa = PBXGroup;
+			children = (
+				4C2379771FAACA13002B8E44 /* JsenTabBarControllerManager.h */,
+				4C2379781FAACA13002B8E44 /* JsenTabBarControllerManager.m */,
+			);
+			path = UIManager;
+			sourceTree = "<group>";
+		};
+		4C23797A1FAACA63002B8E44 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4C2379911FAB0D2F002B8E44 /* JsenNavigationViewController.h */,
+				4C23798F1FAB0D2E002B8E44 /* JsenNavigationViewController.m */,
+				4C23798E1FAB0D2E002B8E44 /* JsenViewController.h */,
+				4C2379901FAB0D2E002B8E44 /* JsenViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4C2379871FAAE90A002B8E44 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4C2379881FAAE90A002B8E44 /* JsenNetworkConfig.h */,
+				4C2379891FAAE90A002B8E44 /* JsenNetworkConfig.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4C23798C1FAAECA2002B8E44 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4C23798D1FAAECB3002B8E44 /* JsenDemoDefine.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		4C3DF1181FA9C9F8006E25B6 /* JsenUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +269,7 @@
 		4C3DF11C1FAABDBE006E25B6 /* DemoCodes */ = {
 			isa = PBXGroup;
 			children = (
+				4C23798B1FAAEA98002B8E44 /* JsenDemo.pch */,
 				4C3DF1371FAABF75006E25B6 /* AppDelegate.h */,
 				4C3DF1361FAABF75006E25B6 /* AppDelegate.m */,
 				4C3DF11D1FAABDBE006E25B6 /* Tools */,
@@ -223,8 +281,10 @@
 		4C3DF11D1FAABDBE006E25B6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				4C3DF1391FAAC0F0006E25B6 /* JsenTabBarControllerManager.h */,
-				4C3DF13A1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m */,
+				4C23798C1FAAECA2002B8E44 /* Common */,
+				4C2379871FAAE90A002B8E44 /* Network */,
+				4C23797A1FAACA63002B8E44 /* Base */,
+				4C2379761FAACA13002B8E44 /* UIManager */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -378,8 +438,8 @@
 		4C3DF1301FAABF67006E25B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4C3DF1311FAABF67006E25B6 /* BannerModel.m */,
-				4C3DF1321FAABF67006E25B6 /* BannerModel.h */,
+				4C2379811FAAE6FF002B8E44 /* JsenHomeCellModel.h */,
+				4C2379821FAAE6FF002B8E44 /* JsenHomeCellModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -387,6 +447,10 @@
 		4C3DF1331FAABF67006E25B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C23797B1FAAE3C9002B8E44 /* JsenHomeViewController.h */,
+				4C23797C1FAAE3C9002B8E44 /* JsenHomeViewController.m */,
+				4C2379941FAB17FB002B8E44 /* JsenLoadingViewController.h */,
+				4C2379951FAB17FB002B8E44 /* JsenLoadingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -394,6 +458,8 @@
 		4C3DF1341FAABF67006E25B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C23797E1FAAE543002B8E44 /* JsenHomeTableViewCell.h */,
+				4C23797F1FAAE543002B8E44 /* JsenHomeTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -662,17 +728,22 @@
 				4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */,
 				4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */,
 				4C57435A1FA87DCB008E9E21 /* UINavigationController+JsenKit.m in Sources */,
-				4C3DF13B1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m in Sources */,
+				4C2379791FAACA13002B8E44 /* JsenTabBarControllerManager.m in Sources */,
+				4C2379931FAB0D2F002B8E44 /* JsenViewController.m in Sources */,
 				4C5743561FA87D76008E9E21 /* UIView+JsenKit.m in Sources */,
 				4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */,
+				4C2379961FAB17FB002B8E44 /* JsenLoadingViewController.m in Sources */,
 				4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */,
 				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
+				4C23797D1FAAE3C9002B8E44 /* JsenHomeViewController.m in Sources */,
 				4C3DF1381FAABF75006E25B6 /* AppDelegate.m in Sources */,
 				4C5743471FA863CB008E9E21 /* NSObject+JsenKit.m in Sources */,
 				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
 				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
+				4C2379921FAB0D2F002B8E44 /* JsenNavigationViewController.m in Sources */,
 				4C7E50A11F2EFCFA00C7249C /* NSData+JsenKit.m in Sources */,
-				4C3DF1351FAABF67006E25B6 /* BannerModel.m in Sources */,
+				4C23798A1FAAE90A002B8E44 /* JsenNetworkConfig.m in Sources */,
+				4C2379801FAAE543002B8E44 /* JsenHomeTableViewCell.m in Sources */,
 				4CF3CB991F98AD8F00E81A28 /* JsenVersionTool.m in Sources */,
 				4C57435D1FA87F1F008E9E21 /* JsenAdaptationTool.m in Sources */,
 				4C5743531FA87D5A008E9E21 /* UIScrollView+UF.m in Sources */,
@@ -686,6 +757,7 @@
 				4C8DB9A41DDEA506006F3D5B /* JsenRunTimeTool.m in Sources */,
 				4C8DB9981DDE9D67006F3D5B /* JsenNetworkingManagerTransmit.m in Sources */,
 				4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */,
+				4C2379831FAAE6FF002B8E44 /* JsenHomeCellModel.m in Sources */,
 				4C234C241F3090FC006A4075 /* JsenDeviceMonitor.m in Sources */,
 				4C57434A1FA86445008E9E21 /* UITextField+JsenKit.m in Sources */,
 				4C6E25E21DEBFD8700729580 /* JsenNetworkingReachabilityManager.m in Sources */,
@@ -817,6 +889,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				DEVELOPMENT_TEAM = E9DZXL3SNJ;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JsenKit/DemoCodes/JsenDemo.pch";
 				INFOPLIST_FILE = JsenKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -833,6 +906,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				DEVELOPMENT_TEAM = E9DZXL3SNJ;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JsenKit/DemoCodes/JsenDemo.pch";
 				INFOPLIST_FILE = JsenKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

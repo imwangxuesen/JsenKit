@@ -7,11 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "JsenTabBarController.h"
-#import "JsenTabBarItemAttribute.h"
 #import <AFNetworking.h>
 #import "JsenFPSLabel.h"
 #import "JsenTabBarControllerManager.h"
+#import "JsenNetworkConfig.h"
 
 @interface AppDelegate ()
 
@@ -20,18 +19,23 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [JsenFPSLabel show];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+
+    [self configNetwork];
     [self configTabBarController];
+    [JsenFPSLabel show];
     return YES;
 }
 
 
 - (void)configTabBarController {
     JsenTabBarController *VC = [JsenTabBarControllerManager getTabBarController];
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = VC;
-    [self.window makeKeyAndVisible];
+}
 
+- (void)configNetwork {
+    [JsenNetworkConfig config];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

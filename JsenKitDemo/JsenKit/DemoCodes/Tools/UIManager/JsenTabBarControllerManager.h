@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "JsenTabBarController.h"
+#import "JsenNavigationViewController.h"
+#import "JsenViewController.h"
 
 @interface JsenTabBarControllerManager : NSObject
 

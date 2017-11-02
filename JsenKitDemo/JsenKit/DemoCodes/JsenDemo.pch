@@ -1,0 +1,19 @@
+//
+//  JsenDemo.pch
+//  JsenKit
+//
+//  Created by WangXuesen on 2017/11/2.
+//  Copyright © 2017年 WangXuesen. All rights reserved.
+//
+
+#ifndef JsenDemo_pch
+#define JsenDemo_pch
+
+#import "JsenNetworkingManager.h"
+#import "JsenNetworkConfig.h"
+#import "JsenProgressHUD.h"
+#import "JsenDemoDefine.h"
+#import "JsenDefines.h"
+
+
+#endif /* JsenDemo_pch */
