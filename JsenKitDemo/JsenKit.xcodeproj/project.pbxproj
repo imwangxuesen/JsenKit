@@ -9,16 +9,14 @@
 /* Begin PBXBuildFile section */
 		18B014195079C4CFE0AAC8C9 /* libPods-JsenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB1C3447EA0CAD51B3F8FE6 /* libPods-JsenKit.a */; };
 		4C1CE0891DD9855500FE49DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0881DD9855500FE49DB /* main.m */; };
-		4C1CE08C1DD9855500FE49DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE08B1DD9855500FE49DB /* AppDelegate.m */; };
-		4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE08E1DD9855500FE49DB /* ViewController.m */; };
-		4C1CE0921DD9855500FE49DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0901DD9855500FE49DB /* Main.storyboard */; };
 		4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0931DD9855500FE49DB /* Assets.xcassets */; };
 		4C1CE0971DD9855500FE49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */; };
-		4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */; };
-		4C234C211F3073E6006A4075 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C234C201F3073E6006A4075 /* TimerViewController.m */; };
 		4C234C241F3090FC006A4075 /* JsenDeviceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */; };
 		4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */; };
 		4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */; };
+		4C3DF1351FAABF67006E25B6 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF1311FAABF67006E25B6 /* BannerModel.m */; };
+		4C3DF1381FAABF75006E25B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF1361FAABF75006E25B6 /* AppDelegate.m */; };
+		4C3DF13B1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF13A1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m */; };
 		4C459B871E2682C500C1F185 /* JsenAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B771E2682C500C1F185 /* JsenAlert.m */; };
 		4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B791E2682C500C1F185 /* JsenAlertConfigManager.m */; };
 		4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C459B7C1E2682C500C1F185 /* UIColor+JsenKit.m */; };
@@ -56,18 +54,9 @@
 /* Begin PBXFileReference section */
 		4C1CE0841DD9855500FE49DB /* JsenKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsenKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CE0881DD9855500FE49DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4C1CE08A1DD9855500FE49DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4C1CE08B1DD9855500FE49DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4C1CE08D1DD9855500FE49DB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4C1CE08E1DD9855500FE49DB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4C1CE0911DD9855500FE49DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C1CE0931DD9855500FE49DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1CE0961DD9855500FE49DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C1CE0981DD9855500FE49DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
-		4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
-		4C234C1F1F3073E6006A4075 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
-		4C234C201F3073E6006A4075 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		4C234C221F3090FC006A4075 /* JsenDeviceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenDeviceMonitor.h; sourceTree = "<group>"; };
 		4C234C231F3090FC006A4075 /* JsenDeviceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenDeviceMonitor.m; sourceTree = "<group>"; };
 		4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenFPSLabel.h; sourceTree = "<group>"; };
@@ -75,6 +64,12 @@
 		4C3DF1171FA9C14F006E25B6 /* JsenDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenDefines.h; sourceTree = "<group>"; };
 		4C3DF1191FA9C9F8006E25B6 /* JsenTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTextView.h; sourceTree = "<group>"; };
 		4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTextView.m; sourceTree = "<group>"; };
+		4C3DF1311FAABF67006E25B6 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
+		4C3DF1321FAABF67006E25B6 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
+		4C3DF1361FAABF75006E25B6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4C3DF1371FAABF75006E25B6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4C3DF1391FAAC0F0006E25B6 /* JsenTabBarControllerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenTabBarControllerManager.h; sourceTree = "<group>"; };
+		4C3DF13A1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarControllerManager.m; sourceTree = "<group>"; };
 		4C459B761E2682C500C1F185 /* JsenAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlert.h; sourceTree = "<group>"; };
 		4C459B771E2682C500C1F185 /* JsenAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenAlert.m; sourceTree = "<group>"; };
 		4C459B781E2682C500C1F185 /* JsenAlertConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenAlertConfigManager.h; sourceTree = "<group>"; };
@@ -133,7 +128,6 @@
 		4C932B831DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarItemAttribute.m; sourceTree = "<group>"; };
 		4C932B851DE2988600A6F0C4 /* JsenTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTabBarItem.h; sourceTree = "<group>"; };
 		4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTabBarItem.m; sourceTree = "<group>"; };
-		4C932B8A1DE2CBDB00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4C932B8B1DE2CBDB00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4C932B8F1DE2CC3500A6F0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/international.strings; sourceTree = "<group>"; };
 		4C932B911DE2CC3A00A6F0C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/international.strings; sourceTree = "<group>"; };
@@ -187,21 +181,9 @@
 		4C1CE0861DD9855500FE49DB /* JsenKit */ = {
 			isa = PBXGroup;
 			children = (
+				4C3DF11C1FAABDBE006E25B6 /* DemoCodes */,
 				4C8DB9881DDE9D67006F3D5B /* JsenKitClasses */,
-				4C1CE08A1DD9855500FE49DB /* AppDelegate.h */,
-				4C1CE08B1DD9855500FE49DB /* AppDelegate.m */,
-				4C1CE0AB1DDAEBE200FE49DB /* BannerModel.h */,
-				4C1CE0AC1DDAEBE200FE49DB /* BannerModel.m */,
-				4C1CE08D1DD9855500FE49DB /* ViewController.h */,
-				4C1CE08E1DD9855500FE49DB /* ViewController.m */,
-				4C1CE0901DD9855500FE49DB /* Main.storyboard */,
-				4C1CE0931DD9855500FE49DB /* Assets.xcassets */,
-				4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */,
-				4C1CE0981DD9855500FE49DB /* Info.plist */,
 				4C1CE0871DD9855500FE49DB /* Supporting Files */,
-				4C932B901DE2CC3500A6F0C4 /* international.strings */,
-				4C234C1F1F3073E6006A4075 /* TimerViewController.h */,
-				4C234C201F3073E6006A4075 /* TimerViewController.m */,
 			);
 			path = JsenKit;
 			sourceTree = "<group>";
@@ -209,6 +191,10 @@
 		4C1CE0871DD9855500FE49DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C932B901DE2CC3500A6F0C4 /* international.strings */,
+				4C1CE0981DD9855500FE49DB /* Info.plist */,
+				4C1CE0931DD9855500FE49DB /* Assets.xcassets */,
+				4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */,
 				4C1CE0881DD9855500FE49DB /* main.m */,
 			);
 			name = "Supporting Files";
@@ -221,6 +207,195 @@
 				4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */,
 			);
 			path = JsenUI;
+			sourceTree = "<group>";
+		};
+		4C3DF11C1FAABDBE006E25B6 /* DemoCodes */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF1371FAABF75006E25B6 /* AppDelegate.h */,
+				4C3DF1361FAABF75006E25B6 /* AppDelegate.m */,
+				4C3DF11D1FAABDBE006E25B6 /* Tools */,
+				4C3DF11E1FAABDBE006E25B6 /* Modules */,
+			);
+			path = DemoCodes;
+			sourceTree = "<group>";
+		};
+		4C3DF11D1FAABDBE006E25B6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF1391FAAC0F0006E25B6 /* JsenTabBarControllerManager.h */,
+				4C3DF13A1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4C3DF11E1FAABDBE006E25B6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF12E1FAABF67006E25B6 /* Home */,
+				4C3DF11F1FAABF67006E25B6 /* Modules2 */,
+				4C3DF1291FAABF67006E25B6 /* Modules3 */,
+				4C3DF1241FAABF67006E25B6 /* Modules4 */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4C3DF11F1FAABF67006E25B6 /* Modules2 */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF1201FAABF67006E25B6 /* Tools */,
+				4C3DF1211FAABF67006E25B6 /* Models */,
+				4C3DF1221FAABF67006E25B6 /* Controllers */,
+				4C3DF1231FAABF67006E25B6 /* Views */,
+			);
+			path = Modules2;
+			sourceTree = "<group>";
+		};
+		4C3DF1201FAABF67006E25B6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4C3DF1211FAABF67006E25B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C3DF1221FAABF67006E25B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4C3DF1231FAABF67006E25B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C3DF1241FAABF67006E25B6 /* Modules4 */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF1251FAABF67006E25B6 /* Tools */,
+				4C3DF1261FAABF67006E25B6 /* Models */,
+				4C3DF1271FAABF67006E25B6 /* Controllers */,
+				4C3DF1281FAABF67006E25B6 /* Views */,
+			);
+			path = Modules4;
+			sourceTree = "<group>";
+		};
+		4C3DF1251FAABF67006E25B6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4C3DF1261FAABF67006E25B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C3DF1271FAABF67006E25B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4C3DF1281FAABF67006E25B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C3DF1291FAABF67006E25B6 /* Modules3 */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF12A1FAABF67006E25B6 /* Tools */,
+				4C3DF12B1FAABF67006E25B6 /* Models */,
+				4C3DF12C1FAABF67006E25B6 /* Controllers */,
+				4C3DF12D1FAABF67006E25B6 /* Views */,
+			);
+			path = Modules3;
+			sourceTree = "<group>";
+		};
+		4C3DF12A1FAABF67006E25B6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4C3DF12B1FAABF67006E25B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C3DF12C1FAABF67006E25B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4C3DF12D1FAABF67006E25B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C3DF12E1FAABF67006E25B6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF12F1FAABF67006E25B6 /* Tools */,
+				4C3DF1301FAABF67006E25B6 /* Models */,
+				4C3DF1331FAABF67006E25B6 /* Controllers */,
+				4C3DF1341FAABF67006E25B6 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4C3DF12F1FAABF67006E25B6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4C3DF1301FAABF67006E25B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C3DF1311FAABF67006E25B6 /* BannerModel.m */,
+				4C3DF1321FAABF67006E25B6 /* BannerModel.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C3DF1331FAABF67006E25B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4C3DF1341FAABF67006E25B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4C459B751E2682C500C1F185 /* JsenAlert */ = {
@@ -422,7 +597,6 @@
 				4C459B8B1E2682C500C1F185 /* jsen_hud_error@2x.png in Resources */,
 				4C459B8E1E2682C500C1F185 /* jsen_hud_success@3x.png in Resources */,
 				4C1CE0941DD9855500FE49DB /* Assets.xcassets in Resources */,
-				4C1CE0921DD9855500FE49DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,30 +656,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C57434D1FA8649C008E9E21 /* UILabel+JsenKit.m in Sources */,
-				4C234C211F3073E6006A4075 /* TimerViewController.m in Sources */,
 				4C8DB9971DDE9D67006F3D5B /* JsenNetworkingManager.m in Sources */,
 				4C5743501FA864E0008E9E21 /* NSDate+JsenKit.m in Sources */,
 				4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */,
 				4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */,
 				4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */,
 				4C57435A1FA87DCB008E9E21 /* UINavigationController+JsenKit.m in Sources */,
-				4C1CE08F1DD9855500FE49DB /* ViewController.m in Sources */,
+				4C3DF13B1FAAC0F0006E25B6 /* JsenTabBarControllerManager.m in Sources */,
 				4C5743561FA87D76008E9E21 /* UIView+JsenKit.m in Sources */,
 				4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */,
-				4C1CE08C1DD9855500FE49DB /* AppDelegate.m in Sources */,
 				4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */,
 				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
+				4C3DF1381FAABF75006E25B6 /* AppDelegate.m in Sources */,
 				4C5743471FA863CB008E9E21 /* NSObject+JsenKit.m in Sources */,
 				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
 				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
 				4C7E50A11F2EFCFA00C7249C /* NSData+JsenKit.m in Sources */,
+				4C3DF1351FAABF67006E25B6 /* BannerModel.m in Sources */,
 				4CF3CB991F98AD8F00E81A28 /* JsenVersionTool.m in Sources */,
 				4C57435D1FA87F1F008E9E21 /* JsenAdaptationTool.m in Sources */,
 				4C5743531FA87D5A008E9E21 /* UIScrollView+UF.m in Sources */,
 				4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */,
 				4C459B891E2682C500C1F185 /* UIColor+JsenKit.m in Sources */,
 				4C7E50A41F2EFD0B00C7249C /* NSString+JsenKit.m in Sources */,
-				4C1CE0AD1DDAEBE200FE49DB /* BannerModel.m in Sources */,
 				4C8DB9961DDE9D67006F3D5B /* JsenNetworkingFailedResponse.m in Sources */,
 				4C932B841DDEA82700A6F0C4 /* JsenTabBarItemAttribute.m in Sources */,
 				4C459B8F1E2682C500C1F185 /* JsenProgressHUD.m in Sources */,
@@ -522,15 +695,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4C1CE0901DD9855500FE49DB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C1CE0911DD9855500FE49DB /* Base */,
-				4C932B8A1DE2CBDB00A6F0C4 /* zh-Hans */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4C1CE0951DD9855500FE49DB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

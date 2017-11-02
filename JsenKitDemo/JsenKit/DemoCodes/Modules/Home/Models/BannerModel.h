@@ -12,13 +12,13 @@
 
 @interface BannerItemModel : NSObject
 
-@property (nonatomic, copy) NSString *createTime;
-@property (nonatomic, strong) NSNumber *enabled;
-@property (nonatomic, strong) NSNumber *iD;
-@property (nonatomic, copy) NSString *path;
-@property (nonatomic, copy) NSString *redirectUrl;
-@property (nonatomic, copy) NSString *type;
-@property (nonatomic, copy) NSString *updateTime;
+@property(nonatomic,copy) NSString *createTime;
+@property(nonatomic,strong) NSNumber *enabled;
+@property(nonatomic,strong) NSNumber *iD;
+@property(nonatomic,copy) NSString *path;
+@property(nonatomic,copy) NSString *redirectUrl;
+@property(nonatomic,copy) NSString *type;
+@property(nonatomic,copy) NSString *updateTime;
 
 @end
 
