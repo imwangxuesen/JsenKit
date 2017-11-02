@@ -20,6 +20,18 @@ pod 'JsenKit'
 
 ## JsenNetwork
 
+default response is json :
+{
+	msg:"msg",
+	data:{}/[]
+	timestemp:1000
+	code:0
+}
+
+the value with "data" key will be create data model / model array
+
+if you server response format is not like this. you could set `responseFormat` in `JsenNetworkingConfig` class property to convert it
+
 ### JsenNetworkingConfig must be init . eg：
 
 config host
@@ -70,6 +82,7 @@ JsenNetworkingCustomHttpErrorNotificationKey in “JsenNetworkingConfig.h” fil
 
 custom error code notification 
 if response code is @10030 , notification center will resive JsenNetworkingCustomHttpErrorNotificationKey's message 
+
 ```
 
     config.customErrorStatusCode = @{
@@ -91,5 +104,26 @@ networking reachability
         //to do something
     }];
     [[JsenNetworkingReachabilityManager manager] startMonitoring];
+```
+
+### Send Request 
+
+```
+    NSDictionary *parameters = @{
+                                 @"id":@123,
+                                 @"page":@1
+                                 };
+    [[JsenNetworkingManager manager] post:Jsen_HomeList_API parameters:parameters progress:nil success:^(JsenNetworkingSuccessResponse * _Nonnull response) {
+    		   //success
+				JsenHomeCellModel *model = response.data;
+				
+				//if response json is array 
+				//NSArray *cellModels = response.data;
+				
+    } failed:^(JsenNetworkingFailedResponse * _Nonnull response) {
+				//error
+    } finished:^{
+           //finished
+    }];
 ```
 
