@@ -20,6 +20,8 @@
 		4C2379921FAB0D2F002B8E44 /* JsenNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23798F1FAB0D2E002B8E44 /* JsenNavigationViewController.m */; };
 		4C2379931FAB0D2F002B8E44 /* JsenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379901FAB0D2E002B8E44 /* JsenViewController.m */; };
 		4C2379961FAB17FB002B8E44 /* JsenLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379951FAB17FB002B8E44 /* JsenLoadingViewController.m */; };
+		4C23799A1FAC14AD002B8E44 /* UIButton+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2379991FAC14AD002B8E44 /* UIButton+JsenKit.m */; };
+		4C23799D1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23799C1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.m */; };
 		4C371EDF1F3051A2009A82B2 /* JsenFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */; };
 		4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */; };
 		4C3DF1381FAABF75006E25B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3DF1361FAABF75006E25B6 /* AppDelegate.m */; };
@@ -83,6 +85,10 @@
 		4C2379911FAB0D2F002B8E44 /* JsenNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNavigationViewController.h; sourceTree = "<group>"; };
 		4C2379941FAB17FB002B8E44 /* JsenLoadingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenLoadingViewController.h; sourceTree = "<group>"; };
 		4C2379951FAB17FB002B8E44 /* JsenLoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenLoadingViewController.m; sourceTree = "<group>"; };
+		4C2379981FAC14AD002B8E44 /* UIButton+JsenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+JsenKit.h"; sourceTree = "<group>"; };
+		4C2379991FAC14AD002B8E44 /* UIButton+JsenKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JsenKit.m"; sourceTree = "<group>"; };
+		4C23799B1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenUIButtonJsenKitViewController.h; sourceTree = "<group>"; };
+		4C23799C1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenUIButtonJsenKitViewController.m; sourceTree = "<group>"; };
 		4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenFPSLabel.h; sourceTree = "<group>"; };
 		4C371EDE1F3051A2009A82B2 /* JsenFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenFPSLabel.m; sourceTree = "<group>"; };
 		4C3DF1171FA9C14F006E25B6 /* JsenDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenDefines.h; sourceTree = "<group>"; };
@@ -451,6 +457,8 @@
 				4C23797C1FAAE3C9002B8E44 /* JsenHomeViewController.m */,
 				4C2379941FAB17FB002B8E44 /* JsenLoadingViewController.h */,
 				4C2379951FAB17FB002B8E44 /* JsenLoadingViewController.m */,
+				4C23799B1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.h */,
+				4C23799C1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -501,6 +509,8 @@
 				4C57434F1FA864E0008E9E21 /* NSDate+JsenKit.m */,
 				4C5743541FA87D76008E9E21 /* UIView+JsenKit.h */,
 				4C5743551FA87D76008E9E21 /* UIView+JsenKit.m */,
+				4C2379981FAC14AD002B8E44 /* UIButton+JsenKit.h */,
+				4C2379991FAC14AD002B8E44 /* UIButton+JsenKit.m */,
 			);
 			path = JsenCategory;
 			sourceTree = "<group>";
@@ -730,9 +740,11 @@
 				4C57435A1FA87DCB008E9E21 /* UINavigationController+JsenKit.m in Sources */,
 				4C2379791FAACA13002B8E44 /* JsenTabBarControllerManager.m in Sources */,
 				4C2379931FAB0D2F002B8E44 /* JsenViewController.m in Sources */,
+				4C23799D1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.m in Sources */,
 				4C5743561FA87D76008E9E21 /* UIView+JsenKit.m in Sources */,
 				4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */,
 				4C2379961FAB17FB002B8E44 /* JsenLoadingViewController.m in Sources */,
+				4C23799A1FAC14AD002B8E44 /* UIButton+JsenKit.m in Sources */,
 				4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */,
 				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
 				4C23797D1FAAE3C9002B8E44 /* JsenHomeViewController.m in Sources */,

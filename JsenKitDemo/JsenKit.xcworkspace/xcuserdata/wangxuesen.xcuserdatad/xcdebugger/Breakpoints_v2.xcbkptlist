@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/DemoCodes/Modules/Home/Controllers/JsenHomeViewController.m"
-            timestampString = "531308570.860265"
+            timestampString = "531390329.178601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-loadInfo"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/DemoCodes/Modules/Home/Controllers/JsenHomeViewController.m"
-            timestampString = "531308570.86068"
+            timestampString = "531390329.178674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-loadInfo"
             landmarkType = "7">
          </BreakpointContent>
@@ -228,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsenKit/DemoCodes/Modules/Home/Controllers/JsenHomeViewController.m"
-            timestampString = "531308570.860912"
+            timestampString = "531390329.178729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-loadInfo"
             landmarkType = "7">
             <Locations>
@@ -244,11 +244,11 @@
                   moduleName = "JsenKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/WangXuesen/Desktop/JsenKit/JsenKitDemo/JsenKit/DemoCodes/Modules/Home/Controllers/JsenHomeViewController.m"
-                  timestampString = "531308571.030247"
+                  timestampString = "531388122.29476"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
                   offsetFromSymbolStart = "291">
                </Location>
                <Location
@@ -259,11 +259,11 @@
                   moduleName = "JsenKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/WangXuesen/Desktop/JsenKit/JsenKitDemo/JsenKit/DemoCodes/Modules/Home/Controllers/JsenHomeViewController.m"
-                  timestampString = "531308571.032799"
+                  timestampString = "531388122.299806"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>

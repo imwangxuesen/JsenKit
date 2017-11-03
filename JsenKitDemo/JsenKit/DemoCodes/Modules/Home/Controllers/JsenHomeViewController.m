@@ -9,6 +9,7 @@
 #import "JsenHomeViewController.h"
 #import "JsenHomeTableViewCell.h"
 #import "JsenLoadingViewController.h"
+#import "JsenUIButtonJsenKitViewController.h"
 
 
 @interface JsenHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -67,7 +68,15 @@
 
 - (void)pushToLoadingVC {
     JsenLoadingViewController *VC = [[JsenLoadingViewController alloc] init];
+    VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:YES];
+}
+
+- (void)pushToUIButtonJsenKitVC {
+    JsenUIButtonJsenKitViewController *VC = [[JsenUIButtonJsenKitViewController alloc] init];
+    VC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:VC animated:YES];
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -94,7 +103,9 @@
         case 0:
             [self pushToLoadingVC];
             break;
-            
+        case 1:
+            [self pushToUIButtonJsenKitVC];
+            break;
         default:
             break;
     }
@@ -114,7 +125,9 @@
 - (NSMutableArray<JsenHomeCellModel *> *)dataSource {
     if (!_dataSource) {
         JsenHomeCellModel *model = [JsenHomeCellModel setupModelWithName:@"loading" enable:YES showPoint:YES];
-        _dataSource = [[NSMutableArray alloc] initWithObjects:model, nil];
+        JsenHomeCellModel *model1 = [JsenHomeCellModel setupModelWithName:@"UIButton+JsenKit" enable:YES showPoint:YES];
+
+        _dataSource = [[NSMutableArray alloc] initWithObjects:model,model1, nil];
     }
     return _dataSource;
 }
