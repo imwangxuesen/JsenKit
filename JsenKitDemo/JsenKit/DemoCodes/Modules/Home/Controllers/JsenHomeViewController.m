@@ -39,12 +39,10 @@
     [self.view addSubview:self.tableView];
 }
 
-
 /**
  假装请求数据
  */
 - (void)loadInfo {
-    
     JsenLoading(@"请稍后");
     NSDictionary *parameters = @{
                                  @"id":@123,
@@ -64,7 +62,6 @@
         
     }];
 }
-
 
 - (void)pushToLoadingVC {
     JsenLoadingViewController *VC = [[JsenLoadingViewController alloc] init];

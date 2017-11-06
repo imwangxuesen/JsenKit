@@ -1,6 +1,6 @@
 //
 //  UINavigationController+JsenKit.m
-//  UFang
+//  JsenKit
 //
 //  Created by WangXuesen on 2017/9/29.
 //  Copyright © 2017年 Xuesen Wang. All rights reserved.

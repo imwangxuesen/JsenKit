@@ -109,9 +109,26 @@
  */
 - (BOOL)js_isUrl;
 
+/**
+ 手机号中间四位变成*
 
-// 手机号加密 133****3333
+ @return 手机号加密 133****3333
+ */
 - (NSString *)js_encryptPhone;
+
+/**
+ 是否包含一段字符串
+
+ @param str 被检测字符串
+ */
+- (BOOL)js_containString:(NSString *)str;
+
+/**
+ 去除特殊字符
+
+ @return 去除后的字符串
+ */
+- (NSString *)js_removeMagicalCharacter;
 
 
 @end
