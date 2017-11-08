@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AFSecurityPolicy;
+#import <AFNetworking/AFNetworking.h>
 
 
 #define JsenNetworkingResponseMessageKeyDefine [JsenNetworkingConfig shareConfig].responseFormat[JsenNetworkingResponseMessageKey]
