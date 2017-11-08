@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "JsenKit"
-  s.version      = "1.3.1"
+  s.version      = "1.3.2"
   s.summary      = "A iOS development of general engineering framework, including the commonly used network request package, category method, etc"
   s.description  = <<-DESC
  A iOS development of general engineering framework, including the commonly used network request package, category method, etc.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = { "WangXuesen" => "imwangxuesen@163.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/imwangxuesen/JsenKit.git", :tag => "1.3.1" }
+  s.source       = { :git => "https://github.com/imwangxuesen/JsenKit.git", :tag => "1.3.2" }
   s.resources 	 = "JsenKit/JsenProgressHUD/*.png"
   s.requires_arc = true
 
@@ -59,6 +59,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'JsenTabBarController' do |ss|
     ss.source_files = 'JsenKit/JsenTabBarController/*.{h,m}'
+  end
+
+  s.subspec 'JsenUI' do |ss|
+    ss.source_files = 'JsenKit/JsenUI/*.{h,m}'
   end
   
 

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFSecurityPolicy.h"
+#import <AFNetworking/AFNetworking.h>
 
 
 
