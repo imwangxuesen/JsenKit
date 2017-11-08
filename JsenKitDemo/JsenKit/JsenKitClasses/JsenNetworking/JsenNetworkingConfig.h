@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFSecurityPolicy.h"
+
 
 
 #define JsenNetworkingResponseMessageKeyDefine [JsenNetworkingConfig shareConfig].responseFormat[JsenNetworkingResponseMessageKey]
@@ -217,18 +219,29 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
  */
 @property (nonatomic, strong) NSDictionary *requestSerializerTypeConfig;
 
-/**
- 下载或者上传时，非wifi环境的提示标题
- */
-@property (nonatomic, copy) NSString *notWifiAlertTitleWhenUpOrDownload;
-
-/**
- 下载或者上传时，非wifi环境的提示详情
- */
-@property (nonatomic, copy) NSString *notWifiAlertDetatilWhenUpOrDownload;
 
 /**
  签名算法block
+ 针对有些server会设计接口签名，比如 所有的参数会做一次加密，然后把加密串作为参数一起发送出去
+ server对加密串进行校验，用来判断是否是自己的客户端发送的请求。
+ 
+ 例如：
+ 参数：
+ {
+    @"name":@"jsenKit",
+    @"id":@"123"
+ }
+ 
+ 通过此方法加密后的串是 @"alsdjflasdjflksadfjkasdfasdf"
+ 那么参数就会变成
+ {
+    @"name":@"jsenKit",
+    @"id":@"123",
+    signKeyName:@"alsdjflasdjflksadfjkasdfasdf"
+ }
+ 
+ signKeyName 是 ‘@property (nonatomic, copy) NSString *signKeyName;’ 属性，请务必在实现此block后设置
+ 
  */
 @property (nonatomic, copy) JsenNetworkingConfigSignBlock signBlock;
 
@@ -241,6 +254,11 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
  不参与签名的接口
  */
 @property (nonatomic, copy) NSDictionary *noSignAPI;
+
+/**
+ AFSecurityPolicy
+ */
+@property (nonatomic, strong) AFSecurityPolicy *securityPolicy;
 
 /**
  初始化

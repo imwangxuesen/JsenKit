@@ -48,6 +48,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     NSDictionary *requestParameters = [self configParametersWithRequestParameters:parameters];
     AFHTTPSessionManager *mgr = [self configHttpSessionManagerWithAPIKey:apiKey];
     
+    
     [mgr POST:url parameters:requestParameters progress:^(NSProgress * _Nonnull uploadProgress) {
         [self progressWithRequestProgress:uploadProgress];
         
@@ -121,8 +122,6 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:apiKey];
     
-//    [self networkReachablilityAndWifiStatusAction:^(BOOL goon) {
-//        if (goon) {
             JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
             NSString *url = [config api:apiKey];
             NSDictionary *requestParameters = [self configParametersWithRequestParameters:parameters];
@@ -144,8 +143,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
                 [self failedWithError:error];
                 [self finish];
             }];
-//        }
-//    }];
+
     
 }
 
@@ -185,8 +183,6 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:apiKey];
     
-//    [self networkReachablilityAndWifiStatusAction:^(BOOL goon) {
-//        if (goon) {
             JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
             NSString *url = [config api:apiKey];
             NSDictionary *requestParameters = [self configParametersWithRequestParameters:parameters];
@@ -213,8 +209,6 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
                 [self failedWithError:error];
                 [self finish];
             }];
-//        }
-//    }];
     
 }
 
@@ -250,10 +244,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
                        finished:(JsenNetworkingFinished __nullable)finished {
     
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:nil];
-    
-//    [self networkReachablilityAndWifiStatusAction:^(BOOL goon) {
-//        if (goon) {
-            AFURLSessionManager *mgr = [self configURLSessionManager];
+                AFURLSessionManager *mgr = [self configURLSessionManager];
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
             
             self.downloadTask = [mgr downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -267,8 +258,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
                 
             }];
             [self.downloadTask resume];
-//        }
-//    }];
+
     return self;
 }
 
@@ -281,8 +271,6 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
                               finished:(JsenNetworkingFinished __nullable)finished {
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:nil];
     
-//    [self networkReachablilityAndWifiStatusAction:^(BOOL goon) {
-//        if (goon) {
             AFURLSessionManager *mgr = [self configURLSessionManager];
             self.downloadTask = [mgr downloadTaskWithResumeData:resumeData progress:^(NSProgress * _Nonnull downloadProgress) {
                 [self progressWithRequestProgress:downloadProgress];
@@ -295,8 +283,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
                 
             }];
             [self.downloadTask resume];
-//        }
-//    }];
+
     
     return self;
 }
@@ -446,30 +433,6 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     return YES;
 }
 
-//- (void)networkReachablilityAndWifiStatusAction:(JsenNetworkingManagerGoonAction)goonAction {
-//    
-//    if (!([JsenNetworkingReachabilityManager manager].currentStatus == JsenNetworkingReachabilityStatusReachableViaWiFi)) {
-//       
-//        NSString *title = [[JsenNetworkingConfig shareConfig] notWifiAlertTitleWhenUpOrDownload] ?: jsenNetworkingManager_notWifiAlertTitle;
-//        NSString *message = [[JsenNetworkingConfig shareConfig] notWifiAlertDetatilWhenUpOrDownload] ?:jsenNetworkingManager_notWifiAlertDetail;
-//        
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:jsenNetworkingManager_notWifiCancelActionTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            goonAction(NO);
-//        }];
-//        UIAlertAction *submitAction = [UIAlertAction actionWithTitle:jsenNetworkingManager_notWifiSubmitActionTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            goonAction(YES);
-//        }];
-//        
-//        [alert addAction:submitAction];
-//        [alert addAction:cancelAction];
-//        [[self topViewController] presentViewController:alert animated:YES completion:nil];
-//    } else {
-//        if (goonAction) {
-//            goonAction(YES);
-//        }
-//    }
-//}
 
 
 
@@ -560,6 +523,9 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
 - (AFHTTPSessionManager *)configHttpSessionManagerWithAPIKey:(NSString *)apiKey {
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    if (config.securityPolicy) {
+        mgr.securityPolicy = mgr.securityPolicy;
+    }
     
     if (config.requestSerializerTypeConfig && config.requestSerializerTypeConfig[apiKey]) {
         switch ([config.requestSerializerTypeConfig[apiKey] integerValue]) {
