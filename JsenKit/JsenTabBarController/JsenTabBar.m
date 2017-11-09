@@ -10,6 +10,13 @@
 #import "JsenTabBarItem.h"
 #import "JsenTabBarItemAttribute.h"
 
+@interface JsenTabBar()
+
+@property (nonatomic,assign)UIEdgeInsets oldSafeAreaInsets;
+
+
+@end
+
 
 @implementation JsenTabBar {
     // if one attribute with type equl 'JsenTabBarItemAttributeCenterPlusUnBulgeType' or 'JsenTabBarItemAttributeCenterPlusBulgeType' in 'tabBarItemAttributes', hadPlusButton will be YES,but is NO.
@@ -114,6 +121,43 @@
     }
     [self bringToFront];
 }
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+- (void)setFrame:(CGRect)frame {
+    if (self.superview &&CGRectGetMaxY(self.superview.bounds) !=CGRectGetMaxY(frame)) {
+        frame.origin.y =CGRectGetHeight(self.superview.bounds) -CGRectGetHeight(frame);
+    }
+    [super setFrame:frame];
+}
+
+- (void)safeAreaInsetsDidChange {
+    [super safeAreaInsetsDidChange];
+    if(self.oldSafeAreaInsets.left != self.safeAreaInsets.left ||
+       self.oldSafeAreaInsets.right != self.safeAreaInsets.right ||
+       self.oldSafeAreaInsets.top != self.safeAreaInsets.top ||
+       self.oldSafeAreaInsets.bottom != self.safeAreaInsets.bottom)
+    {
+        self.oldSafeAreaInsets = self.safeAreaInsets;
+        [self invalidateIntrinsicContentSize];
+        [self.superview setNeedsLayout];
+        [self.superview layoutSubviews];
+    }
+    
+}
+
+- (CGSize)sizeThatFits:(CGSize) size {
+    CGSize s = [super sizeThatFits:size];
+    if(@available(iOS 11.0, *))
+    {
+        CGFloat bottomInset = self.safeAreaInsets.bottom;
+        if( bottomInset > 0 && s.height < 50) {
+            s.height += bottomInset;
+        }
+    }
+    return s;
+}
+#endif
+
 
 #pragma mark - private method
 // bring every items to front
