@@ -23,4 +23,9 @@
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 }
+
+- (CGFloat)js_contentHeight:(CGSize)size {
+    return [self sizeThatFits:size].height;
+}
+
 @end
