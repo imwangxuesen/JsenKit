@@ -81,7 +81,6 @@ static JsenProgressHUD * progressHUD = nil;
     self.label.hidden   = (text == nil ? YES : NO);
     
     self.image.image    = image;
-    NSLog(@"%d",(image == nil ? YES : NO));
     self.image.hidden   = (image == nil ? YES : NO);
     
     if (showSpinner) {
@@ -277,9 +276,10 @@ static JsenProgressHUD * progressHUD = nil;
 - (void)getToHide {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSUInteger length = self.label.text.length;
-        NSTimeInterval sleepTime = length * 0.04 + 0.5;
-        [NSThread sleepForTimeInterval:sleepTime];
-        [self hideHUD];
+        NSTimeInterval sleepTime = length * 0.03 + 1.1;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(sleepTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self hideHUD];
+        });
     });
 }
 
