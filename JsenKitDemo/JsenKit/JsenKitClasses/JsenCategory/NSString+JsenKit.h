@@ -130,5 +130,13 @@
  */
 - (NSString *)js_removeMagicalCharacter;
 
+/**
+ 计算段落整体高度
+ 
+ @param textView 目标视图
+ @param width 宽度
+ @return 高度
+ */
++ (CGFloat)js_heightForString:(UIView *)textView andWidth:(float)width;
 
 @end

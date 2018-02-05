@@ -184,4 +184,9 @@
     return modifiedString;
 }
 
++ (CGFloat)js_heightForString:(UIView *)textView andWidth:(float)width{
+    CGSize sizeToFit = [textView sizeThatFits:CGSizeMake(width, MAXFLOAT)];
+    return sizeToFit.height;
+}
+
 @end
