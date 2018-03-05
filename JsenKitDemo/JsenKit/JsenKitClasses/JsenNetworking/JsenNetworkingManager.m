@@ -45,7 +45,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     }
     
     NSString *url = [config api:apiKey];
-    NSDictionary *requestParameters = [self configParametersWithRequestParameters:parameters];
+    id requestParameters = [self configParametersWithRequestParameters:parameters];
     AFHTTPSessionManager *mgr = [self configHttpSessionManagerWithAPIKey:apiKey];
     
     
@@ -53,7 +53,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
         [self progressWithRequestProgress:uploadProgress];
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [self successWithResponseObject:responseObject];
+        [self handleResponse:responseObject];
         [self finish];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -85,15 +85,15 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     NSString *url = [config api:apiKey];
-    NSDictionary *requestParameters = [self configParametersWithRequestParameters:parameters];
+    id requestParameters = [self configParametersWithRequestParameters:parameters];
     
     AFHTTPSessionManager *mgr = [self configHttpSessionManagerWithAPIKey:apiKey];
     
     [mgr GET:url parameters:requestParameters progress:^(NSProgress * _Nonnull downloadProgress) {
         [self progressWithRequestProgress:downloadProgress];
-
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [self successWithResponseObject:responseObject];
+        [self handleResponse:responseObject];
         [self finish];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -122,28 +122,28 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:apiKey];
     
-            JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
-            NSString *url = [config api:apiKey];
-            NSDictionary *requestParameters = [self configParametersWithRequestParameters:parameters];
-            
-            AFHTTPSessionManager *mgr = [self configHttpSessionManagerWithAPIKey:apiKey];
-            [mgr POST:url parameters:requestParameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                [formData appendPartWithFileData:data name:name fileName:fileName mimeType:mimeType];
-                
-            } progress:^(NSProgress * _Nonnull uploadProgress) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self progressWithRequestProgress:uploadProgress];
-                });
-                
-            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [self successWithResponseObject:responseObject];
-                [self finish];
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [self failedWithError:error];
-                [self finish];
-            }];
-
+    JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
+    NSString *url = [config api:apiKey];
+    id requestParameters = [self configParametersWithRequestParameters:parameters];
+    
+    AFHTTPSessionManager *mgr = [self configHttpSessionManagerWithAPIKey:apiKey];
+    [mgr POST:url parameters:requestParameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileData:data name:name fileName:fileName mimeType:mimeType];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self progressWithRequestProgress:uploadProgress];
+        });
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self handleResponse:responseObject];
+        [self finish];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self failedWithError:error];
+        [self finish];
+    }];
+    
     
 }
 
@@ -183,32 +183,32 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:apiKey];
     
-            JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
-            NSString *url = [config api:apiKey];
-            NSDictionary *requestParameters = [self configParametersWithRequestParameters:parameters];
-            AFHTTPSessionManager *mgr = [self configHttpSessionManagerWithAPIKey:apiKey];
-            
-            NSAssert(dataArray.count == fileNameArray.count, @"dataArray count must be equl to fileNameArray count");
-            [mgr POST:url parameters:requestParameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                [dataArray enumerateObjectsUsingBlock:^(NSData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    NSData *data = obj;
-                    NSString *fileName = fileNameArray[idx];
-                    [formData appendPartWithFileData:data name:name fileName:fileName mimeType:mimeType];
-                }];
-                
-            } progress:^(NSProgress * _Nonnull uploadProgress) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self progressWithRequestProgress:uploadProgress];
-                });
-                
-            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [self successWithResponseObject:responseObject];
-                [self finish];
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [self failedWithError:error];
-                [self finish];
-            }];
+    JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
+    NSString *url = [config api:apiKey];
+    id requestParameters = [self configParametersWithRequestParameters:parameters];
+    AFHTTPSessionManager *mgr = [self configHttpSessionManagerWithAPIKey:apiKey];
+    
+    NSAssert(dataArray.count == fileNameArray.count, @"dataArray count must be equl to fileNameArray count");
+    [mgr POST:url parameters:requestParameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [dataArray enumerateObjectsUsingBlock:^(NSData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSData *data = obj;
+            NSString *fileName = fileNameArray[idx];
+            [formData appendPartWithFileData:data name:name fileName:fileName mimeType:mimeType];
+        }];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self progressWithRequestProgress:uploadProgress];
+        });
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self handleResponse:responseObject];
+        [self finish];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self failedWithError:error];
+        [self finish];
+    }];
     
 }
 
@@ -231,7 +231,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
                                 success:nil
                                  failed:nil
                                finished:nil];
-
+    
 }
 
 
@@ -244,21 +244,21 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
                        finished:(JsenNetworkingFinished __nullable)finished {
     
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:nil];
-                AFURLSessionManager *mgr = [self configURLSessionManager];
-            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-            
-            self.downloadTask = [mgr downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
-                [self progressWithRequestProgress:downloadProgress];
-                
-            } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-                return [self configDownloadUrlWith:response filePath:filePath fileName:fileName];
-                
-            } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-                [self downloadCompletedWith:response filePath:filePath error:error];
-                
-            }];
-            [self.downloadTask resume];
-
+    AFURLSessionManager *mgr = [self configURLSessionManager];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    self.downloadTask = [mgr downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        [self progressWithRequestProgress:downloadProgress];
+        
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        return [self configDownloadUrlWith:response filePath:filePath fileName:fileName];
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        [self downloadCompletedWith:response filePath:filePath error:error];
+        
+    }];
+    [self.downloadTask resume];
+    
     return self;
 }
 
@@ -271,19 +271,19 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
                               finished:(JsenNetworkingFinished __nullable)finished {
     [self configRequestBlockWithSuccess:success failed:failed progress:progress finished:finished apiKey:nil];
     
-            AFURLSessionManager *mgr = [self configURLSessionManager];
-            self.downloadTask = [mgr downloadTaskWithResumeData:resumeData progress:^(NSProgress * _Nonnull downloadProgress) {
-                [self progressWithRequestProgress:downloadProgress];
-                
-            } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-                return [self configDownloadUrlWith:response filePath:filePath fileName:fileName];
-                
-            } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-                [self downloadCompletedWith:response filePath:filePath error:error];
-                
-            }];
-            [self.downloadTask resume];
-
+    AFURLSessionManager *mgr = [self configURLSessionManager];
+    self.downloadTask = [mgr downloadTaskWithResumeData:resumeData progress:^(NSProgress * _Nonnull downloadProgress) {
+        [self progressWithRequestProgress:downloadProgress];
+        
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        return [self configDownloadUrlWith:response filePath:filePath fileName:fileName];
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        [self downloadCompletedWith:response filePath:filePath error:error];
+        
+    }];
+    [self.downloadTask resume];
+    
     
     return self;
 }
@@ -311,6 +311,19 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingSuccess:api:)]) {
         [self.delegate jsenNetworkingSuccess:successResponse api:self.apiKey];
     }
+}
+
+/**
+ 处理响应数据
+ 
+ @param response
+ */
+- (void)handleResponse:(id)response {
+    if ([JsenNetworkingConfig shareConfig].responseHandleBlock) {
+        response = [JsenNetworkingConfig shareConfig].responseHandleBlock(response);
+    }
+    [self successWithResponseObject:response];
+    
 }
 
 //http 请求成功后处理，如果有自定义的错误码，会处理为failed
@@ -360,7 +373,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
         if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingCustomErrorFailed:api:)]) {
             [self.delegate jsenNetworkingCustomErrorFailed:response api:self.apiKey];
         }
-   
+        
     } else {
         if (self.delegate && [self.delegate respondsToSelector:@selector(jsenNetworkingFailed:api:)]) {
             [self.delegate jsenNetworkingFailed:response api:self.apiKey];
@@ -504,9 +517,13 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 }
 
 //参数拼接
-- (NSDictionary *)configParametersWithRequestParameters:(NSDictionary *)parameters {
+- (id)configParametersWithRequestParameters:(NSDictionary *)parameters {
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
 
+    if(config.parametersHandleBlock) {
+        return config.parametersHandleBlock(parameters);
+    }
+    
     NSMutableDictionary *requestParameters = [[NSMutableDictionary alloc] initWithDictionary:config.globalParameters];
     [requestParameters addEntriesFromDictionary:parameters];
     if (config.signBlock && [config.noSignAPI objectForKey:self.apiKey] == nil) {
@@ -515,7 +532,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
                                                       config.signKeyName:signKey
                                                       }];
     }
-
+    
     return requestParameters;
 }
 
