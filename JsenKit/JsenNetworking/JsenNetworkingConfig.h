@@ -44,6 +44,24 @@ extern NSString *const JsenNetworkingResponseTimelineKey;
 typedef NSString* (^JsenNetworkingConfigSignBlock)(NSDictionary *signKeyValues);
 
 /**
+ 响应数据处理block
+ 如果返回的响应数据不是字典（比如加密的json串），那么我们需要进行转换城字典
+ 
+ @param response
+ @return
+ */
+typedef NSDictionary* (^JsenNetworkingConfigResponseHandleBlock)(id response);
+
+/**
+ 参数处理block
+ 如果参数需要加密或者其他特殊处理，请实现此block
+ 
+ @param parameters 参数
+ @return 处理后的参数
+ */
+typedef id (^JsenNetworkingConfigParametersHandleBlock) (NSDictionary* parameters);
+
+/**
  公共参数获取block
 
  @return 公共参数字典
@@ -116,6 +134,16 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
  }
  */
 @property (nonatomic, strong) NSDictionary *globalParameters;
+
+/**
+ 如果响应数据并不是字典，请实现此block完成转换到字典的过程。
+ */
+@property (nonatomic, strong) JsenNetworkingConfigResponseHandleBlock responseHandleBlock;
+
+/**
+ 如果参数需要特殊处理，清实现此block完成处理。
+ */
+@property (nonatomic, strong) JsenNetworkingConfigParametersHandleBlock parametersHandleBlock;
 
 /**
  公共参数配置block
