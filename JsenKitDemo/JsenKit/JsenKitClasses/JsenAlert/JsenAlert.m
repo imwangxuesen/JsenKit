@@ -11,7 +11,7 @@
 #import "UIImage+JsenKit.h"
 
 #define JsenAlertView_W  272.0
-#define JsenAlertViewTitleLabel_H 56.0
+#define JsenAlertViewTitleLabel_H 46.0
 #define JsenAlertViewDetailMessageLabel_H_WithTitleLabel 51.0
 #define JsenAlertViewDetailMessageLabel_H_WithoutTitleLabel 61.0
 #define JsenAlertViewActionButton_H 45.0
@@ -202,7 +202,7 @@
         _titleLabel.textColor = JsenAlertConfigManagerDefine.titleColor;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.text = self.title;
-        _titleLabel.frame = CGRectMake(0, 0, JsenAlertView_W, JsenAlertViewTitleLabel_H);
+        _titleLabel.frame = CGRectMake(0, 10, JsenAlertView_W, JsenAlertViewTitleLabel_H);
     }
     return _titleLabel;
 }
