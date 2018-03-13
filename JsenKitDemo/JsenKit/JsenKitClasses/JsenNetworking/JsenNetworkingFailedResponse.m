@@ -25,7 +25,7 @@
 
 - (void)setCode:(NSNumber *)code {
     _code = code;
-    if(_code == -1001) {
+    if(_code.intValue == -1001) {
         _message = @"请求超时";
     }
 }
