@@ -12,13 +12,22 @@
 @implementation JsenNetworkingFailedResponse
 
 - (NSString *)message {
-    if (_userInfo) {
-        return _userInfo[NSLocalizedDescriptionKey];
-    }
     if (_message) {
         return _message;
     }
+    
+    if (_userInfo) {
+        return _userInfo[NSLocalizedDescriptionKey];
+    }
+    
     return @"unkwon error";
+}
+
+- (void)setCode:(NSNumber *)code {
+    _code = code;
+    if(_code == -1001) {
+        _message = @"请求超时";
+    }
 }
 
 + (instancetype)responseWithError:(NSError *)error {
