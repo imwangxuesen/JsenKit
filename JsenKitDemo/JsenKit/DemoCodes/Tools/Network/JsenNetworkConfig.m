@@ -113,7 +113,7 @@ NSString *const Jsen_Notification_Error_Code = @"10030";
 
 
 + (NSArray<NSString *> *)configSuccessDataAllKeys {
-    return @[@"result", @"ext"];
+    return @[@"result", @"ext", JsenNetworkingResponseDataKeyDefine];
 }
 
 
