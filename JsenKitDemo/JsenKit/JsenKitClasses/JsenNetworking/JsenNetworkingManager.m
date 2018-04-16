@@ -329,7 +329,15 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 //http 请求成功后处理，如果有自定义的错误码，会处理为failed
 - (void)successWithResponseObject:(NSDictionary *)responseObject {
     
-    if ([[JsenNetworkingConfig shareConfig].customSuccessStatusCode isEqualToNumber:responseObject[JsenNetworkingResponseStatusCodeKeyDefine]]) {
+    NSNumber * statusCode = responseObject[JsenNetworkingResponseStatusCodeKey];
+    __block BOOL isHaveData = NO;
+    [[JsenNetworkingConfig shareConfig].customSuccessDataAllKeys enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (responseObject[obj] != nil) {
+            isHaveData = YES;
+            *stop = YES;
+        }
+    }];
+    if ((statusCode != nil && [[JsenNetworkingConfig shareConfig].customSuccessStatusCode isEqualToNumber:statusCode]) || isHaveData) {
         
         JsenNetworkingSuccessResponse *response = [JsenNetworkingSuccessResponse responseWithResponseObject:responseObject apiKey:self.apiKey];
         if (self.success) {
