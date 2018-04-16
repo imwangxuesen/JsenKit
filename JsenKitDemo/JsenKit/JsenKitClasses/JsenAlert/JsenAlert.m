@@ -217,7 +217,8 @@
         _detailMessageLabel.numberOfLines = 0;
         CGFloat height = self.hadTitle ? JsenAlertViewDetailMessageLabel_H_WithTitleLabel : JsenAlertViewDetailMessageLabel_H_WithoutTitleLabel;
         CGFloat y = self.hadTitle ? JsenAlertViewTitleLabel_H : 0.0;
-        _detailMessageLabel.frame = CGRectMake(0, y, JsenAlertView_W, height);
+        _detailMessageLabel.frame = CGRectMake(5, y, JsenAlertView_W-10, height);
+        _detailMessageLabel.adjustsFontSizeToFitWidth = YES;
     }
     return _detailMessageLabel;
 }
