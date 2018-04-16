@@ -211,6 +211,7 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
     "code": 0,
     "result" : {
         list : (
+ 
         ),
     },
     "ext" : {
