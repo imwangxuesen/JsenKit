@@ -150,6 +150,13 @@ static JsenNetworkingConfig *config = nil;
     return _responseFormat;
 }
 
+- (NSArray<NSString *> *)customSuccessDataAllKeys {
+    if (!_customSuccessDataAllKeys) {
+        _customSuccessDataAllKeys = @[JsenNetworkingResponseDataKey];
+    }
+    return _customSuccessDataAllKeys;
+}
+
 - (NSTimeInterval)defaultTimeoutInterval {
     if (!_defaultTimeoutInterval) {
         return JsenNetworkingDefaultTimeOutInterval;
