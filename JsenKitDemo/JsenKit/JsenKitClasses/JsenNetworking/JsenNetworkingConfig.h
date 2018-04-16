@@ -203,6 +203,28 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
  */
 @property (nonatomic, strong) NSDictionary *responseFormat;
 
+/**
+ MARK:--- 自定义接口返回所有数据对应的所有key，默认存储key为JsenNetworkingResponseDataKey
+ 如果返回数据格式不是上面规范格式
+ eg:
+ {
+    "code": 0,
+    "result" : {
+        list : (
+ 
+        ),
+    },
+    "ext" : {
+        "userAttribute" : {
+            featuredUI : "old",
+        },
+    },
+    "msg": "SUCCESS",
+    "timestamp": 1465805236
+ }
+ 其中，result 和 ext 同级并需要关联使用，此时可以设置 customSuccessDataAllKeys = @[@"result", @"ext"];
+ */
+@property (strong, nonatomic) NSArray<NSString *> * customSuccessDataAllKeys;
 
 /**
  默认超时时间，如果不设置则为10s

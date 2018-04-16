@@ -55,6 +55,8 @@ NSString *const Jsen_Notification_Error_Code = @"10030";
                                      };
     
     
+    config.customSuccessDataAllKeys = [self configSuccessDataAllKeys];
+    
     /*
      默认超时时长 单位：秒
      如果想对不同特殊接口做特殊的超时时长 请设置timeoutInterval属性
@@ -110,7 +112,9 @@ NSString *const Jsen_Notification_Error_Code = @"10030";
 }
 
 
-
++ (NSArray<NSString *> *)configSuccessDataAllKeys {
+    return @[@"result", @"ext"];
+}
 
 
 @end
