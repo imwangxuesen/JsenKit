@@ -105,7 +105,11 @@ static JsenNetworkingConfig *config = nil;
 
 - (NSDictionary *)globalParameters {
     if (!_globalParameters) {
-        _globalParameters = @{};
+        if (_globalParametersBlock) {
+            _globalParameters = _globalParametersBlock() ?: @{};
+        }else {
+            _globalParameters = @{};
+        }
     }
     return _globalParameters;
 }
@@ -148,13 +152,6 @@ static JsenNetworkingConfig *config = nil;
                             };
     }
     return _responseFormat;
-}
-
-- (NSArray<NSString *> *)customSuccessDataAllKeys {
-    if (!_customSuccessDataAllKeys) {
-        _customSuccessDataAllKeys = @[JsenNetworkingResponseDataKey];
-    }
-    return _customSuccessDataAllKeys;
 }
 
 - (NSTimeInterval)defaultTimeoutInterval {
