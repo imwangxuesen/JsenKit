@@ -42,6 +42,7 @@
 		4C5743561FA87D76008E9E21 /* UIView+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5743551FA87D76008E9E21 /* UIView+JsenKit.m */; };
 		4C57435A1FA87DCB008E9E21 /* UINavigationController+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5743571FA87DCA008E9E21 /* UINavigationController+JsenKit.m */; };
 		4C57435D1FA87F1F008E9E21 /* JsenAdaptationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C57435C1FA87F1F008E9E21 /* JsenAdaptationTool.m */; };
+		4C58603E20AAE3D8004C0D1D /* empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C58603D20AAE3D8004C0D1D /* empty.m */; };
 		4C6E25E21DEBFD8700729580 /* JsenNetworkingReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E25E11DEBFD8700729580 /* JsenNetworkingReachabilityManager.m */; };
 		4C7E50A11F2EFCFA00C7249C /* NSData+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E50A01F2EFCFA00C7249C /* NSData+JsenKit.m */; };
 		4C7E50A41F2EFD0B00C7249C /* NSString+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E50A31F2EFD0B00C7249C /* NSString+JsenKit.m */; };
@@ -131,6 +132,8 @@
 		4C5743591FA87DCA008E9E21 /* UINavigationController+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+JsenKit.h"; sourceTree = "<group>"; };
 		4C57435B1FA87F1F008E9E21 /* JsenAdaptationTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenAdaptationTool.h; sourceTree = "<group>"; };
 		4C57435C1FA87F1F008E9E21 /* JsenAdaptationTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenAdaptationTool.m; sourceTree = "<group>"; };
+		4C58603C20AAE3D8004C0D1D /* empty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = empty.h; sourceTree = "<group>"; };
+		4C58603D20AAE3D8004C0D1D /* empty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = empty.m; sourceTree = "<group>"; };
 		4C6E25E01DEBFD8700729580 /* JsenNetworkingReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkingReachabilityManager.h; sourceTree = "<group>"; };
 		4C6E25E11DEBFD8700729580 /* JsenNetworkingReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkingReachabilityManager.m; sourceTree = "<group>"; };
 		4C7E509F1F2EFCFA00C7249C /* NSData+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+JsenKit.h"; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				4C23798D1FAAECB3002B8E44 /* JsenDemoDefine.h */,
+				4C58603C20AAE3D8004C0D1D /* empty.h */,
+				4C58603D20AAE3D8004C0D1D /* empty.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				4C8DB9991DDE9D67006F3D5B /* JsenNetworkingSuccessResponse.m in Sources */,
 				4C3DF11B1FA9C9F8006E25B6 /* JsenTextView.m in Sources */,
 				4C57435A1FA87DCB008E9E21 /* UINavigationController+JsenKit.m in Sources */,
+				4C58603E20AAE3D8004C0D1D /* empty.m in Sources */,
 				4C2379791FAACA13002B8E44 /* JsenTabBarControllerManager.m in Sources */,
 				4C2379931FAB0D2F002B8E44 /* JsenViewController.m in Sources */,
 				4C23799D1FAC1C75002B8E44 /* JsenUIButtonJsenKitViewController.m in Sources */,
