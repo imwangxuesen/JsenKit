@@ -329,7 +329,15 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 //http 请求成功后处理，如果有自定义的错误码，会处理为failed
 - (void)successWithResponseObject:(NSDictionary *)responseObject {
     
-    if ([[JsenNetworkingConfig shareConfig].customSuccessStatusCode isEqualToNumber:responseObject[JsenNetworkingResponseStatusCodeKeyDefine]]) {
+    NSNumber * statusCode = responseObject[JsenNetworkingResponseStatusCodeKey];
+    __block BOOL isHaveData = NO;
+    [[JsenNetworkingConfig shareConfig].customSuccessDataAllKeys enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (responseObject[obj] != nil) {
+            isHaveData = YES;
+            *stop = YES;
+        }
+    }];
+    if ((statusCode != nil && [[JsenNetworkingConfig shareConfig].customSuccessStatusCode isEqualToNumber:statusCode]) || isHaveData) {
         
         JsenNetworkingSuccessResponse *response = [JsenNetworkingSuccessResponse responseWithResponseObject:responseObject apiKey:self.apiKey];
         if (self.success) {
@@ -519,7 +527,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 //参数拼接
 - (id)configParametersWithRequestParameters:(NSDictionary *)parameters {
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
-
+    
     NSMutableDictionary *requestParameters = [[NSMutableDictionary alloc] initWithDictionary:config.globalParameters];
     [requestParameters addEntriesFromDictionary:parameters];
     if (config.signBlock && [config.noSignAPI objectForKey:self.apiKey] == nil) {
@@ -530,9 +538,8 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     }
     
     if(config.parametersHandleBlock) {
-        return config.parametersHandleBlock(requestParameters);
+        return config.parametersHandleBlock(parameters);
     }
-    
     return requestParameters;
 }
 
