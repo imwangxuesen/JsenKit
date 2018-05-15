@@ -57,7 +57,6 @@
 		4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */; };
 		4C932B8E1DE2CC3500A6F0C4 /* international.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C932B901DE2CC3500A6F0C4 /* international.strings */; };
 		4C99512920283B6F003E0436 /* UIViewController+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C99512820283B6F003E0436 /* UIViewController+JsenKit.m */; };
-		4CBA7E1320AAD81000898E62 /* JsenInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E0F20AAD80F00898E62 /* JsenInputAlertView.m */; };
 		4CBA7E1420AAD81000898E62 /* JsenMoreRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E1220AAD80F00898E62 /* JsenMoreRectButton.m */; };
 		4CBA7E1720AAD84100898E62 /* NSURLCache+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E1620AAD84100898E62 /* NSURLCache+JsenKit.m */; };
 		4CBA7E1A20AAD85500898E62 /* JsenCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E1820AAD85500898E62 /* JsenCacheTool.m */; };
@@ -165,9 +164,7 @@
 		4C932B921DE2CC3B00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/international.strings"; sourceTree = "<group>"; };
 		4C99512720283B6E003E0436 /* UIViewController+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JsenKit.h"; sourceTree = "<group>"; };
 		4C99512820283B6F003E0436 /* UIViewController+JsenKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JsenKit.m"; sourceTree = "<group>"; };
-		4CBA7E0F20AAD80F00898E62 /* JsenInputAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenInputAlertView.m; sourceTree = "<group>"; };
 		4CBA7E1020AAD80F00898E62 /* JsenMoreRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenMoreRectButton.h; sourceTree = "<group>"; };
-		4CBA7E1120AAD80F00898E62 /* JsenInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenInputAlertView.h; sourceTree = "<group>"; };
 		4CBA7E1220AAD80F00898E62 /* JsenMoreRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenMoreRectButton.m; sourceTree = "<group>"; };
 		4CBA7E1520AAD84100898E62 /* NSURLCache+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLCache+JsenKit.h"; sourceTree = "<group>"; };
 		4CBA7E1620AAD84100898E62 /* NSURLCache+JsenKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLCache+JsenKit.m"; sourceTree = "<group>"; };
@@ -281,8 +278,6 @@
 		4C3DF1181FA9C9F8006E25B6 /* JsenUI */ = {
 			isa = PBXGroup;
 			children = (
-				4CBA7E1120AAD80F00898E62 /* JsenInputAlertView.h */,
-				4CBA7E0F20AAD80F00898E62 /* JsenInputAlertView.m */,
 				4CBA7E1020AAD80F00898E62 /* JsenMoreRectButton.h */,
 				4CBA7E1220AAD80F00898E62 /* JsenMoreRectButton.m */,
 				4C3DF1191FA9C9F8006E25B6 /* JsenTextView.h */,
@@ -780,7 +775,6 @@
 				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
 				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
 				4C2379921FAB0D2F002B8E44 /* JsenNavigationViewController.m in Sources */,
-				4CBA7E1320AAD81000898E62 /* JsenInputAlertView.m in Sources */,
 				4C7E50A11F2EFCFA00C7249C /* NSData+JsenKit.m in Sources */,
 				4CBA7E1420AAD81000898E62 /* JsenMoreRectButton.m in Sources */,
 				4C99512920283B6F003E0436 /* UIViewController+JsenKit.m in Sources */,
