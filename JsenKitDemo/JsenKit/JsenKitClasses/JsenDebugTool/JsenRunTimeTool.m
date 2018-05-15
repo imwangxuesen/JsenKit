@@ -11,7 +11,7 @@
 
 @implementation JsenRunTimeTool
 
-+ (void)printPrivateMethodAndAttributeWithClass:(Class)className {
++ (void)js_printPrivateMethodAndAttributeWithClass:(Class)className {
     
     unsigned  int count = 0;
     Ivar *members = class_copyIvarList([className class], &count);
@@ -22,6 +22,19 @@
         const char *memberAddress = ivar_getName(var);
         const char *memberType = ivar_getTypeEncoding(var);
         NSLog(@"address = %s ; type = %s",memberAddress,memberType);
+    }
+}
+
+
++ (void)js_swizzleMethodWithClass:(Class)class originalSelector:(SEL)originalSelector swizzledSelector:(SEL)swizzledSelector  {    // the method might not exist in the class, but in its superclass
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);    // class_addMethod will fail if original method already exists
+    BOOL didAddMethod = class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));    // the method doesn’t exist and we just added one
+    if (didAddMethod) {
+        class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    }
+    else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
     }
 }
 

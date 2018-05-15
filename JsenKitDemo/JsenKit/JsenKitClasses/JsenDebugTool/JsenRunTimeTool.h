@@ -16,6 +16,16 @@
 
  @param className 类名
  */
-+ (void)printPrivateMethodAndAttributeWithClass:(Class)className;
++ (void)js_printPrivateMethodAndAttributeWithClass:(Class)className;
 
+
+/**
+ swizzle two method
+ 交换两个方法
+
+ @param class target class / 目标类
+ @param originalSelector 原方法选择器
+ @param swizzledSelector 新方法选择器
+ */
++ (void)js_swizzleMethodWithClass:(Class)class originalSelector:(SEL)originalSelector swizzledSelector:(SEL)swizzledSelector;
 @end
