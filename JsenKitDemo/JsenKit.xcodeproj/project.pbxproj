@@ -57,6 +57,10 @@
 		4C932B871DE2988600A6F0C4 /* JsenTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C932B861DE2988600A6F0C4 /* JsenTabBarItem.m */; };
 		4C932B8E1DE2CC3500A6F0C4 /* international.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C932B901DE2CC3500A6F0C4 /* international.strings */; };
 		4C99512920283B6F003E0436 /* UIViewController+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C99512820283B6F003E0436 /* UIViewController+JsenKit.m */; };
+		4CBA7E1320AAD81000898E62 /* JsenInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E0F20AAD80F00898E62 /* JsenInputAlertView.m */; };
+		4CBA7E1420AAD81000898E62 /* JsenMoreRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E1220AAD80F00898E62 /* JsenMoreRectButton.m */; };
+		4CBA7E1720AAD84100898E62 /* NSURLCache+JsenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E1620AAD84100898E62 /* NSURLCache+JsenKit.m */; };
+		4CBA7E1A20AAD85500898E62 /* JsenCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA7E1820AAD85500898E62 /* JsenCacheTool.m */; };
 		4CF3CB991F98AD8F00E81A28 /* JsenVersionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3CB981F98AD8F00E81A28 /* JsenVersionTool.m */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +165,14 @@
 		4C932B921DE2CC3B00A6F0C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/international.strings"; sourceTree = "<group>"; };
 		4C99512720283B6E003E0436 /* UIViewController+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JsenKit.h"; sourceTree = "<group>"; };
 		4C99512820283B6F003E0436 /* UIViewController+JsenKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JsenKit.m"; sourceTree = "<group>"; };
+		4CBA7E0F20AAD80F00898E62 /* JsenInputAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenInputAlertView.m; sourceTree = "<group>"; };
+		4CBA7E1020AAD80F00898E62 /* JsenMoreRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenMoreRectButton.h; sourceTree = "<group>"; };
+		4CBA7E1120AAD80F00898E62 /* JsenInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenInputAlertView.h; sourceTree = "<group>"; };
+		4CBA7E1220AAD80F00898E62 /* JsenMoreRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenMoreRectButton.m; sourceTree = "<group>"; };
+		4CBA7E1520AAD84100898E62 /* NSURLCache+JsenKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLCache+JsenKit.h"; sourceTree = "<group>"; };
+		4CBA7E1620AAD84100898E62 /* NSURLCache+JsenKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLCache+JsenKit.m"; sourceTree = "<group>"; };
+		4CBA7E1820AAD85500898E62 /* JsenCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenCacheTool.m; sourceTree = "<group>"; };
+		4CBA7E1920AAD85500898E62 /* JsenCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenCacheTool.h; sourceTree = "<group>"; };
 		4CF3CB971F98AD8F00E81A28 /* JsenVersionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenVersionTool.h; sourceTree = "<group>"; };
 		4CF3CB981F98AD8F00E81A28 /* JsenVersionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsenVersionTool.m; sourceTree = "<group>"; };
 		91CACA6B0E6E26BDF0F07CEC /* Pods-JsenKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsenKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JsenKit/Pods-JsenKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +281,10 @@
 		4C3DF1181FA9C9F8006E25B6 /* JsenUI */ = {
 			isa = PBXGroup;
 			children = (
+				4CBA7E1120AAD80F00898E62 /* JsenInputAlertView.h */,
+				4CBA7E0F20AAD80F00898E62 /* JsenInputAlertView.m */,
+				4CBA7E1020AAD80F00898E62 /* JsenMoreRectButton.h */,
+				4CBA7E1220AAD80F00898E62 /* JsenMoreRectButton.m */,
 				4C3DF1191FA9C9F8006E25B6 /* JsenTextView.h */,
 				4C3DF11A1FA9C9F8006E25B6 /* JsenTextView.m */,
 			);
@@ -489,6 +505,8 @@
 		4C459B7A1E2682C500C1F185 /* JsenCategory */ = {
 			isa = PBXGroup;
 			children = (
+				4CBA7E1520AAD84100898E62 /* NSURLCache+JsenKit.h */,
+				4CBA7E1620AAD84100898E62 /* NSURLCache+JsenKit.m */,
 				4C99512720283B6E003E0436 /* UIViewController+JsenKit.h */,
 				4C99512820283B6F003E0436 /* UIViewController+JsenKit.m */,
 				4C5743591FA87DCA008E9E21 /* UINavigationController+JsenKit.h */,
@@ -585,6 +603,8 @@
 		4C8DB9A11DDEA4EE006F3D5B /* JsenDebugTool */ = {
 			isa = PBXGroup;
 			children = (
+				4CBA7E1920AAD85500898E62 /* JsenCacheTool.h */,
+				4CBA7E1820AAD85500898E62 /* JsenCacheTool.m */,
 				4C8DB9A21DDEA506006F3D5B /* JsenRunTimeTool.h */,
 				4C8DB9A31DDEA506006F3D5B /* JsenRunTimeTool.m */,
 				4C371EDD1F3051A2009A82B2 /* JsenFPSLabel.h */,
@@ -736,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBA7E1720AAD84100898E62 /* NSURLCache+JsenKit.m in Sources */,
 				4C57434D1FA8649C008E9E21 /* UILabel+JsenKit.m in Sources */,
 				4C8DB9971DDE9D67006F3D5B /* JsenNetworkingManager.m in Sources */,
 				4C5743501FA864E0008E9E21 /* NSDate+JsenKit.m in Sources */,
@@ -749,6 +770,7 @@
 				4C5743561FA87D76008E9E21 /* UIView+JsenKit.m in Sources */,
 				4C8DB99D1DDEA32A006F3D5B /* JsenTabBarController.m in Sources */,
 				4C2379961FAB17FB002B8E44 /* JsenLoadingViewController.m in Sources */,
+				4CBA7E1A20AAD85500898E62 /* JsenCacheTool.m in Sources */,
 				4C23799A1FAC14AD002B8E44 /* UIButton+JsenKit.m in Sources */,
 				4C459B881E2682C500C1F185 /* JsenAlertConfigManager.m in Sources */,
 				4C1CE0891DD9855500FE49DB /* main.m in Sources */,
@@ -758,7 +780,9 @@
 				4C8DB9951DDE9D67006F3D5B /* JsenNetworkingConfig.m in Sources */,
 				4C8DB9A01DDEA383006F3D5B /* JsenTabBar.m in Sources */,
 				4C2379921FAB0D2F002B8E44 /* JsenNavigationViewController.m in Sources */,
+				4CBA7E1320AAD81000898E62 /* JsenInputAlertView.m in Sources */,
 				4C7E50A11F2EFCFA00C7249C /* NSData+JsenKit.m in Sources */,
+				4CBA7E1420AAD81000898E62 /* JsenMoreRectButton.m in Sources */,
 				4C99512920283B6F003E0436 /* UIViewController+JsenKit.m in Sources */,
 				4C23798A1FAAE90A002B8E44 /* JsenNetworkConfig.m in Sources */,
 				4C2379801FAAE543002B8E44 /* JsenHomeTableViewCell.m in Sources */,
