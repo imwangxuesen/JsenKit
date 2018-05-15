@@ -97,9 +97,11 @@
 }
 
 - (void)showAlertViewDemo {
+    
+    
     [JsenAlert alertWithActionTitles:@[@"取消",@"确定"] title:@"提示" detailMessage:@"这是一个alert" action:^(NSInteger index) {
         NSLog(@"你点击了alert的第%d个button",index);
-    }];
+    } animation:JsenAlertAnimationStylePop];
 }
 
 #pragma mark - UITableViewDataSource
