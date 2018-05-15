@@ -10,7 +10,8 @@
 #import "JsenHomeTableViewCell.h"
 #import "JsenLoadingViewController.h"
 #import "JsenUIButtonJsenKitViewController.h"
-
+#import "JsenAlertConfigManager.h"
+#import "JsenAlert.h"
 
 @interface JsenHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,6 +27,7 @@
     [super viewDidLoad];
     [self setupSubviews];
     [self loadInfo];
+    [self setupJsenAlertConfigManager];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,17 +65,41 @@
     }];
 }
 
+/**
+ 配置alert
+ */
+- (void)setupJsenAlertConfigManager {
+    JsenAlertConfigManager *alertManager = [JsenAlertConfigManager shared];
+    alertManager.titleColor = [UIColor grayColor];
+    alertManager.titleFont = [UIFont systemFontOfSize:14];
+    alertManager.detailMessageFont = [UIFont systemFontOfSize:13];
+    alertManager.detailMessageColor = [UIColor grayColor];
+    alertManager.firstButtonTitleNormalFont = [UIFont systemFontOfSize:15];
+    alertManager.secondButtonTitleNormalFont = [UIFont systemFontOfSize:15];
+}
+
+/**
+ 去loading展示页面
+ */
 - (void)pushToLoadingVC {
     JsenLoadingViewController *VC = [[JsenLoadingViewController alloc] init];
     VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:YES];
 }
 
+/**
+ 去UIButtonJsenKit类别展示页面
+ */
 - (void)pushToUIButtonJsenKitVC {
     JsenUIButtonJsenKitViewController *VC = [[JsenUIButtonJsenKitViewController alloc] init];
     VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:YES];
-    
+}
+
+- (void)showAlertViewDemo {
+    [JsenAlert alertWithActionTitles:@[@"取消",@"确定"] title:@"提示" detailMessage:@"这是一个alert" action:^(NSInteger index) {
+        NSLog(@"你点击了alert的第%d个button",index);
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -103,6 +129,9 @@
         case 1:
             [self pushToUIButtonJsenKitVC];
             break;
+        case 2:
+            [self showAlertViewDemo];
+            break;
         default:
             break;
     }
@@ -123,8 +152,10 @@
     if (!_dataSource) {
         JsenHomeCellModel *model = [JsenHomeCellModel setupModelWithName:@"loading" enable:YES showPoint:YES];
         JsenHomeCellModel *model1 = [JsenHomeCellModel setupModelWithName:@"UIButton+JsenKit" enable:YES showPoint:YES];
+        JsenHomeCellModel *model2 = [JsenHomeCellModel setupModelWithName:@"JsenAlert" enable:YES showPoint:NO];
 
-        _dataSource = [[NSMutableArray alloc] initWithObjects:model,model1, nil];
+        
+        _dataSource = [[NSMutableArray alloc] initWithObjects:model,model1,model2, nil];
     }
     return _dataSource;
 }
