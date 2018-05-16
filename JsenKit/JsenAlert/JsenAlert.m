@@ -34,6 +34,8 @@
 @property (nonatomic, assign) BOOL hadTitle;
 @property (nonatomic, assign) BOOL hadDetailMessage;
 
+@property (nonatomic, strong) UIWindow *currentWindow;
+
 @end
 
 @implementation JsenAlert
@@ -46,6 +48,16 @@
     
     JsenAlert *alert = [[JsenAlert alloc] initWithActionTitles:actionTitles title:title detailMessage:detailMessage action:action];
     [alert show];
+    return alert;
+}
+
++ (JsenAlert *)alertWithActionTitles:(NSArray *)actionTitles
+                               title:(NSString *)title
+                       detailMessage:(NSString *)detailMessage
+                              action:(JsenAlertAction)action
+                           animation:(JsenAlertAnimationStyle)animationStyle {
+    JsenAlert *alert = [[JsenAlert alloc] initWithActionTitles:actionTitles title:title detailMessage:detailMessage action:action];
+    [alert show:animationStyle];
     return alert;
 }
 
@@ -72,17 +84,36 @@
 }
 
 - (void)hiden {
+    [self hiden:JsenAlertAnimationStylePop];
+}
+
+- (void)hiden:(JsenAlertAnimationStyle)animationStyle {
+    [self closeAnimated:animationStyle];
+}
+
+- (void)clearCurrentObjects {
     [self.effectView removeFromSuperview];
     self.effectView = nil;
     JsenAlertConfigManagerDefine.currentAlert = nil;
 }
 
 - (void)show {
-    if (JsenAlertConfigManagerDefine.currentAlert) {
-        [JsenAlertConfigManagerDefine.currentAlert hiden];
-    }
-    [JsenAlertKeyWindow addSubview:self.effectView];
-    JsenAlertConfigManagerDefine.currentAlert = self;
+    [self show:JsenAlertAnimationStyleNone];
+}
+
+- (void)show:(JsenAlertAnimationStyle)animationStyle {
+    CGFloat afterTime = 0.0;
+//    if (JsenAlertConfigManagerDefine.currentAlert) {
+//        [JsenAlertConfigManagerDefine.currentAlert hiden:animationStyle];
+//        afterTime = 0.52;
+//    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(afterTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        JsenAlertConfigManagerDefine.currentAlert = self;
+        [self showAnimated:animationStyle];
+    });
+    
+    
+
 }
 
 - (BOOL)notEmpty:(NSString *)string {
@@ -93,7 +124,6 @@
 }
 
 - (void)actionButtonClicked:(UIButton *)btn {
-    NSLog(@"123");
     if (self.action) {
         self.action(btn.tag);
     }
@@ -122,6 +152,72 @@
     } else {
         height = JsenAlertViewActionButton_H + JsenAlertViewTitleLabel_H;
         [self.alertViewBackgroundView addSubview:self.titleLabel];
+    }
+}
+
+#pragma mark - animation
+
+- (void)showAnimated:(JsenAlertAnimationStyle)animationStyle {
+    
+    _currentWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _currentWindow.windowLevel = 999;
+    _currentWindow.rootViewController = [[UIViewController alloc] init];
+    [_currentWindow makeKeyAndVisible];
+    
+    // 保存当前弹出的视图
+    CGFloat halfScreenWidth = [[UIScreen mainScreen] bounds].size.width * 0.5;
+    CGFloat halfScreenHeight = [[UIScreen mainScreen] bounds].size.height * 0.5;
+    // 屏幕中心
+    CGPoint screenCenter = CGPointMake(halfScreenWidth, halfScreenHeight - 20);
+    self.alertViewBackgroundView.center = screenCenter;
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    [keyWindow addSubview:self.effectView];
+    
+    if (animationStyle == JsenAlertAnimationStylePop) {
+        // 第一步：将view宽高缩至无限小（点）
+        self.alertViewBackgroundView.transform = CGAffineTransformScale(CGAffineTransformIdentity,
+                                                CGFLOAT_MIN, CGFLOAT_MIN);
+        self.effectView.backgroundColor = [UIColor clearColor];
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             // 第二步： 以动画的形式将view慢慢放大至原始大小的1.2倍
+                             self.alertViewBackgroundView.transform =
+                             CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
+                             self.effectView.backgroundColor = [self effectViewBackgroundColor];
+                         }
+                         completion:^(BOOL finished) {
+                             [UIView animateWithDuration:0.2
+                                              animations:^{
+                                                  // 第三步： 以动画的形式将view恢复至原始大小
+                                                  self.alertViewBackgroundView.transform = CGAffineTransformIdentity;
+                                              }];
+                         }];
+    }
+}
+
+- (void)closeAnimated:(JsenAlertAnimationStyle)animationStyle {
+    if (animationStyle == JsenAlertAnimationStylePop) {
+        [UIView animateWithDuration:0.2
+                         animations:^{
+                             // 第一步： 以动画的形式将view慢慢放大至原始大小的1.2倍
+                             self.alertViewBackgroundView.transform =
+                             CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
+                         }
+                         completion:^(BOOL finished) {
+                             [UIView animateWithDuration:0.3
+                                              animations:^{
+                                                  // 第二步： 以动画的形式将view缩小至原来的1/1000分之1倍
+                                                  self.alertViewBackgroundView.transform = CGAffineTransformScale(
+                                                                                          CGAffineTransformIdentity, 0.001, 0.001);
+                                                  self.effectView.backgroundColor = [UIColor clearColor];
+                                              }
+                                              completion:^(BOOL finished) {
+                                                  // 第三步： 移除
+                                                  [self clearCurrentObjects];
+                                              }];
+                         }];
+    } else {
+        [self clearCurrentObjects];
     }
 }
 
@@ -185,7 +281,7 @@
 - (UIView *)effectView {
     if (!_effectView) {
         _effectView = [[UIView alloc] init];
-        _effectView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        _effectView.backgroundColor = [self effectViewBackgroundColor];
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
         CGFloat height = [UIScreen mainScreen].bounds.size.height;
         _effectView.frame = CGRectMake(0, 0, width, height);
@@ -194,6 +290,9 @@
     return _effectView;
 }
 
+- (UIColor *)effectViewBackgroundColor {
+    return [[UIColor blackColor] colorWithAlphaComponent:0.3];
+}
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
@@ -231,8 +330,12 @@
         CGFloat width = JsenAlertView_W;
         _alertViewBackgroundView.bounds = CGRectMake(0, 0, width, height);
         _alertViewBackgroundView.center = JsenAlertKeyWindow.center;
-        _alertViewBackgroundView.layer.masksToBounds = YES;
-        _alertViewBackgroundView.layer.cornerRadius = 8;
+//        _alertViewBackgroundView.layer.masksToBounds = YES;
+//        _alertViewBackgroundView.layer.cornerRadius = 8;
+        _alertViewBackgroundView.layer.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.8].CGColor;
+        _alertViewBackgroundView.layer.shadowRadius = 8.f;
+        _alertViewBackgroundView.layer.shadowOpacity = 0.7f;
+        _alertViewBackgroundView.layer.shadowOffset = CGSizeMake(2.5, 2.5);
         _alertViewBackgroundView.backgroundColor = [JsenAlertConfigManager shared].alertViewBackgroundColor;
         _alertViewBackgroundView.userInteractionEnabled = YES;
         
@@ -264,4 +367,5 @@
 - (BOOL)hadDetailMessage {
     return [self notEmpty:self.detailMessage];
 }
+
 @end
