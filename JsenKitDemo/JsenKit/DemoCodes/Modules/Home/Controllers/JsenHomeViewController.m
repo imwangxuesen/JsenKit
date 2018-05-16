@@ -12,6 +12,7 @@
 #import "JsenUIButtonJsenKitViewController.h"
 #import "JsenAlertConfigManager.h"
 #import "JsenAlert.h"
+#import "UIViewController+JsenKit.h"
 
 @interface JsenHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -97,10 +98,8 @@
 }
 
 - (void)showAlertViewDemo {
-    
-    
-    [JsenAlert alertWithActionTitles:@[@"取消",@"确定"] title:@"提示" detailMessage:@"这是一个alert" action:^(NSInteger index) {
-        NSLog(@"你点击了alert的第%d个button",index);
+    [JsenAlert alertWithActionTitles:@[@"取消",@"确定"] title:@"提示" detailMessage:[NSString stringWithFormat:@"最上层的ViewController是:%@",[[UIViewController js_currentViewController] description]] action:^(NSInteger index) {
+        NSLog(@"你点击了第%d个按钮",index);
     } animation:JsenAlertAnimationStylePop];
 }
 
