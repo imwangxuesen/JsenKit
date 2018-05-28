@@ -31,7 +31,7 @@
         
         Class class = [[JsenNetworkingConfig shareConfig] modelClassWithAPIKey:apiKey];
         id json = object[JsenNetworkingResponseDataKeyDefine];
-        json = json == nil ? responseObject : json;
+        json = json == nil ? object : json;
         if (json && class != nil) {
             if ([json isKindOfClass:[NSDictionary class]]) {
                 self.data = [class yy_modelWithJSON:json];
