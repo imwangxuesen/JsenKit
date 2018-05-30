@@ -538,7 +538,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     }
     
     if(config.parametersHandleBlock) {
-        return config.parametersHandleBlock(requestParameters);
+        return config.parametersHandleBlock(self.apiKey,requestParameters);
     }
     return requestParameters;
 }

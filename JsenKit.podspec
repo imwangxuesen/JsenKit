@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "JsenKit"
-  s.version      = "1.3.16"
+  s.version      = "1.3.17"
   s.summary      = "A iOS development of general engineering framework, including the commonly used network request package, category method, etc"
   s.description  = <<-DESC
  A iOS development of general engineering framework, including the commonly used network request package, category method, etc.

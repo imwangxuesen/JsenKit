@@ -47,8 +47,8 @@ typedef NSString* (^JsenNetworkingConfigSignBlock)(NSDictionary *signKeyValues);
  响应数据处理block
  如果返回的响应数据不是字典（比如加密的json串），那么我们需要进行转换城字典
  
- @param response
- @return
+ @param response 响应
+ @return dic
  */
 typedef NSDictionary* (^JsenNetworkingConfigResponseHandleBlock)(id response);
 
@@ -57,9 +57,10 @@ typedef NSDictionary* (^JsenNetworkingConfigResponseHandleBlock)(id response);
  如果参数需要加密或者其他特殊处理，请实现此block
  
  @param parameters 参数
+ @param apiKey 当前的api
  @return 处理后的参数
  */
-typedef id (^JsenNetworkingConfigParametersHandleBlock) (NSDictionary* parameters);
+typedef id (^JsenNetworkingConfigParametersHandleBlock) (NSString *apiKey,NSDictionary* parameters);
 
 /**
  公共参数获取block
