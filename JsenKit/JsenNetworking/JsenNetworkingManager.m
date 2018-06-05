@@ -320,7 +320,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
  */
 - (void)handleResponse:(id)response {
     if ([JsenNetworkingConfig shareConfig].responseHandleBlock) {
-        response = [JsenNetworkingConfig shareConfig].responseHandleBlock(response);
+        response = [JsenNetworkingConfig shareConfig].responseHandleBlock(self.apiKey,response);
     }
     [self successWithResponseObject:response];
     
