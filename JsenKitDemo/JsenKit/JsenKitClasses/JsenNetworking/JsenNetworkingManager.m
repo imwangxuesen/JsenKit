@@ -548,7 +548,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     if (config.securityPolicy) {
-        mgr.securityPolicy = mgr.securityPolicy;
+        mgr.securityPolicy = config.securityPolicy;
     }
     
     if (config.requestSerializerTypeConfig && config.requestSerializerTypeConfig[apiKey]) {
