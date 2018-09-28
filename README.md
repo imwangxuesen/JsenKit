@@ -20,7 +20,9 @@ pod 'JsenKit'
 
 ## JsenNetwork
 
-default response is json :
+**Response Format**
+
+default response is json format :
 {
 	msg:"msg",
 	data:{}/[]
@@ -32,9 +34,20 @@ the value with "data" key will be create data model / model array
 
 if you server response format is not like this. you could set `responseFormat` in `JsenNetworkingConfig` class property to convert it
 
+example:
+
+```
+config.responseFormat =  @{
+                               JsenNetworkingResponseDataKey       :@"info",
+                               JsenNetworkingResponseStatusCodeKey :@"codeNumber",
+                               JsenNetworkingResponseMessageKey    :@"msg",
+                               JsenNetworkingResponseTimelineKey   :@"time",
+                               };
+```
+
 ### JsenNetworkingConfig must be init . eg：
 
-config host
+**config host**
 
 ```
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
@@ -53,7 +66,7 @@ config.modelClass = @{
 ```
 
 
-global parameters 
+**global parameters **
 ```
     config.globalParametersBlock = ^NSDictionary *{
         return @{
@@ -64,7 +77,7 @@ global parameters
   
     
 
-response error code notification 
+**response error code notification **
 eg token timeout
 add notification
 
@@ -80,7 +93,7 @@ JsenNetworkingCustomHttpErrorNotificationKey in “JsenNetworkingConfig.h” fil
      }
 ```
 
-custom error code notification 
+**custom error code notification **
 if response code is @10030 , notification center will resive JsenNetworkingCustomHttpErrorNotificationKey's message 
 
 ```
@@ -90,13 +103,13 @@ if response code is @10030 , notification center will resive JsenNetworkingCusto
                                      };
 ```
 
-request timeout
+**request timeout**
 if you wanna more custom, you should see `timeoutInterval` property
 ```
     config.defaultTimeoutInterval = 30;
 ```
 
-networking reachability
+**networking reachability**
 
 [JsenNetworkingReachabilityManager manager].currentStatus could get networking current status when startMonitoring
 ```
@@ -105,6 +118,10 @@ networking reachability
     }];
     [[JsenNetworkingReachabilityManager manager] startMonitoring];
 ```
+
+RequestSerializer Setting 
+
+
 
 ### Send Request 
 
