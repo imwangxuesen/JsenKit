@@ -54,8 +54,29 @@ NSString *const Jsen_Notification_Error_Code = @"10030";
                                      @(Jsen_Notification_Error_Code.integerValue):@"登录过期，请重新登录"
                                      };
     
-    
+    // 如果你这个属性不实现,会有默认的 responseFormat.当然responseFormat也可以自定义,如下,二者选其一即可
     config.customSuccessDataAllKeys = [self configSuccessDataAllKeys];
+    
+    
+    // 响应的数据格式
+    config.responseFormat =  @{
+                               JsenNetworkingResponseDataKey       :@"info",
+                               JsenNetworkingResponseStatusCodeKey :@"codeNumber",
+                               JsenNetworkingResponseMessageKey    :@"msg",
+                               JsenNetworkingResponseTimelineKey   :@"time",
+                               };
+    
+    
+    // 请求序列化配置
+    config.requestSerializerTypeConfig = @{
+                                           Jsen_HomeList_API : @(JsenNetworkingConfigSerializerJSON)
+                                           };
+    // 设置http header
+    config.httpHeader = @{
+                          @"Content-Type":@"application/json"
+                          };
+    
+    
     
     /*
      默认超时时长 单位：秒

@@ -34,39 +34,48 @@ the value with "data" key will be create data model / model array
 
 if you server response format is not like this. you could set `responseFormat` in `JsenNetworkingConfig` class property to convert it
 
-example:
+Example:
 
 ```
-config.responseFormat =  @{
-                               JsenNetworkingResponseDataKey       :@"info",
-                               JsenNetworkingResponseStatusCodeKey :@"codeNumber",
-                               JsenNetworkingResponseMessageKey    :@"msg",
-                               JsenNetworkingResponseTimelineKey   :@"time",
-                               };
+	config.responseFormat =  @{
+		JsenNetworkingResponseDataKey       :@"info",
+		JsenNetworkingResponseStatusCodeKey :@"codeNumber",
+		JsenNetworkingResponseMessageKey    :@"msg",
+		JsenNetworkingResponseTimelineKey   :@"time",
+	};
 ```
+
+if your response need diffrent response format, config `customSuccessDataAllKeys` will be a nice way, demo code like that:
+
+```
+    config.customSuccessDataAllKeys = [self configSuccessDataAllKeys];
+
+```
+
 
 ### JsenNetworkingConfig must be init . eg：
 
-**config host**
+**Config Host**
 
 ```
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     config.host = @"http://test.jsen.com/demo";
 ```
 
+**Response Model**
 url and response data model， if no data model，or don't wanna create model, could be omited.
 Jsen_HomeList_API(is @"/home/list" defined) api will response data JsenHomeCellModel json
     
     
     
 ```
-config.modelClass = @{
-      	Jsen_HomeList_API:NSClassFromString(@"JsenHomeCellModel")
-                          };
+	config.modelClass = @{
+		Jsen_HomeList_API:NSClassFromString(@"JsenHomeCellModel")
+	};
 ```
 
+**Global Parameters**
 
-**global parameters **
 ```
     config.globalParametersBlock = ^NSDictionary *{
         return @{
@@ -77,9 +86,8 @@ config.modelClass = @{
   
     
 
-**response error code notification **
-eg token timeout
-add notification
+**Response Error Code Notification**
+eg: token timeout，add notification
 
 JsenNetworkingCustomHttpErrorNotificationKey in “JsenNetworkingConfig.h” file
 
@@ -93,23 +101,23 @@ JsenNetworkingCustomHttpErrorNotificationKey in “JsenNetworkingConfig.h” fil
      }
 ```
 
-**custom error code notification **
+**Custom Error Code Notification **
 if response code is @10030 , notification center will resive JsenNetworkingCustomHttpErrorNotificationKey's message 
 
 ```
 
     config.customErrorStatusCode = @{
-                                     @(@10030.integerValue):@"token timeout.please relogin"
-                                     };
+		@(@10030.integerValue):@"token timeout.please relogin"
+	};
 ```
 
-**request timeout**
+**Request Timeout**
 if you wanna more custom, you should see `timeoutInterval` property
 ```
     config.defaultTimeoutInterval = 30;
 ```
 
-**networking reachability**
+**Networking Reachability**
 
 [JsenNetworkingReachabilityManager manager].currentStatus could get networking current status when startMonitoring
 ```
@@ -119,9 +127,24 @@ if you wanna more custom, you should see `timeoutInterval` property
     [[JsenNetworkingReachabilityManager manager] startMonitoring];
 ```
 
-RequestSerializer Setting 
 
+**RequestSerializer Setting**
 
+[AFHTTPRequestSerializer serializer] is default，you can custom that with specific request API, example:
+
+```
+    config.requestSerializerTypeConfig = @{
+		Jsen_HomeList_API : @(JsenNetworkingConfigSerializerJSON)
+	};
+```
+
+**HTTP Header Setting**
+
+```
+	config.httpHeader = @{
+		@"Content-Type":@"application/json"
+	};
+```
 
 ### Send Request 
 

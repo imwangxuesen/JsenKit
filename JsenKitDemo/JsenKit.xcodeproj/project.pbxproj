@@ -318,146 +318,18 @@
 			isa = PBXGroup;
 			children = (
 				4C3DF12E1FAABF67006E25B6 /* Home */,
-				4C3DF11F1FAABF67006E25B6 /* Modules2 */,
-				4C3DF1291FAABF67006E25B6 /* Modules3 */,
-				4C3DF1241FAABF67006E25B6 /* Modules4 */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		4C3DF11F1FAABF67006E25B6 /* Modules2 */ = {
-			isa = PBXGroup;
-			children = (
-				4C3DF1201FAABF67006E25B6 /* Tools */,
-				4C3DF1211FAABF67006E25B6 /* Models */,
-				4C3DF1221FAABF67006E25B6 /* Controllers */,
-				4C3DF1231FAABF67006E25B6 /* Views */,
-			);
-			path = Modules2;
-			sourceTree = "<group>";
-		};
-		4C3DF1201FAABF67006E25B6 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		4C3DF1211FAABF67006E25B6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4C3DF1221FAABF67006E25B6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		4C3DF1231FAABF67006E25B6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4C3DF1241FAABF67006E25B6 /* Modules4 */ = {
-			isa = PBXGroup;
-			children = (
-				4C3DF1251FAABF67006E25B6 /* Tools */,
-				4C3DF1261FAABF67006E25B6 /* Models */,
-				4C3DF1271FAABF67006E25B6 /* Controllers */,
-				4C3DF1281FAABF67006E25B6 /* Views */,
-			);
-			path = Modules4;
-			sourceTree = "<group>";
-		};
-		4C3DF1251FAABF67006E25B6 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		4C3DF1261FAABF67006E25B6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4C3DF1271FAABF67006E25B6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		4C3DF1281FAABF67006E25B6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4C3DF1291FAABF67006E25B6 /* Modules3 */ = {
-			isa = PBXGroup;
-			children = (
-				4C3DF12A1FAABF67006E25B6 /* Tools */,
-				4C3DF12B1FAABF67006E25B6 /* Models */,
-				4C3DF12C1FAABF67006E25B6 /* Controllers */,
-				4C3DF12D1FAABF67006E25B6 /* Views */,
-			);
-			path = Modules3;
-			sourceTree = "<group>";
-		};
-		4C3DF12A1FAABF67006E25B6 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		4C3DF12B1FAABF67006E25B6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4C3DF12C1FAABF67006E25B6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		4C3DF12D1FAABF67006E25B6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		4C3DF12E1FAABF67006E25B6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4C3DF12F1FAABF67006E25B6 /* Tools */,
 				4C3DF1301FAABF67006E25B6 /* Models */,
 				4C3DF1331FAABF67006E25B6 /* Controllers */,
 				4C3DF1341FAABF67006E25B6 /* Views */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		4C3DF12F1FAABF67006E25B6 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		4C3DF1301FAABF67006E25B6 /* Models */ = {
