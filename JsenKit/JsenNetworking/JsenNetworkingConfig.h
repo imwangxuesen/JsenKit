@@ -313,6 +313,16 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
 @property (nonatomic, strong) AFSecurityPolicy *securityPolicy;
 
 /**
+ 特定的apikey 特别指定的AFSecurityPolicy
+ 比如你的检测版本接口不需要校验证书合法性
+ eg:
+ {
+   @"/user/login":[AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate]
+ }
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AFSecurityPolicy*> *specialSecurityPolicyMap;
+
+/**
  初始化
 
  @return self的实例

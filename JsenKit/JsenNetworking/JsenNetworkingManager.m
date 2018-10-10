@@ -547,7 +547,11 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
 - (AFHTTPSessionManager *)configHttpSessionManagerWithAPIKey:(NSString *)apiKey {
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    if (config.securityPolicy) {
+   
+    if (config.specialSecurityPolicyMap && [config.specialSecurityPolicyMap.allKeys containsObject:apiKey]) {
+        mgr.securityPolicy = [config.specialSecurityPolicyMap objectForKey:apiKey];
+        
+    } else if(config.securityPolicy) {
         mgr.securityPolicy = config.securityPolicy;
     }
     
