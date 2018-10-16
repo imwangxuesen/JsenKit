@@ -546,7 +546,8 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
 //请求http manager 配置
 - (AFHTTPSessionManager *)configHttpSessionManagerWithAPIKey:(NSString *)apiKey {
     JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    AFHTTPSessionManager *mgr = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:config.host]];
    
     if (config.specialSecurityPolicyMap && [config.specialSecurityPolicyMap.allKeys containsObject:apiKey]) {
         mgr.securityPolicy = [config.specialSecurityPolicyMap objectForKey:apiKey];
