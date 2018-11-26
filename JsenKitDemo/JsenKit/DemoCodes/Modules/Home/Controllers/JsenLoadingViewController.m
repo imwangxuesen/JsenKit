@@ -69,9 +69,12 @@
             });
             break;
         case 2:
-            JsenErrorShow(text);
+            [JsenProgressHUD showToastWithoutStatus:@"without status"];
             break;
         case 3:
+            JsenErrorShow(text);
+            break;
+        case 4:
             JsenSuccessShow(text);
             break;
             
@@ -100,6 +103,7 @@
         _dataSource = @[
                         @"loading with text",
                         @"only loading",
+                        @"toast without status",
                         @"error",
                         @"success",
                         @"dismiss"

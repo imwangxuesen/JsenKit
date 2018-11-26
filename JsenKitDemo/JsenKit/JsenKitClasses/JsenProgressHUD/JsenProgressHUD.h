@@ -94,6 +94,12 @@
  */
 + (void)showText:(NSString *)text superView:(id)superView;
 
+
+/**
+ show toast view without success or error status image
+ */
++ (void)showToastWithoutStatus:(NSString *)text;
+
 /**
  show success hud image on window
 

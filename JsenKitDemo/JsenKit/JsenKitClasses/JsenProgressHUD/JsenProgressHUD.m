@@ -104,33 +104,39 @@ static JsenProgressHUD * progressHUD = nil;
 {
     CGRect labelRect = CGRectZero;
     CGFloat hudWidth = 100, hudHeight = 100;
-    
+    CGFloat space = 12.0;
     if (self.label.text != nil)
     {
         NSDictionary *attributes = @{NSFontAttributeName:self.label.font};
         NSInteger options        = NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin;
         labelRect = [self.label.text boundingRectWithSize:CGSizeMake(200, 300) options:options attributes:attributes context:NULL];
         
-        labelRect.origin.x = 12;
-        labelRect.origin.y = 66;
+        labelRect.origin.x = space;
+        if(!self.image.hidden) {
+            labelRect.origin.y = 66;
+        } else {
+            labelRect.origin.y = space;
+
+        }
         
-        hudWidth = labelRect.size.width + 24;
-        hudHeight = labelRect.size.height + 80;
+        hudWidth = CGRectGetWidth(labelRect) + space + space;
+        hudHeight = CGRectGetMaxY(labelRect) + space;
         
-        if (hudWidth < 100)
-        {
+        if (hudWidth < 100) {
             hudWidth = 100;
             labelRect.origin.x   = 0;
             labelRect.size.width = 100;
         }
+        
     }
     
     self.hud.bounds   = CGRectMake(0, 0, hudWidth, hudHeight);
-
-    CGFloat imagex    = hudWidth/2;
-    CGFloat imagey    = (self.label.text == nil) ? hudHeight/2 : 36;
-    self.image.center = self.spinner.center = CGPointMake(imagex, imagey);
-
+    if(!self.image.hidden) {
+        CGFloat imagex    = hudWidth/2;
+        CGFloat imagey    = (self.label.text == nil) ? hudHeight/2 : (24+space);
+        self.image.center = self.spinner.center = CGPointMake(imagex, imagey);
+    }
+    
     self.label.frame  = labelRect;
 }
 
@@ -358,6 +364,11 @@ static JsenProgressHUD * progressHUD = nil;
 + (void)showText:(NSString *)text superView:(id)superView {
     [self shareDefault].interaction = NO;
     [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO superView:superView];
+}
+
++ (void)showToastWithoutStatus:(NSString *)text {
+    [self shareDefault].interaction = NO;
+    [[self shareDefault] configHUD:text image:nil showSpinner:NO autoHidenHUD:YES superView:nil];
 }
 
 + (void)showSuccess:(NSString *)text {
