@@ -30,6 +30,7 @@ static JsenProgressHUD * progressHUD = nil;
 @property (nonatomic, retain) UIActivityIndicatorView *spinner;
 @property (nonatomic, retain) UIImageView             *image;
 @property (nonatomic, retain) UILabel                 *label;
+@property (nonatomic, copy) NSString *showingText; // current hud text
 
 @property (nonatomic , assign) BOOL interaction;
 
@@ -57,7 +58,7 @@ static JsenProgressHUD * progressHUD = nil;
     } else {
         self.window = [[UIApplication sharedApplication] keyWindow];
     }
-    
+    self.allowRepeat = YES;
     self.background = nil;
     self.hud        = nil;
     self.spinner    = nil;
@@ -75,9 +76,14 @@ static JsenProgressHUD * progressHUD = nil;
 //配置hud 并展示
 - (void)configHUD:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden superView:(id)superView{
     
+    if (!self.allowRepeat && self.showingText && [self.showingText isEqualToString:text]) {
+        return;
+    }
+    
     [self createHUD:superView];
     
     self.label.text     = text;
+    self.showingText    = text;
     self.label.hidden   = (text == nil ? YES : NO);
     
     self.image.image    = image;
@@ -343,6 +349,7 @@ static JsenProgressHUD * progressHUD = nil;
             self.hud.alpha = 0;
         }
                          completion:^(BOOL finished) {
+                             self.showingText = nil;
                              [self hudDestroy];
                              self.alpha = 0;
                          }];

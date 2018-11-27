@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupSubviews];
+    [JsenProgressHUD shareDefault].allowRepeat = NO;
 }
 
 - (void)didReceiveMemoryWarning {

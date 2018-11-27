@@ -59,6 +59,13 @@
  */
 @property (nonatomic, strong) UIImage *imageForFail;
 
+/**
+ when hud showing , new one come , the new one will normal display. is default;
+ 
+ if allowRepeat is NO , that disappear;
+ */
+@property (nonatomic, assign) BOOL allowRepeat;
+
 
 + (JsenProgressHUD *)shareDefault;
 
