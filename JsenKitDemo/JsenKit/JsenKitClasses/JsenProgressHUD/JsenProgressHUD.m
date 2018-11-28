@@ -32,7 +32,12 @@ static JsenProgressHUD * progressHUD = nil;
 @property (nonatomic, retain) UILabel                 *label;
 @property (nonatomic, copy) NSString *showingText; // current hud text
 
-@property (nonatomic , assign) BOOL interaction;
+@property (nonatomic, assign) BOOL interaction;
+
+/**
+ if keyboard is displaying, this value equl keyboard height, else zero
+ */
+@property (nonatomic, assign) CGFloat keyboardHeight;
 
 
 @end
@@ -230,7 +235,7 @@ static JsenProgressHUD * progressHUD = nil;
 //监听键盘状态，做出对hud的位置调整
 - (void)hudPosition:(NSNotification *)notification
 {
-    CGFloat heightKeyboard = 0;
+    
     NSTimeInterval duration = 0;
     
     if (notification != nil)
@@ -238,15 +243,14 @@ static JsenProgressHUD * progressHUD = nil;
         NSDictionary *info = [notification userInfo];
         CGRect keyboard = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        if ((notification.name == UIKeyboardWillShowNotification) || (notification.name == UIKeyboardDidShowNotification))
+        if ((notification.name == UIKeyboardWillShowNotification) || (notification.name == UIKeyboardDidShowNotification) || (notification.name == UIKeyboardDidHideNotification) || (notification.name == UIKeyboardWillHideNotification))
         {
-            heightKeyboard = keyboard.size.height;
+            self.keyboardHeight = keyboard.size.height;
         }
     }
-    else heightKeyboard = [self keyboardHeight];
     
     CGRect  screen = [UIScreen mainScreen].bounds;
-    CGPoint center = CGPointMake(screen.size.width/2, (screen.size.height-heightKeyboard)/2);
+    CGPoint center = CGPointMake(CGRectGetWidth(screen)/2, (CGRectGetHeight(screen)-self.keyboardHeight)/2);
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.hud.center = CGPointMake(center.x, center.y);
@@ -254,36 +258,6 @@ static JsenProgressHUD * progressHUD = nil;
     
     if (self.background != nil) self.background.frame = self.window.frame;
 }
-
-//获取键盘高
-- (CGFloat)keyboardHeight
-{
-    for (UIWindow *testWindow in [[UIApplication sharedApplication] windows])
-    {
-        if ([[testWindow class] isEqual:[UIWindow class]] == NO)
-        {
-            for (UIView *possibleKeyboard in [testWindow subviews])
-            {
-                if ([[possibleKeyboard description] hasPrefix:@"<UIPeripheralHostView"])
-                {
-                    return possibleKeyboard.bounds.size.height;
-                }
-                else if ([[possibleKeyboard description] hasPrefix:@"<UIInputSetContainerView"])
-                {
-                    for (UIView *hostKeyboard in [possibleKeyboard subviews])
-                    {
-                        if ([[hostKeyboard description] hasPrefix:@"<UIInputSetHost"])
-                        {
-                            return hostKeyboard.frame.size.height;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return 0;
-}
-
 
 // 自动隐藏时的调用方法
 - (void)getToHide {
@@ -299,20 +273,20 @@ static JsenProgressHUD * progressHUD = nil;
 //销毁hud
 - (void)hudDestroy
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     [self.label removeFromSuperview];
     self.label = nil;
-    
+
     [self.image removeFromSuperview];
     self.image = nil;
-    
+
     [self.spinner removeFromSuperview];
     self.spinner = nil;
-    
+
     [self.hud removeFromSuperview];
     self.hud = nil;
-    
+
     [self.background removeFromSuperview];
     self.background = nil;
 }

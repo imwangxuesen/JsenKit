@@ -22,6 +22,8 @@
     [super viewDidLoad];
     [self setupSubviews];
     [JsenProgressHUD shareDefault].allowRepeat = NO;
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 500, 100, 100)];
+    [self.view addSubview:textView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +73,7 @@
             break;
         case 2:
             [JsenProgressHUD showToastWithoutStatus:@"without status"];
+            
             break;
         case 3:
             JsenErrorShow(text);
