@@ -18,6 +18,20 @@
 #define Jsen_HUD_IMAGE_SUCCESS      [JsenProgressHUD shareDefault].imageForSuccess
 #define Jsen_HUD_IMAGE_ERROR		[JsenProgressHUD shareDefault].imageForFail
 
+#ifndef JsenLOCK
+#define JsenLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#endif
+
+#ifndef JsenUNLOCK
+#define JsenUNLOCK(lock) dispatch_semaphore_signal(lock);
+#endif
+
+static NSString *const JsenHUDQueueTextKey = @"text";
+static NSString *const JsenHUDQueueImageKey = @"image";
+static NSString *const JsenHUDQueueShowSpinnerKey = @"showSpinner";
+static NSString *const JsenHUDQueueAutoHidenHUDKey = @"autoHidenHUD";
+static NSString *const JsenHUDQueueInteractionKey = @"interaction";
+static NSString *const JsenHUDQueueSuperViewKey = @"superView";
 
 #import "JsenProgressHUD.h"
 static JsenProgressHUD * progressHUD = nil;
@@ -39,10 +53,30 @@ static JsenProgressHUD * progressHUD = nil;
  */
 @property (nonatomic, assign) CGFloat keyboardHeight;
 
+/**
+ eg:
+ @[
+    @{
+        text:NSString
+        image:NString
+        showSpinner:NSNumber
+        autoHidenHUD:NSNumber
+        interaction:NSNumber
+        superView:id
+    },
+    ...
+ ]
+ 
+ if value is NO/nil , the key can't get anything, the key non-existent;
+ 
+ */
+@property (nonatomic, strong) NSMutableArray *hudQueue;
 
 @end
 
-@implementation JsenProgressHUD
+@implementation JsenProgressHUD {
+    dispatch_semaphore_t _lock;
+}
 
 + (JsenProgressHUD *)shareDefault {
     static dispatch_once_t once = 0;
@@ -53,11 +87,9 @@ static JsenProgressHUD * progressHUD = nil;
     
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    
+    _lock = dispatch_semaphore_create(1);
     self.allowRepeat = YES;
     self.background = nil;
     self.hud        = nil;
@@ -72,9 +104,52 @@ static JsenProgressHUD * progressHUD = nil;
 
 
 #pragma mark - Private Method
-//配置hud 并展示
-- (void)configHUD:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden superView:(id)superView{
+- (void)removeHUDFromQueue {
+    if (_hudQueue && _hudQueue.count > 0) {
+        JsenLOCK(_lock);
+        NSLog(@"%@",_hudQueue[0]);
+        [_hudQueue removeObjectAtIndex:0];
+        JsenUNLOCK(_lock);
+    }
+}
+- (void)showHUDFromQueue {
+    if (_hudQueue && _hudQueue.count > 0) {
+        JsenLOCK(_lock);
+        NSDictionary *content = [_hudQueue objectAtIndex:0];
+        JsenUNLOCK(_lock);
+        
+        NSString *text = content[JsenHUDQueueTextKey] ?: nil;
+        UIImage *image = content[JsenHUDQueueImageKey] ?: nil;
+        NSNumber *showSpinnerNumber = content[JsenHUDQueueShowSpinnerKey] ?: @(0);
+        BOOL showSpinner = [showSpinnerNumber boolValue];
+        NSNumber *autoHidenHUDNumber = content[JsenHUDQueueAutoHidenHUDKey] ?: @(0);
+        BOOL autoHidenHUD = [autoHidenHUDNumber boolValue];
+        NSNumber *interactionNumber = content[JsenHUDQueueInteractionKey]?:@(0);
+        BOOL interaction = [interactionNumber boolValue];
+        id superView = content[JsenHUDQueueSuperViewKey];
+        
+        [self configHUD:text image:image showSpinner:showSpinner autoHidenHUD:autoHidenHUD interaction:interaction superView:superView];
+        
+    }
+}
+
+- (void)pushToQueue:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden interaction:(BOOL)interaction superView:(id)superView {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    if (text) params[JsenHUDQueueTextKey] = text;
+    if (image) params[JsenHUDQueueImageKey] = image;
+    if (showSpinner) params[JsenHUDQueueShowSpinnerKey] = @(1);
+    if (autoHiden) params[JsenHUDQueueAutoHidenHUDKey] = @(1);
+    if (interaction) params[JsenHUDQueueInteractionKey] = @(1);
+    if (superView) params[JsenHUDQueueSuperViewKey] = superView;
     
+    JsenLOCK(_lock)
+    [self.hudQueue addObject:params];
+    JsenUNLOCK(_lock)
+}
+
+//配置hud 并展示
+- (void)configHUD:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden interaction:(BOOL)interaction superView:(id)superView {
+
     // 如果没有文字，也不是菊花
     if (!text && !showSpinner) return;
     
@@ -83,14 +158,17 @@ static JsenProgressHUD * progressHUD = nil;
         return;
     }
     
+    self.interaction = interaction;
+    
     [self createHUD:superView];
     
-    self.label.text     = text;
-    self.showingText    = text;
-    self.label.hidden   = (text == nil ? YES : NO);
-    
-    self.image.image    = image;
-    self.image.hidden   = (image == nil ? YES : NO);
+    self.label.text = text;
+    self.label.hidden = (text == nil ? YES : NO);
+    if (!self.allowRepeat) {
+        self.showingText = text;
+    }
+    self.image.image = image;
+    self.image.hidden = (image == nil ? YES : NO);
     
     if (showSpinner) {
         [self.spinner startAnimating];
@@ -335,58 +413,48 @@ static JsenProgressHUD * progressHUD = nil;
 }
 
 + (void)showText:(NSString *)text interaction:(BOOL)interaction {
-    [self shareDefault].interaction = interaction;
-    [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO superView:nil];
+    [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO interaction:interaction superView:nil];
   
 }
 
 + (void)showText:(NSString *)text {
-    [self shareDefault].interaction = NO;
-    [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO superView:nil];
+    [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO interaction:NO superView:nil];
 }
 
 + (void)showText:(NSString *)text superView:(id)superView {
-    [self shareDefault].interaction = NO;
-    [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO superView:superView];
+    [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO interaction:NO superView:superView];
 }
 
 + (void)showToastWithoutStatus:(NSString *)text {
-    [self shareDefault].interaction = NO;
-    [[self shareDefault] configHUD:text image:nil showSpinner:NO autoHidenHUD:YES superView:nil];
+    [[self shareDefault] configHUD:text image:nil showSpinner:NO autoHidenHUD:YES interaction:NO superView:nil];
 }
 
 + (void)showSuccess:(NSString *)text {
-    [self shareDefault].interaction = NO;
-    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_SUCCESS showSpinner:NO autoHidenHUD:YES superView:nil];
+    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_SUCCESS showSpinner:NO autoHidenHUD:YES interaction:NO superView:nil];
     
 }
 
 + (void)showSuccess:(NSString *)text superView:(id)superView {
-    [self shareDefault].interaction = NO;
-    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_SUCCESS showSpinner:NO autoHidenHUD:YES superView:superView];
+    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_SUCCESS showSpinner:NO autoHidenHUD:YES interaction:NO superView:superView];
     
 }
 
 
 + (void)showSuccess:(NSString *)text interaction:(BOOL)interaction {
-    [self shareDefault].interaction = interaction;
-    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_SUCCESS showSpinner:NO autoHidenHUD:YES superView:nil];
+    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_SUCCESS showSpinner:NO autoHidenHUD:YES interaction:interaction superView:nil];
     
 }
 
 + (void)showError:(NSString *)text {
-    [self shareDefault].interaction = NO;
-    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_ERROR showSpinner:NO autoHidenHUD:YES superView:nil];
+    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_ERROR showSpinner:NO autoHidenHUD:YES interaction:NO superView:nil];
 }
 
 + (void)showError:(NSString *)text superView:(id)superView {
-    [self shareDefault].interaction = NO;
-    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_ERROR showSpinner:NO autoHidenHUD:YES superView:superView];
+    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_ERROR showSpinner:NO autoHidenHUD:YES interaction:NO superView:superView];
 }
 
 + (void)showError:(NSString *)text interaction:(BOOL)interaction {
-    [self shareDefault].interaction = interaction;
-    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_ERROR showSpinner:NO autoHidenHUD:YES superView:nil];
+    [[self shareDefault] configHUD:text image:Jsen_HUD_IMAGE_ERROR showSpinner:NO autoHidenHUD:YES interaction:interaction superView:nil];
     
 }
 
