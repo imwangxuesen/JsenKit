@@ -71,10 +71,11 @@ static JsenProgressHUD * progressHUD = nil;
 }
 
 
-#pragma mark -
 #pragma mark - Private Method
 //配置hud 并展示
 - (void)configHUD:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden superView:(id)superView{
+    
+    if (!text && !showSpinner) return;
     
     if (!self.allowRepeat && self.showingText && [self.showingText isEqualToString:text]) {
         return;
@@ -95,7 +96,7 @@ static JsenProgressHUD * progressHUD = nil;
         [self.spinner stopAnimating];
     }
     
-    [self configHUDSize];
+    [self configHUDSize:showSpinner];
     [self hudPosition:nil];
     [self showHUD];
     
@@ -106,7 +107,7 @@ static JsenProgressHUD * progressHUD = nil;
 }
 
 //配置hud的大小
-- (void)configHUDSize
+- (void)configHUDSize:(BOOL)showSpinner
 {
     CGRect labelRect = CGRectZero;
     CGFloat hudWidth = 100, hudHeight = 100;
@@ -118,7 +119,7 @@ static JsenProgressHUD * progressHUD = nil;
         labelRect = [self.label.text boundingRectWithSize:CGSizeMake(200, 300) options:options attributes:attributes context:NULL];
         
         labelRect.origin.x = space;
-        if(!self.image.hidden) {
+        if(!self.image.hidden || showSpinner) {
             labelRect.origin.y = 66;
         } else {
             labelRect.origin.y = space;
@@ -137,7 +138,7 @@ static JsenProgressHUD * progressHUD = nil;
     }
     
     self.hud.bounds   = CGRectMake(0, 0, hudWidth, hudHeight);
-    if(!self.image.hidden) {
+    if(!self.image.hidden || showSpinner) {
         CGFloat imagex    = hudWidth/2;
         CGFloat imagey    = (self.label.text == nil) ? hudHeight/2 : (24+space);
         self.image.center = self.spinner.center = CGPointMake(imagex, imagey);
