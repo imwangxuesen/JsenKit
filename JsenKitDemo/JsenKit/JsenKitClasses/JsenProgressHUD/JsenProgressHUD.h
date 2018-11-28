@@ -7,6 +7,15 @@
 //
 
 
+#ifndef JsenLOCK
+#define JsenLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#endif
+
+#ifndef JsenUNLOCK
+#define JsenUNLOCK(lock) dispatch_semaphore_signal(lock);
+#endif
+
+
 #import <UIKit/UIKit.h>
 
 @interface JsenProgressHUD : UIView
