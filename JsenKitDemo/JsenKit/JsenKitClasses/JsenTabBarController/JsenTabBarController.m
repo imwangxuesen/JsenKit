@@ -20,7 +20,7 @@
 - (void)configWithControllers:(NSArray<UIViewController *> *)controllers tabBarItemAttributes:(NSArray<JsenTabBarItemAttribute*> *)attributes {
     _attributes = attributes;
     self.customControllers = controllers;
-    [self setViewControllers:self.customControllers animated:YES];
+    [self setViewControllers:self.customControllers animated:NO];
     self.customTabBar = [[JsenTabBar alloc] initWithFrame:self.tabBar.frame];
     [self.customTabBar configWithTabBarItemAttributes:_attributes];
     self.customTabBar.tabBarDelegate = self;

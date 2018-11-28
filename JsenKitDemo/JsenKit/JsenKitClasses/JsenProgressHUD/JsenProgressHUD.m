@@ -57,12 +57,7 @@ static JsenProgressHUD * progressHUD = nil;
 {
     self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate respondsToSelector:@selector(window)]) {
-        self.window = [delegate performSelector:@selector(window)];
-    } else {
-        self.window = [[UIApplication sharedApplication] keyWindow];
-    }
+    
     self.allowRepeat = YES;
     self.background = nil;
     self.hud        = nil;
@@ -80,8 +75,10 @@ static JsenProgressHUD * progressHUD = nil;
 //配置hud 并展示
 - (void)configHUD:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden superView:(id)superView{
     
+    // 如果没有文字，也不是菊花
     if (!text && !showSpinner) return;
     
+    // 如果不允许重复，有正在展示的纯文字，并且将要展示的文字和它相同
     if (!self.allowRepeat && self.showingText && [self.showingText isEqualToString:text]) {
         return;
     }
@@ -154,6 +151,14 @@ static JsenProgressHUD * progressHUD = nil;
 
 //创建hud
 - (void)createHUD:(id)superView {
+    
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate respondsToSelector:@selector(window)]) {
+        self.window = [delegate performSelector:@selector(window)];
+    } else {
+        self.window = [[UIApplication sharedApplication] keyWindow];
+    }
+    
     if (!self.hud) {
         self.hud = [[UIToolbar alloc] initWithFrame:CGRectZero];
         self.hud.translucent          = YES;
@@ -271,10 +276,7 @@ static JsenProgressHUD * progressHUD = nil;
 }
 
 //销毁hud
-- (void)hudDestroy
-{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-
+- (void)hudDestroy {
     [self.label removeFromSuperview];
     self.label = nil;
 

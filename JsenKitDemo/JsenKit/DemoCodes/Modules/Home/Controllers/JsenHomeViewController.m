@@ -27,7 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupSubviews];
-    [self loadInfo];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self loadInfo];
+    });
     [self setupJsenAlertConfigManager];
 }
 
@@ -56,6 +58,7 @@
         self.dataSource = response.data;
         [self.tableView reloadData];
     } failed:^(JsenNetworkingFailedResponse * _Nonnull response) {
+//        JsenHUDDismiss;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             JsenErrorShow(response.message);
             //假装请求成功
