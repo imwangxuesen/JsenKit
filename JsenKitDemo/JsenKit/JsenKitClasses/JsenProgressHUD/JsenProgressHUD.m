@@ -44,7 +44,18 @@ static JsenProgressHUD * progressHUD = nil;
 @property (nonatomic, retain) UIActivityIndicatorView *spinner;
 @property (nonatomic, retain) UIImageView             *image;
 @property (nonatomic, retain) UILabel                 *label;
-@property (nonatomic, copy) NSString *showingText; // current hud text
+
+/**
+ @{
+    text:NSString
+    image:NString
+    showSpinner:NSNumber
+    autoHidenHUD:NSNumber
+    interaction:NSNumber
+    superView:id
+ }
+ */
+@property (nonatomic, strong) NSDictionary *showingHUDInfo;
 
 @property (nonatomic, assign) BOOL interaction;
 
@@ -90,7 +101,7 @@ static JsenProgressHUD * progressHUD = nil;
 - (instancetype)init {
     self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
     _lock = dispatch_semaphore_create(1);
-    self.allowRepeat = YES;
+    self.allowRepeat = NO;
     self.background = nil;
     self.hud        = nil;
     self.spinner    = nil;
@@ -107,7 +118,6 @@ static JsenProgressHUD * progressHUD = nil;
 - (void)removeHUDFromQueue {
     if (_hudQueue && _hudQueue.count > 0) {
         JsenLOCK(_lock);
-        NSLog(@"%@",_hudQueue[0]);
         [_hudQueue removeObjectAtIndex:0];
         JsenUNLOCK(_lock);
     }
@@ -133,7 +143,7 @@ static JsenProgressHUD * progressHUD = nil;
     }
 }
 
-- (void)pushToQueue:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden interaction:(BOOL)interaction superView:(id)superView {
+- (NSDictionary *)creatInfoWithText:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden interaction:(BOOL)interaction superView:(id)superView {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     if (text) params[JsenHUDQueueTextKey] = text;
     if (image) params[JsenHUDQueueImageKey] = image;
@@ -141,21 +151,50 @@ static JsenProgressHUD * progressHUD = nil;
     if (autoHiden) params[JsenHUDQueueAutoHidenHUDKey] = @(1);
     if (interaction) params[JsenHUDQueueInteractionKey] = @(1);
     if (superView) params[JsenHUDQueueSuperViewKey] = superView;
-    
-    JsenLOCK(_lock)
-    [self.hudQueue addObject:params];
-    JsenUNLOCK(_lock)
+    return (NSDictionary *)params;
 }
 
 //配置hud 并展示
 - (void)configHUD:(NSString *)text image:(UIImage *)image showSpinner:(BOOL)showSpinner autoHidenHUD:(BOOL)autoHiden interaction:(BOOL)interaction superView:(id)superView {
-
-    // 如果没有文字，也不是菊花
-    if (!text && !showSpinner) return;
     
-    // 如果不允许重复，有正在展示的纯文字，并且将要展示的文字和它相同
-    if (!self.allowRepeat && self.showingText && [self.showingText isEqualToString:text]) {
-        return;
+    
+    NSDictionary *info = [self creatInfoWithText:text image:image showSpinner:showSpinner autoHidenHUD:autoHiden interaction:interaction superView:superView];
+
+    if (showSpinner) { //菊花 ， 清空队列，优先展示
+        [self clearQueue];
+    } else { //不是菊花
+        // 如果没有文字，也不是菊花
+        if (!text) return;
+        
+        // 如果不允许重复，有正在展示的纯文字，并且将要展示的文字和它相同
+        NSString *showingText = self.showingHUDInfo ? self.showingHUDInfo[JsenHUDQueueTextKey] : nil;
+        if (!self.allowRepeat && showingText && [showingText isEqualToString:text]) {
+            return;
+        }
+        
+        // 0，如果当前有正在展示的,
+        // 1，当前展示的是菊花
+        // 2，将要展示的是菊花，
+        // 3，不允许重复&&即将展示的文字和正在展示的不一样
+        // 4，允许重复
+        
+        BOOL factor0 = self.showingHUDInfo != nil;
+        BOOL factor1 = self.showingHUDInfo[JsenHUDQueueShowSpinnerKey] ?: NO;
+        BOOL factor2 = showSpinner;
+        BOOL factor3 = !self.allowRepeat && showingText && ![text isEqualToString:showingText];
+        BOOL factor4 = self.allowRepeat;
+        
+        // 当前展示的是菊花，即将展示的是文字
+        if (factor0 && factor1 && !factor2) {
+            [self pushInfoToQueue:info];
+            return;
+        }
+        
+        // 当前展示的是文字，将展示的是文字，(允许文字重复 或者 不允许重复单和正在展示的文字不同）
+        if (factor0 && !factor1 && !factor2 && (factor3 || factor4)) {
+            [self pushInfoToQueue:info];
+            return;
+        }
     }
     
     self.interaction = interaction;
@@ -164,9 +203,6 @@ static JsenProgressHUD * progressHUD = nil;
     
     self.label.text = text;
     self.label.hidden = (text == nil ? YES : NO);
-    if (!self.allowRepeat) {
-        self.showingText = text;
-    }
     self.image.image = image;
     self.image.hidden = (image == nil ? YES : NO);
     
@@ -178,7 +214,8 @@ static JsenProgressHUD * progressHUD = nil;
     
     [self configHUDSize:showSpinner];
     [self hudPosition:nil];
-    [self showHUD];
+    
+    [self showHUDWithInfo:info];
     
     if (autoHiden) {
         [NSThread detachNewThreadSelector:@selector(getToHide) toTarget:self withObject:nil];
@@ -304,8 +341,7 @@ static JsenProgressHUD * progressHUD = nil;
 }
 
 //注册监听键盘动作
-- (void)registerNotifications
-{
+- (void)registerNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hudPosition:)
                                                  name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
     
@@ -316,8 +352,7 @@ static JsenProgressHUD * progressHUD = nil;
 }
 
 //监听键盘状态，做出对hud的位置调整
-- (void)hudPosition:(NSNotification *)notification
-{
+- (void)hudPosition:(NSNotification *)notification {
     
     NSTimeInterval duration = 0;
     
@@ -371,6 +406,40 @@ static JsenProgressHUD * progressHUD = nil;
     self.background = nil;
 }
 
+- (void)showNext {
+    if (self.hudQueue.count > 0
+        ) {
+        JsenLOCK(_lock)
+        NSDictionary *info = self.hudQueue.firstObject;
+        JsenUNLOCK(_lock)
+        
+        NSString *text = info[JsenHUDQueueTextKey];
+        UIImage *image = info[JsenHUDQueueImageKey];
+        BOOL showSpinner = info[JsenHUDQueueShowSpinnerKey] ? YES : NO;
+        BOOL autoHiden = info[JsenHUDQueueAutoHidenHUDKey] ? YES : NO;
+        BOOL interaction = info[JsenHUDQueueInteractionKey] ? YES : NO;
+        id superView = info[JsenHUDQueueSuperViewKey];
+        
+        [self configHUD:text image:image showSpinner:showSpinner autoHidenHUD:autoHiden interaction:interaction superView:superView];
+    }
+}
+
+#pragma mark - Queue
+- (void)clearQueue {
+    JsenLOCK(_lock)
+    if (_hudQueue.count > 0) {
+        [_hudQueue removeAllObjects];
+    }
+    JsenUNLOCK(_lock)
+}
+
+- (void)pushInfoToQueue:(NSDictionary *)info {
+    JsenLOCK(_lock)
+    [self.hudQueue addObject:info];
+    NSLog(@"%@",_hudQueue);
+    JsenUNLOCK(_lock)
+}
+
 #pragma mark -
 #pragma mark - Public Method
 + (void)dismiss {
@@ -378,7 +447,7 @@ static JsenProgressHUD * progressHUD = nil;
     [[self shareDefault] hideHUD];
 }
 
-- (void)showHUD {
+- (void)showHUDWithInfo:(NSDictionary *)info {
     
     if (self.alpha == 0)
     {
@@ -386,12 +455,15 @@ static JsenProgressHUD * progressHUD = nil;
         
         self.hud.alpha     = 0;
         self.hud.transform = CGAffineTransformScale(self.hud.transform, 1.4, 1.4);
-        
+        self.showingHUDInfo = info;
+
         NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
         [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
             self.hud.transform = CGAffineTransformScale(self.hud.transform, 1/1.4, 1/1.4);
             self.hud.alpha = 1;
-        } completion:nil];
+        } completion:^(BOOL finished) {
+
+        }];
     }
 }
 
@@ -404,9 +476,17 @@ static JsenProgressHUD * progressHUD = nil;
             self.hud.alpha = 0;
         }
                          completion:^(BOOL finished) {
-                             self.showingText = nil;
+                             
+                             JsenLOCK(_lock)
+                             if (self.hudQueue.count > 0) {
+                                 [self.hudQueue removeObject:self.showingHUDInfo];
+                             }
+                             self.showingHUDInfo = nil;
+                             JsenUNLOCK(_lock)
+                             
                              [self hudDestroy];
                              self.alpha = 0;
+                             [self showNext];
                          }];
     }
     
@@ -507,6 +587,13 @@ static JsenProgressHUD * progressHUD = nil;
         _imageForFail = [UIImage imageNamed:@"jsen_hud_error"];
     }
     return _imageForFail;
+}
+
+- (NSMutableArray *)hudQueue {
+    if (!_hudQueue) {
+        _hudQueue = [NSMutableArray array];
+    }
+    return _hudQueue;
 }
 
 @end

@@ -24,6 +24,16 @@
     [JsenProgressHUD shareDefault].allowRepeat = NO;
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 500, 100, 100)];
     [self.view addSubview:textView];
+    
+    for (int i = 0 ; i< 10; i++) {
+        NSString *str = [NSString stringWithFormat:@"zheshi %d",i];
+        
+        JsenSuccessShow(str);
+        if (i == 6) {
+            JsenLoading(@"123");
+        }
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -60,9 +60,11 @@
 @property (nonatomic, strong) UIImage *imageForFail;
 
 /**
- when hud showing , new one come , the new one will normal display. is default;
+ when hud showing , new one come , the new one will normal display.;
  
  if allowRepeat is NO , that disappear;
+ 
+ default NO;
  */
 @property (nonatomic, assign) BOOL allowRepeat;
 

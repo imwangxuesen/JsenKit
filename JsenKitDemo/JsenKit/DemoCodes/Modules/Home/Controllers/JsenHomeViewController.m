@@ -54,12 +54,13 @@
                                  @"page":@1
                                  };
     [[JsenNetworkingManager manager] post:Jsen_HomeList_API parameters:parameters progress:nil success:^(JsenNetworkingSuccessResponse * _Nonnull response) {
+        JsenHUDDismiss;
         JsenSuccessShow(@"成功");
         self.dataSource = response.data;
         [self.tableView reloadData];
     } failed:^(JsenNetworkingFailedResponse * _Nonnull response) {
-//        JsenHUDDismiss;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            JsenHUDDismiss;
             JsenErrorShow(response.message);
             //假装请求成功
             [self.tableView reloadData];
