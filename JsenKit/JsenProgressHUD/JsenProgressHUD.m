@@ -367,6 +367,8 @@ static JsenProgressHUD * progressHUD = nil;
         } else {
             self.keyboardHeight = 0.0;
         }
+    } else {
+        self.keyboardHeight = 0.0;
     }
     
     CGRect  screen = [UIScreen mainScreen].bounds;
