@@ -364,6 +364,8 @@ static JsenProgressHUD * progressHUD = nil;
         if ((notification.name == UIKeyboardWillShowNotification) || (notification.name == UIKeyboardDidShowNotification) || (notification.name == UIKeyboardDidHideNotification) || (notification.name == UIKeyboardWillHideNotification))
         {
             self.keyboardHeight = keyboard.size.height;
+        } else {
+            self.keyboardHeight = 0.0;
         }
     }
     
