@@ -361,7 +361,7 @@ static JsenProgressHUD * progressHUD = nil;
         NSDictionary *info = [notification userInfo];
         CGRect keyboard = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        if ((notification.name == UIKeyboardWillShowNotification) || (notification.name == UIKeyboardDidShowNotification) || (notification.name == UIKeyboardDidHideNotification) || (notification.name == UIKeyboardWillHideNotification))
+        if ((notification.name == UIKeyboardWillShowNotification) || (notification.name == UIKeyboardDidShowNotification))
         {
             self.keyboardHeight = keyboard.size.height;
         } else {
