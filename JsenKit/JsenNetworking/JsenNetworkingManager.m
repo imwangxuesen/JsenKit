@@ -337,7 +337,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"чбохо
             *stop = YES;
         }
     }];
-    if ((statusCode != nil && [[JsenNetworkingConfig shareConfig].customSuccessStatusCode isEqualToNumber:statusCode]) || isHaveData) {
+    if ((statusCode != nil && [[JsenNetworkingConfig shareConfig].customSuccessStatusCode isEqualToNumber:statusCode]) && isHaveData) {
         
         JsenNetworkingSuccessResponse *response = [JsenNetworkingSuccessResponse responseWithResponseObject:responseObject apiKey:self.apiKey];
         if (self.success) {
