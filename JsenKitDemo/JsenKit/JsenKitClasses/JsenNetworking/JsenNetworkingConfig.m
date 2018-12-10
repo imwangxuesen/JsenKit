@@ -49,7 +49,13 @@ static JsenNetworkingConfig *config = nil;
         url = apiKey;
     } else {
         
-        NSString *host = self.host;
+        NSString *host = nil;
+        if (self.hostMap && [self.hostMap objectForKey:apiKey]) {
+            host = [self.hostMap objectForKey:apiKey];
+        } else {
+            host = self.host;
+        }
+        
         if ([apiKey hasPrefix:@"/"] && [host hasSuffix:@"/"]) {
             apiKey = [apiKey stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
         } else if(![apiKey hasPrefix:@"/"] && ![host hasSuffix:@"/"]){

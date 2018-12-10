@@ -86,13 +86,25 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
 @interface JsenNetworkingConfig : NSObject
 
 /**
- 设置host
+ 设置默认host
  eg:
  完整的请求url为https://www.jsennet.com/feedback/upload和https://www.jsennet.com/feedback/download
  
  则你的host应为https://www.jsennet.com/feedback
  */
 @property (nonatomic, copy) NSString *host;
+
+/**
+ 配置host map
+ 如果项目中有不同的host，可通过此属性进行配置。
+ eg:
+ 只有feedback/upload 接口是 https://www.jsennet.com/ host
+ hostMap = @{
+    @"feedback/upload":@"https://www.jsennet.com/"
+ }
+ 当然也可以配置多个，如果不同的host但接口相同，目前不支持处理。
+ */
+@property (nonatomic, strong) NSDictionary *hostMap;
 
 /**
  请求成功自定义状态码
