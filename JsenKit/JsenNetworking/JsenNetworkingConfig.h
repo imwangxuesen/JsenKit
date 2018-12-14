@@ -150,6 +150,11 @@ typedef NS_ENUM(NSUInteger, JsenNetworkingConfigSerializer) {
 @property (nonatomic, strong) NSDictionary *globalParameters;
 
 /**
+ 是否每次请求都刷新公共参数 默认为NO
+ */
+@property (nonatomic, assign) BOOL alwaysRefreshGlobalParameters;
+
+/**
  如果响应数据并不是字典，请实现此block完成转换到字典的过程。
  */
 @property (nonatomic, strong) JsenNetworkingConfigResponseHandleBlock responseHandleBlock;

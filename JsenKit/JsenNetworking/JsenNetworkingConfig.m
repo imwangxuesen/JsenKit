@@ -110,7 +110,7 @@ static JsenNetworkingConfig *config = nil;
 }
 
 - (NSDictionary *)globalParameters {
-    if (!_globalParameters) {
+    if (!_globalParameters || _alwaysRefreshGlobalParameters) {
         _globalParameters = @{};
         if (_globalParametersBlock) {
             _globalParameters = _globalParametersBlock() ?: @{};
