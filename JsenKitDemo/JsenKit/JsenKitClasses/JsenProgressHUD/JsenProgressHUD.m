@@ -11,12 +11,12 @@
 #define Jsen_HUD_FONT               [JsenProgressHUD shareDefault].textFont
 #define Jsen_HUD_TEXT_COLOR        [JsenProgressHUD shareDefault].textColor
 
-#define Jsen_HUD_SPINNER_COLOR		[JsenProgressHUD shareDefault].spinnerColor
-#define Jsen_HUD_BACKGROUND_COLOR	[JsenProgressHUD shareDefault].hudBackgroundColor
+#define Jsen_HUD_SPINNER_COLOR        [JsenProgressHUD shareDefault].spinnerColor
+#define Jsen_HUD_BACKGROUND_COLOR    [JsenProgressHUD shareDefault].hudBackgroundColor
 #define Jsen_HUD_WINDOW_COLOR       [JsenProgressHUD shareDefault].hudWindowColor
 
 #define Jsen_HUD_IMAGE_SUCCESS      [JsenProgressHUD shareDefault].imageForSuccess
-#define Jsen_HUD_IMAGE_ERROR		[JsenProgressHUD shareDefault].imageForFail
+#define Jsen_HUD_IMAGE_ERROR        [JsenProgressHUD shareDefault].imageForFail
 
 #ifndef JsenLOCK
 #define JsenLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
@@ -47,12 +47,12 @@ static JsenProgressHUD * progressHUD = nil;
 
 /**
  @{
-    text:NSString
-    image:NString
-    showSpinner:NSNumber
-    autoHidenHUD:NSNumber
-    interaction:NSNumber
-    superView:id
+ text:NSString
+ image:NString
+ showSpinner:NSNumber
+ autoHidenHUD:NSNumber
+ interaction:NSNumber
+ superView:id
  }
  */
 @property (nonatomic, strong) NSDictionary *showingHUDInfo;
@@ -67,15 +67,15 @@ static JsenProgressHUD * progressHUD = nil;
 /**
  eg:
  @[
-    @{
-        text:NSString
-        image:NString
-        showSpinner:NSNumber
-        autoHidenHUD:NSNumber
-        interaction:NSNumber
-        superView:id
-    },
-    ...
+ @{
+ text:NSString
+ image:NString
+ showSpinner:NSNumber
+ autoHidenHUD:NSNumber
+ interaction:NSNumber
+ superView:id
+ },
+ ...
  ]
  
  if value is NO/nil , the key can't get anything, the key non-existent;
@@ -159,7 +159,7 @@ static JsenProgressHUD * progressHUD = nil;
     
     
     NSDictionary *info = [self creatInfoWithText:text image:image showSpinner:showSpinner autoHidenHUD:autoHiden interaction:interaction superView:superView];
-
+    
     if (showSpinner) { //菊花 ， 清空队列，优先展示
         [self clearQueue];
     } else { //不是菊花
@@ -240,7 +240,7 @@ static JsenProgressHUD * progressHUD = nil;
             labelRect.origin.y = 66;
         } else {
             labelRect.origin.y = space;
-
+            
         }
         
         hudWidth = CGRectGetWidth(labelRect) + space + space;
@@ -374,8 +374,15 @@ static JsenProgressHUD * progressHUD = nil;
     CGRect  screen = [UIScreen mainScreen].bounds;
     CGPoint center = CGPointMake(CGRectGetWidth(screen)/2, (CGRectGetHeight(screen)-self.keyboardHeight)/2);
     
+    if (self.hudCenterOffset.x != 0 || self.hudCenterOffset.y != 0) {
+        center = CGPointMake(
+                             self.hudCenterOffset.x + center.x,
+                             self.hudCenterOffset.y + center.y
+                             );
+    }
+    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        self.hud.center = CGPointMake(center.x, center.y);
+        self.hud.center = center;
     } completion:nil];
     
     if (self.background != nil) self.background.frame = self.window.frame;
@@ -396,16 +403,16 @@ static JsenProgressHUD * progressHUD = nil;
 - (void)hudDestroy {
     [self.label removeFromSuperview];
     self.label = nil;
-
+    
     [self.image removeFromSuperview];
     self.image = nil;
-
+    
     [self.spinner removeFromSuperview];
     self.spinner = nil;
-
+    
     [self.hud removeFromSuperview];
     self.hud = nil;
-
+    
     [self.background removeFromSuperview];
     self.background = nil;
 }
@@ -460,13 +467,13 @@ static JsenProgressHUD * progressHUD = nil;
         self.hud.alpha     = 0;
         self.hud.transform = CGAffineTransformScale(self.hud.transform, 1.4, 1.4);
         self.showingHUDInfo = info;
-
+        
         NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
         [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
             self.hud.transform = CGAffineTransformScale(self.hud.transform, 1/1.4, 1/1.4);
             self.hud.alpha = 1;
         } completion:^(BOOL finished) {
-
+            
         }];
     }
 }
@@ -498,7 +505,7 @@ static JsenProgressHUD * progressHUD = nil;
 
 + (void)showText:(NSString *)text interaction:(BOOL)interaction {
     [[self shareDefault] configHUD:text image:nil showSpinner:YES autoHidenHUD:NO interaction:interaction superView:nil];
-  
+    
 }
 
 + (void)showText:(NSString *)text {
@@ -542,7 +549,7 @@ static JsenProgressHUD * progressHUD = nil;
     
 }
 
-#pragma mark - getter 
+#pragma mark - getter
 
 - (UIFont *)textFont {
     if (!_textFont) {

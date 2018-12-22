@@ -68,6 +68,13 @@
  */
 @property (nonatomic, assign) BOOL allowRepeat;
 
+/**
+ hud show on superview's center if hudCenterOffset was null
+ 
+ if that not null, hud will offset base on superview's center
+ */
+@property (nonatomic, assign) CGPoint hudCenterOffset;
+
 
 + (JsenProgressHUD *)shareDefault;
 
