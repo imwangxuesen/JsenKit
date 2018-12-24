@@ -445,7 +445,9 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
     if ([JsenNetworkingReachabilityManager manager].currentStatus == JsenNetworkingReachabilityStatusNotReachable) {
         if (self.failed) {
             JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
-            NSError *error = [NSError errorWithDomain:self.apiKey code:[config.noNetworkStatusCode integerValue] userInfo:@{NSLocalizedDescriptionKey:@"no network"}];
+            
+            NSString *customNoNetworkMsg = config.customErrorStatusCode[config.noNetworkStatusCode] ?: @"失去网络连接,请检查您的网络h设置";
+            NSError *error = [NSError errorWithDomain:self.apiKey code:[config.noNetworkStatusCode integerValue] userInfo:@{NSLocalizedDescriptionKey:customNoNetworkMsg}];
             [self failedWithError:error];
             [self finish];
         }
