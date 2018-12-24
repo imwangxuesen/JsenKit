@@ -10,10 +10,7 @@
 #import "AFNetworking.h"
 
 
-static NSString * const jsenNetworkingManager_notWifiAlertTitle = @"提示";
-static NSString * const jsenNetworkingManager_notWifiAlertDetail = @"您当前在非WI-FI或未知的网络环境，确定要上传／下载 ？";
-static NSString * const jsenNetworkingManager_notWifiCancelActionTitle = @"取消";
-static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确定";
+NSString * const JsenNetworkingManager_NoNetworkMsg = @"失去网络连接,请检查您的网络设置";
 
 @interface JsenNetworkingManager()
 
@@ -446,7 +443,7 @@ static NSString * const jsenNetworkingManager_notWifiSubmitActionTitle = @"确�
         if (self.failed) {
             JsenNetworkingConfig *config = [JsenNetworkingConfig shareConfig];
             
-            NSString *customNoNetworkMsg = config.customErrorStatusCode[config.noNetworkStatusCode] ?: @"失去网络连接,请检查您的网络h设置";
+            NSString *customNoNetworkMsg = config.customErrorStatusCode[config.noNetworkStatusCode] ?: JsenNetworkingManager_NoNetworkMsg;
             NSError *error = [NSError errorWithDomain:self.apiKey code:[config.noNetworkStatusCode integerValue] userInfo:@{NSLocalizedDescriptionKey:customNoNetworkMsg}];
             [self failedWithError:error];
             [self finish];

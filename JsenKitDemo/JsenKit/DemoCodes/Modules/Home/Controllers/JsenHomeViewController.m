@@ -49,6 +49,7 @@
  */
 - (void)loadInfo {
     JsenLoading(@"请稍后");
+    
     NSDictionary *parameters = @{
                                  @"id":@123,
                                  @"page":@1

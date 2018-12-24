@@ -11,6 +11,8 @@
 #import "JsenNetworkingManagerTransmit.h"
 #import "JsenNetworkingReachabilityManager.h"
 
+// 无网络提示语
+FOUNDATION_EXPORT NSString * const JsenNetworkingManager_NoNetworkMsg;
 
 NS_ASSUME_NONNULL_BEGIN
 
