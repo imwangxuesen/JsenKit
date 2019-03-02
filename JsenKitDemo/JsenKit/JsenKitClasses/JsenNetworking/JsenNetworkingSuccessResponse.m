@@ -56,18 +56,18 @@
 
 
 - (void)configMessageAndTimestampAndCodeWithObject:(NSDictionary *)object {
-    if (object[JsenNetworkingResponseMessageKey]) {
+    if (object[JsenNetworkingResponseMessageKeyDefine]) {
         
         self.message = object[JsenNetworkingResponseMessageKeyDefine];
     } else {
         self.message = @"unkwon message";
     }
     
-    if (object[JsenNetworkingResponseTimelineKey]) {
+    if (object[JsenNetworkingResponseTimelineKeyDefine]) {
         self.timestamp = object[JsenNetworkingResponseTimelineKeyDefine];
     }
     
-    if (object[JsenNetworkingResponseStatusCodeKey]) {
+    if (object[JsenNetworkingResponseStatusCodeKeyDefine]) {
         self.code = object[JsenNetworkingResponseStatusCodeKeyDefine];
     }
 }

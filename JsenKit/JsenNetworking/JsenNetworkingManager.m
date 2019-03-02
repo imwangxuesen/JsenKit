@@ -326,7 +326,7 @@ NSString * const JsenNetworkingManager_NoNetworkMsg = @"失去网络连接,请�
 //http 请求成功后处理，如果有自定义的错误码，会处理为failed
 - (void)successWithResponseObject:(NSDictionary *)responseObject {
     
-    NSNumber * statusCode = responseObject[JsenNetworkingResponseStatusCodeKey];
+    NSNumber * statusCode = responseObject[JsenNetworkingResponseStatusCodeKeyDefine];
     __block BOOL isHaveData = NO;
     [[JsenNetworkingConfig shareConfig].customSuccessDataAllKeys enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (responseObject[obj] != nil) {
