@@ -163,7 +163,7 @@ static JsenNetworkingConfig *config = nil;
 
 - (NSArray<NSString *> *)customSuccessDataAllKeys {
     if (!_customSuccessDataAllKeys) {
-        _customSuccessDataAllKeys = @[JsenNetworkingResponseDataKey];
+        _customSuccessDataAllKeys = @[JsenNetworkingResponseDataKeyDefine];
     }
     return _customSuccessDataAllKeys;
 }
