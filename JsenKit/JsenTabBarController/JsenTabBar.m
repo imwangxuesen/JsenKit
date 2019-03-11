@@ -183,8 +183,15 @@
 }
 
 - (void)configSelectedItemWithIndex:(NSInteger)index {
-    JsenTabBarItem *item = _buttonArray[index];
-    item.selected = YES;
+    for (int i = 0; i<_buttonArray.count; i++) {
+        JsenTabBarItem *item = _buttonArray[i];
+
+        if (index == i) {
+            item.selected = YES;
+        } else {
+            item.selected = NO;
+        }
+    }
 }
 
 #pragma mark - clicked action
