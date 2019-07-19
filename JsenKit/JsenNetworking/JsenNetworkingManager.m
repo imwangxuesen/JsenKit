@@ -531,9 +531,12 @@ NSString * const JsenNetworkingManager_NoNetworkMsg = @"失去网络连接,请�
     [requestParameters addEntriesFromDictionary:parameters];
     if (config.signBlock && [config.noSignAPI objectForKey:self.apiKey] == nil) {
         NSString *signKey = config.signBlock(requestParameters);
-        [requestParameters addEntriesFromDictionary:@{
-                                                      config.signKeyName:signKey
-                                                      }];
+        if (signKey) {
+            [requestParameters addEntriesFromDictionary:@{
+                                                          config.signKeyName:signKey
+                                                          }];
+        }
+        
     }
     
     if(config.parametersHandleBlock) {
